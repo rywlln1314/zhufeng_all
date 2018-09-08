@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        #div1{
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+            margin: auto;
+            border: 10px solid #ccc;
+
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* css  盒子模型  width herght padding margin border
+* display：flex  弹性盒子模型
+* */
+/*
+* JS   盒子模型
+* 通过ele.style.xxx这种方法  我们只能获取到元素的行内样式
+*
+* 1、client
+* 2、offset
+* 3、scroll
+*
+* */
+//clientWidth  盒子宽度+左右的padding
+//clientHerght 盒子高度+上下的padding
+//clientLeft/Top   盒子左边框/上边框的宽度
+var oDiv = document.getElementById('div1');
+console.log(oDiv.clientWidth);
+console.log(oDiv.clientLeft);
+
+//offsetWidth  相当于clientWidth + 左右border
+//offsetHeight 相当于clientHeight + 上下border
+//offsetLeft   元素外边框距离上级参照物的内边框的left值
+//offsetTop    元素外边框距离上级参照物的内边框的top值
+//offsetParent 上级参照物（有定位的父级元素）
+// 在table标签中需要注意特殊情况 td 的offsetParent 是table
+//td里边的标签的offsetParent 是 这个 td
+
+console.log(oDiv.offsetWidth);
+/*
+* 结合client 和 offset  我们可以求出元素的右边框的宽度和下边框的宽度
+* clientRight = oDiv.offsetWidth - oDiv.clientWidth - oDiv.clientLeft
+* */
+
+/*
+* scroll
+* scrollWidth  当元素内容没有溢出时，结果是等同于clientWidth
+* 当元素内容溢出时：结果是左padding + 内容的高度
+* 若设置了overflow 则结果是 左右padding + 内容的宽
+* scrollHerght当元素内容没有溢出时，结果是等同于clientHeight
+* 当元素内容溢出时：结果是上padding + 内容的高度
+* scrollTop  卷上去的高度
+* scrollLeft  卷过去的宽度
+* */
+/*
+* 13个属性 除了offsetParent；其他的属性值都是数字
+* 其中之后scrollTop和scrollLeft是可以修改的
+* 其他的都是只读属性不可以修改
+* */
+
+
+
+
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* navigator.userAgent  // 查看浏览器信息
+* */
+function getCss(ele,attr) {
+    var str = navigator.userAgent;
+    if (/MSIE *[6-8]/.test(str)) {
+        res = ele.currentStyle[attr]
+    }else {
+        res = getComputedStyle(ele)[attr];
+    }
+    /*
+    * 先用parseFloat 处理这个字符串  若是NaN则直接返回之之前的字符串
+    * */
+    if (isNaN(parseFloat(res))){
+        res = parseFloat(res)
+    }
+    //用这则处理
+    //  /^[+-]?(\d|[1-9]\d+)?(px|rem|em|pt)?$/
+    //var reg = /^[+-]?(\d|[1-9]\d+)?(px|rem|em|pt)?$/;
+    //res = reg.test(res) ? parseFloat(res) : res;
+    return res
+}
+
+function setCss(ele,attr,value) {
+   var reg = /width|herght|margin|padding|left|top|bottom|right|fontsize/i
+   if(reg.test(attr)){
+       value = parseFloat(value) + 'px'
+   }
+
+
+    ele.style[attr] = value;
+}
+
+function setGroup(ele,obj){
+
+}
+
+</script>

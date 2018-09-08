@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * setInterval 实现倒计时
+    * */
+
+    // 2018-7-19 16:45:00
+    var now = new Date();
+    var nowT = now.getTime();//当前时间距离 1970年的毫秒数
+
+    var tar = new Date('2018-7-19 16:45:00');
+    var tarT = tar.getTime();//目标时间距离 1970年的毫秒数
+
+    var time = tarT - nowT;//咱们剩余的时间  毫秒数
+
+    //1h: 60 * 60 * 1000 毫秒数
+    //1m: 60 * 1000 毫秒数
+    //1s: 1000 毫秒数
+    //time/1000/60/60
+    //获取小时数
+    // var h = time/3600000 // 几点几个小时 ；
+    var h = Math.floor(time/3600000); // 整数个小时 ；
+    time = time - h*3600000; // 刨去小时 剩余毫秒数  也就是咱们分钟和秒占的毫秒数;
+    var m = Math.floor(time/60000); //剩余毫秒数中有多少个 （整分）
+    time = time - m*60000;// 刨去分钟  剩余的毫秒数
+    var s = Math.floor(time/1000);// 剩余毫秒数中的 （整秒）
+
+    var str = `距离考试还剩${h}时${m}分${s}秒`;
+
+    var oDiv = document.getElementById('div1');
+    oDiv.innerHTML = str;
+
+</script>  

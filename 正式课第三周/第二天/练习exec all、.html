@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    function execAll(str) {
+        var temp = null;
+        if (!this.global) {
+            temp = this.exec(str) || {};
+            temp.errorMsg = '没有全局修饰符';
+            return temp
+        }
+        var ary = [];
+        temp = this.exec(str);
+        while (temp) {
+            ary.push(temp[0]);
+            temp = this.exec(str)
+        }
+        return ary
+    }
+
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* f1.apply(obj,xxx) xxx 是个数组或者类数组
+* 类数组：目前就两个  arguments  元素集合
+* 虽然后边的参数是个数组或着类数组，但是传给前边的f1时，它也是分开一项一项传过去的
+* */
+function f1(n,m) {
+    console.log(this);
+    console.log(arguments);
+}
+var obj = {
+    name:'zfpx'
+};
+f1.apply(obj,[1,2,3,4,5]);
+f1.call(obj,1,2,3,4,5);
+
+function f2() {
+    console.log(2);
+};
+function f3() {
+    console.log(3);
+};
+f2.call(f3);
+//f2中的this指向f3；让f2执行
+//怎么通过call的执行 让f2执行
+//call中的this 指向 f2
+//让 this（）--->也就是让f2执行
+//以上说的this都是call中的this
+
+//把call中的this中的this改成f3；然后让call中的this（f2）执行
+
+f2.call.call(f3);//--->3
+//FN.call(f3)//FN中的this 换成f3；让FN执行
+//FN f2.call-->把f2.call中的this换成 f3；让f2.call执行
+//f2.call 执行 --->call 中的this（f3）执行
+
+
+
+</script>

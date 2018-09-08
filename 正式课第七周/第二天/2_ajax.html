@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('post','./1.xml？name=珠峰',false);//再路径后边
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        xhr.getResponseHeader('data')//获取响应头
+    };
+
+    xhr.setRequestHeader('name','zhufeng');//再请求头中
+    xhr.setRequestHeader('content-type','application/x-www-form-urlencoded');
+    xhr.send('name1=12');//再请求体中
+    //目前发送给后台的是以字符串；怎么把他转成key value 的形式
+    //需要我们设置请求头content-type: application/x-www-form-urlencoded
+
+
+    xhr.getResponseHeader('');//获取响应头中的对应的值
+    xhr.getAllResponseHeaders()//获取所有的响应头  是个字符串
+
+    /*
+    * xhr.open();
+    * xhr.setRequestHeader(key,value);//设置相应的请求头
+    * xhr.getResponseHeader(key);//获取相应的响应头
+    * xhr.getAllResponseHeaders();//获取所有的响应头
+    * xhr.send('name=12')//get请求时 惨呼不起作用；post请求时才起作用
+    * xhr.abort()//终端请求---》只在异步请求时才起作用
+    * */
+</script>

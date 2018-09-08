@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * pop()
+    * push(1,2,3)
+    *
+    * var ary2 = ary.reverse() 返回一个倒叙后的数组 跟原数组是同一个地址
+    * ary2 === ary // true
+    *
+    * ary.join() ary.join(',')  ary.toString() //不改变原有数组
+    *
+    * ary.splice(n,m,x...)  m个元素
+    * ary.slice(n,m)  m 索引  返回值 获取到的元素组成的新数组 // 不改变
+    *
+    * ary.unshift(1,2,3)
+    * ary.shift()
+    *
+    * var ary2 = ary.sort(function(a,b){return a-b})//升序 返回值是排序后的数组
+    *   ary2 === ary  // true
+    *
+    *
+    * var ary2 = ary.concat([]) // 复制一份 ary2 = ary.slice(0) ary2 = ary.slice()
+    * var ary2 = ary.splice(0); ary2  ary==[]
+    * var ary2 = ary.splice(); ary2==[]  ary
+    *
+    * ary2 === ary // false
+    *
+    * indexOf  lastIndexOf
+    * ary.indexOf(100) --- >  -1
+    *
+    * eval(ary.join('+'))
+    *
+    * */
+    var ary = [1,2,3];
+    var ary2 = ary.reverse();
+    ary2[0] = 9;
+    console.log(ary);
+    console.log(ary === ary2);
+
+    var ary3 = ary.concat();
+    var ary4 = ary.concat([]);
+    console.log(ary3 === ary,ary,ary3,ary4);
+
+    // 数组去重
+    //思路1： 去拿当前项跟他后边的每一项比较  如果有相等的  就把后边相等的哪一项删除；（要注意 数组塌陷的问题）
+
+    //思路2： 利用对象的属性名不能重复；结果会有排序，这是因为对象的默认行为 会给数字属性名 排序
+
+</script>  

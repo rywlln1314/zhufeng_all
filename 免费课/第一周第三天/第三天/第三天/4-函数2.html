@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+<div id="div1">珠峰培训1</div>
+<div id="div2">珠峰培训2</div>
+<div id="div3">珠峰培训3</div>
+<div id="div4">珠峰培训4</div>
+<div id="div5">珠峰培训5</div>
+</body>
+</html>
+<script>
+    /*
+    * 函数的传参  （就是一个接收的的过程）
+    * function sum(a,b){
+    *      //a和b 叫形参（形式上的参数）
+    * }
+    * */
+
+    function sum(a,b) {
+        console.log(a,b);
+        var total = a + b;
+        return total;
+    }
+
+    sum(1,2); // 1,2  是实参 （实际的参数）
+    sum(3,4); //
+
+    /*
+    * 截至目前
+    * 函数的声明  （2种）
+    * 函数的执行  （函数名()）
+    * 函数的返回值  (return) return 后边的代码不再执行 跟 for中的 break和continue 类似
+    * 函数的形参  (听指令的功能  ||  管道入口)
+    * 函数的实参  (说指令  ||  填入洗衣液和水)
+    *
+    * arguments // 实参集合
+    *
+    * this // 函数的执行主体 （谁调用的这个函数）
+    *
+    * */
+
+    function sum2() {
+        console.log(arguments);//为了让大家看arguments 是什么
+        var total = 0;
+        for(var i = 0; i < arguments.length;i++){
+            // var total = arguments[i] + arguments[i+1]
+            total += arguments[i];
+        }
+        console.log(this);
+        return total;
+        total = 400;
+        return total;
+    }
+
+    console.log(sum2(1, 2, 3, 4));
+
+    var oDiv = document.getElementById('div1');
+    function byId(id) {
+        var odiv = document.getElementById(id);//通过传进来的ID拿到对应元素
+        // var odiv = document.getElementById('div1');
+        return odiv;// 把拿到的元素返回出去
+    }
+    var oDiv1 = byId('div1');//sum(1)
+    var oDiv2 = byId('div2');
+    console.log(oDiv,oDiv1);
+
+    function byTagName(tagN) {
+        var divs = document.getElementsByTagName(tagN);
+        return divs;
+    }
+    var oDivs = document.getElementsByTagName('div');
+    var oDivs2 = byTagName('div');
+
+</script>  

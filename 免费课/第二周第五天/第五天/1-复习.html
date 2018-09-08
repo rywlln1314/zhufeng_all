@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    *  push   unshift
+    *
+    *  pop     shift
+    *
+    *  splice(n,m,x,y,z...)
+    *  splice(n,0,x,y,z,...)
+    *  ary.splice()
+    *  ary.splice(0)
+    *
+    *  reverse() ---> 返回值是翻转后的数组
+    *  sort() ---> function(a,b){return a-b}
+    *  他俩的返回值 跟原数组 都是同一个地址
+    *
+    *  //不改变原有数组
+    *  toString()-->把数组以逗号连接成字符串
+    *  join() --> ,
+    *  join(',')  eval
+    *  eval(ary.join('+'))
+    *
+    *  slice(n,m) :
+    *  var temp = ary.slice(0)
+    *  slice()
+    *  ary.slice(2)
+    *  slice(-4,-1) === slice(length-4,length-1)
+    *  slice(3,2) // []
+    *  temp === ary //false
+    *
+    *  ary.concat([1,2,3],{},null,function(){})
+    *
+    *
+    *  indexOf  lastIndexOf  查看数组里包不包含某一项
+    *
+    * */
+    var ary = [1,2,3];
+    // var temp = ary.reverse();
+    // temp === ary // true
+
+    var temp2 = ary.slice(3,2);
+    console.log(temp2);
+
+    var temp3 = ary.concat(null,function(){},[1,[1,2],3]);
+    console.log(temp3, ary);
+
+    if(ary.indexOf('a') == -1){
+
+    }
+</script>  

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    var ary = [1,2,3,4];//声明式
+    // var ary = new Array();// 构造函数
+    var obj = {
+        2:'www',
+        '2': 'qqq'
+    };
+
+    // 数组的每一项都有一个属性名（数组本身就是一个对象，他只是对象的一个细分）跟他对应。这里的属性名（依次递增的数字） 我们叫做索引
+    // for(var k in  ary){
+    //     console.log(typeof k)
+    // }
+
+    // 数组的每一项的数据类型 是 可以为 任意数据类型
+
+    var sum = function (a,b) {
+        return a + b;
+    };
+    var ary = [1,true,'qqq',null,undefined,{q:1},function(){console.log(2)},sum,sum()];
+    console.log(sum());
+    console.log(ary[7](1,2),ary[8]);
+
+    var ary2 = [sum,sum()];// [sum,NaN]
+    var  t = sum();//NaN
+    var ary3 = [sum,t,'t'];//[sum,NaN,'t']
+    // 数组里的变量，我们是要把对应的变量值放到相应的位置
+
+    // obj[name]
+
+    //对象中的查看 打点  ['']
+    // 数组本身也因该有打点和 [''] 两种方式 ，但是 对象中 数字的属性名，我们只能用 [''][]的方式，所以数组中的查看我们只能用 [''][]
+    // console.log(ary['8'],ary[8]);
+
+    // for in 循环数组
+    ary.aaa = 'qqqqqqq';
+    // Array.prototype.qq='aaa';
+    // for(var k in ary){
+    //     //k 每一个属性名
+    //     console.log(ary[k]);
+    //     //ary['2']
+    // }
+
+    // for 循环数组
+    // for(var i = 0 ; i < ary.length; i++){
+    //     console.log(ary[i]);
+    //     //ary[2]
+    // }
+
+    //while;
+    var n = 0;
+    // while(n<ary.length){
+    //     console.log(ary[n]);
+    //     n++;
+    // }
+    var ary4 = [1,2,3,'wwww'];
+    ary4.aa='qqq';
+    console.log(Object.prototype.toString.call(ary4));
+    console.log(ary4.length);
+
+    var ary5 = [];
+    ary5.aa = 'aa';
+    ary5.bb = 'bb';
+    ary5[3]= '33';
+    console.log(ary5);
+    console.log(Object.prototype.toString.call(ary5));
+
+    var ary6 = [];
+    ary6[3] = 4;
+    ary6[3] = 90;
+    console.log(ary6);
+</script>  

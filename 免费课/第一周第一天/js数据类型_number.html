@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="icon" href="">
+</head>
+<body>
+
+
+</body>
+</html>
+<script>
+    //number  数据类型
+    //包含 整数  小数  NaN(not a number)
+   // 把其他数据类型转化成数字
+   // Number（）//--》把其他数据类型
+    //把浮点型转化成整形
+    //parseInt（1.9）   等于1   去掉小数点后面的数字
+    //拿浮点型
+    //parseFloat（1.8）  可以拿到小数点后面的数字
+    console.log(Number(.5));//0.5
+    console.log(Number('.5'));//0.5
+    console.log(Number(''));//0
+    console.log(Number(' '));//0
+    console.log(Number('12q'));//NaN
+    console.log(Number());//0
+    console.log(Number(false));//0
+    console.log(Number(true));//1
+    console.log(Number([]));//0
+    console.log(Number({}));//NAN
+    console.log(Number(null));//0
+    console.log(Number(undefined));//NAN
+
+    //parseInt(xxxx)    从左往右  一次查看  碰到非数字或小数点就截止  放回在之前的字符
+    console.log(parseInt('1.3q'));//1
+    console.log(parseInt('12q.3'));//12
+    console.log(parseInt('0.5'));//0
+    console.log(parseInt('.5'));//NaN
+    console.log(parseInt(.5));//0
+    console.log(parseInt('q12'));//NaN
+    console.log(parseInt(''));//NaN
+
+
+    //parseFloat()
+    console.log(parseFloat('.5'));
+    console.log(parseFloat(.5));
+
+    //isNaN('')---->false
+    //isNaN([])---->false
+    //isNaN(undefined)---->true
+
+    //四则运算失败的时候也会出现NaN   +  -   *   /   %
+    // -  /  *  %  先把非数字用Number转化成数字  在进行运算
+    1/'q'//------>NaN
+    1/'1'//------>1
+    1*'1.2'//---->1.2
+    1*'1.2a'//--->NaN
+
+    // + 两边都是数字类型，那就是正常的加法运算
+    //   假如两边有一边是字符串，  拿就是字符串拼接
+
+
+</script>

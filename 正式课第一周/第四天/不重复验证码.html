@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1" style="cursor: pointer;-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById('div1');
+
+
+    function getStr() {
+
+        var str = 'qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM';
+        var str1 = '';
+        var ary = [];
+        // for (var i = 0; i < 6; i++) {
+        //     var n = Math.round(Math.random()*61);
+        //
+        //       if (ary.indexOf(n) == -1 ){
+        //           ary.push(n);
+        //           str1 += str[n]
+        //       }else {
+        //           i--
+        //       }
+        //
+        // }
+        var i = 0;
+        while (i < 6) {
+            var n = Math.round(Math.random() * 61);
+            switch (true) {
+                case ary.indexOf(n) == -1:
+                    ary.push(n);
+                    str1 += str[n];
+                    i++;
+                    break;
+                default:
+                    i--;
+            }
+        }
+        return str1
+    }
+
+    oDiv.onclick = function () {
+        this.innerHTML = getStr()
+    }
+</script>

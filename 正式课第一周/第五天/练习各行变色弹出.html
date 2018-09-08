@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 600px;
+            height: 600px;
+            margin: auto;
+        }
+        ul li{
+           width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            float: left;
+            cursor: pointer;
+        }
+        ul li:nth-child(2n){
+            background-color: #ff0bc4;
+        }
+        ul li:nth-child(2n-1){
+            background-color: #0AEEAA;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+</ul>
+
+</body>
+</html>
+<script>
+var oLis = document.getElementsByTagName('li');
+
+// let 方法
+// for (let i = 0; i < oLis.length; i++) {
+//
+//     oLis[i].onclick = function () {
+//         alert(i+1)
+//     }
+//
+// }
+//闭包方法1
+for (var i = 0; i < i.length; i++) {
+    (function (n) {
+        oLis[n].onclick = function () {
+            alert(n+1)
+        }
+    })(i)
+}
+
+//闭包方法2
+for (var i = 0; i < i.length; i++) {
+    oLis[i].onclick = (function (n) {
+        return function () {
+            alert(n+1)
+        }
+    })(i)
+
+}
+
+
+function f(n) {
+    return function () {
+        alert(n+1)
+    }
+}
+
+for (var i = 0; i < oLis.length; i++) {
+    oLis[i].onclick = f(i)
+}
+
+//自定义方法
+for (var i = 0; i < oLis.length; i++) {
+    oLis[i].n = i + 1;
+    oLis[i].onclick = function () {
+        alert(this.n)
+    };
+
+    oLis[i].onmouseover = function () {
+        this.style.backgroundColor = '#EE0002'
+    };
+    oLis[i].col = oLis[i].style.backgroundColor;
+    oLis[i].onmouseout = function () {
+        this.style.backgroundColor = this.col
+    }
+}
+
+
+</script>

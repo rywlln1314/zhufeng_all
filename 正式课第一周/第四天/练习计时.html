@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1"></div>
+
+
+</body>
+</html>
+<script>
+    function timeCount() {
+        var odiv = document.getElementById('div1');
+        var ary = ['日', '一', '二', '三', '四', '五', '六'];
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        var date = now.getDate();
+        var day = now.getDay();
+        var hour = now.getHours();
+        var min = now.getMinutes();
+        var sec = now.getSeconds();
+
+        var str = `今天是${year}年${month}月${date}日 星期${ary[day]} ${hour}时${min}分${sec}秒`;
+        odiv.innerHTML = str;
+    }
+
+
+    // var timer = setInterval(getTime(),1000);
+    // clearInterval(timer)
+    window.setInterval(function () {
+        timeCount()
+    }, 1000);
+
+
+</script>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1,#div2{
+             width: 300px;
+             height: 200px;
+             overflow: hidden;
+             margin-bottom: 30px;
+         }
+        #div1 img,#div2 img{
+            width: 100%;
+            height: 100%;
+            background: no-repeat top;
+            background-size: cover;
+        }
+        #div11,#div22{
+            width: 600px;
+            height: 400px;
+            display: none;
+            position: absolute;
+            float: left;
+        }
+        #div11 img,#div22 img{
+            width: 100%;
+            height: 100%;
+            background: no-repeat top;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" class="lit">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535025025938&di=4a235f3cabc435fae027610aa3a10089&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fbao%2Fuploaded%2Fi4%2FT1ovmKFGtcXXXXXXXX_%2521%25210-item_pic.jpg_728x728.jpg" alt="">
+</div>
+<div id="div11" class="big">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535025025938&di=4a235f3cabc435fae027610aa3a10089&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fbao%2Fuploaded%2Fi4%2FT1ovmKFGtcXXXXXXXX_%2521%25210-item_pic.jpg_728x728.jpg" alt="">
+</div>
+<div id="div2" class="lit">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535619797&di=262185c493f96afad54d577fce21dd68&imgtype=jpg&er=1&src=http%3A%2F%2Fimg1.cheshi-img.com%2Fproduct%2F1_1024%2F182%2F4c7b503cbff3f.jpg" alt="">
+</div>
+<div id="div22" class="big">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535619797&di=262185c493f96afad54d577fce21dd68&imgtype=jpg&er=1&src=http%3A%2F%2Fimg1.cheshi-img.com%2Fproduct%2F1_1024%2F182%2F4c7b503cbff3f.jpg" alt="">
+</div>
+
+
+</body>
+</html>
+<script>
+var oDiv1 = document.getElementById('div1');
+var oDiv11 = document.getElementById('div11');
+var oDiv2 = document.getElementById('div2');
+var oDiv22 = document.getElementById('div22');
+// document.onmousemove = function(e){
+//     e = e || window.event;
+//     var tar = e.target || e.srcElement;
+//     if (tar.parentNode.className == 'lit')
+// };
+
+
+
+
+oDiv1.onmouseenter = function (e) {
+    oDiv11.style.display = 'block';
+    this.mx = e.clientX;
+    this.my = e.clientY;
+
+};
+oDiv2.onmouseenter = function (e) {
+    oDiv22.style.display = 'block';
+    this.mx = e.clientX;
+    this.my = e.clientY;
+};
+oDiv1.onmouseleave = function (e) {
+    oDiv11.style.display = 'none'
+};
+oDiv2.onmouseleave = function (e) {
+    oDiv22.style.display = 'none'
+};
+oDiv1.onmousemove = function (e) {
+    var x = e.clientX - this.mx;
+    var y = e.clientY - this.my;
+    oDiv11.style.left = x + this.mx + 30 + 'px';
+    oDiv11.style.top = y + this.my + 20 + 'px';
+};
+oDiv2.onmousemove = function (e) {
+    var x = e.clientX - this.mx;
+    var y = e.clientY - this.my;
+    oDiv22.style.left = x + this.mx + 30 + 'px';
+    oDiv22.style.top = y + this.my + 20 + 'px';
+}
+
+
+</script>

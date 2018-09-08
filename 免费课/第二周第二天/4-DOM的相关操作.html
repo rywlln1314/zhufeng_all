@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+<div class="boc">
+    <div class="div2">珠峰培训2</div>
+    <!--dgdgfsgfs-->
+    <div id="div1">
+        <span id="span">珠峰培训</span>
+        珠峰培训
+    </div>
+    <span>
+        <!--这是注释的内容-->
+    </span>
+</div>
+
+</body>
+</html>
+<script>
+    /*
+    * 一个页面 只有一个根节点 document; 一个页面只有一个根元素 html
+    * 节点 ： 文档节点 document   元素节点 div span   注释节点   文本节点
+    *            nodeType(节点类型)   nodeName(节点名称)   nodeValue(节点内容)
+    *  元素节点      1                  '大写的标签名'          null
+    *  文本节点      3                  '#text'               文本的内容
+    *  注释节点      8                  '#comment'            注释的内容
+    *  document     9                  '#document'           null
+    * */
+    var oDiv =  document.getElementById('div1');
+    console.dir(oDiv);
+
+    oDiv.parentNode; // 父亲节点
+    oDiv.previousSibling;// 哥哥节点
+    oDiv.previousElementSibling; // 哥哥元素节点  //不兼容 ie6 - 8
+    oDiv.nextSibling; // 弟弟节点；
+    oDiv.nextElementSibling;// 弟弟元素节点  //不兼容 ie6-8
+    oDiv.firstChild;// 第一个子节点
+    oDiv.firstElementChild; //第一个元素子节点  //不兼容 ie6-8
+    oDiv.lastChild;// 最后一个子节点
+    oDiv.lastElementChild; // 最后一个元素子节点  //不兼容 ie6-8
+
+    console.dir(oDiv.firstChild);
+    console.log(oDiv.firstChild,oDiv.firstElementChild);
+
+    function getBrother(ele) {
+        ele = ele.previousSibling;
+        while (ele && ele.nodeType != 1){
+            ele = ele.previousSibling;
+        }
+        return ele;
+    }
+    function getLitBrother(ele) {
+        ele = ele.nextSibling;
+        while (ele && ele.nodeType != 1){
+            ele = ele.nextSibling;
+        }
+        return ele;
+    }
+
+    var oDiv2 = document.getElementsByTagName('div')[0];
+    console.log(oDiv.previousElementSibling);
+    console.log(getBrother(oDiv));
+
+    //通过标签名获取body html
+    var body = document.getElementsByTagName('body')[0];
+    var html = document.getElementsByTagName('html')[0];
+    // console.log(body, html);
+
+    //通过document获取body html   常用
+    var body2 = document.body;
+    var html2 = document.documentElement;
+    // console.log(body2, html2);
+
+
+    //innerHTML  // 修改元素的内部结构
+    // oDiv.innerHTML = 'hello word!';
+
+    //innerText // 修改元素内部文本
+    // oDiv.innerText = 'hello word2!'
+
+    //两者的区别  innerHTML 会识别 字符串内部的 标签
+    //          innerText 不会识别 字符串内部的标签，是整个当成字符串放页面上
+    console.log(oDiv.innerHTML);
+    // oDiv.innerHTML = "<h1>hello word!</h1>";
+    // oDiv.innerHTML = 'function(){3333333}';
+    var n = "这是一个变量";
+    // oDiv.innerHTML = `<h1>${n}</h1>`;
+    // oDiv.innerText = '<h1>hello word!</h1>';
+
+
+
+    // 创造一个元素标签
+
+    var span2 = document.createElement('span');
+    console.log(span2);
+    console.log(span2.toString());
+    // oDiv.innerHTML = span2;
+    span2.innerHTML = '这是一个 span  标签';
+    span2.className = 'mySpan';
+    span2.style.backgroundColor = 'pink';
+    oDiv.appendChild(span2); // 在oDiv 的尾部添加元素;
+
+
+    //父节点.insertBefore(newEle,oldEle);
+    var oSpan = document.getElementById('span');
+    var oSpan2 = oDiv.firstElementChild;
+    oDiv.insertBefore(span2,oSpan2);
+    var oDivs = document.getElementsByTagName('div');
+    var divs = document.querySelectorAll('div');
+
+    var odvi2 = document.createElement('div');
+    oDiv.appendChild(odvi2);
+
+    oSpan.innerHTML = '<div>wwwww</div>'
+
+    console.log(oDivs,divs);
+
+    //querySelectorAll() 参数是css选择器
+    //querySelector() 参数是css选择器
+    document.getElementsByClassName('div2');
+    console.log(document.querySelectorAll('.boc>div:nth-child(1)'));
+
+
+</script>

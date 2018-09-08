@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var ary = [1,2,3,4,5,6,7,9,5,4,2,0];
+function clearRep(ary) {
+    for (var i = 0; i < ary.length; i++) {
+        var cur = ary[i];
+        for (var j = i+1; j < ary.length; j++) {
+            if (cur == ary[j]){
+                ary.splice(j,1);
+                i--
+            }
+
+        }
+
+    }
+    return ary
+}
+clearRep(ary);
+console.log(ary);
+
+var ary2 = [1,2,3,4,5,6,7,9,5,4,2,0];
+function clearRep2(ary) {
+    var arr = [];
+    for (var i = 0; i < ary.length; i++) {
+        if (arr.indexOf(ary[i]) == -1){
+            arr.push(ary[i])
+
+        }
+
+    }
+    return arr
+}
+
+console.log(clearRep2(ary2));
+
+function clearRep3(ary) {
+    var arr = [];
+    var obj = {};
+    for (var i = 0; i < ary.length; i++) {
+        obj[ary[i]] = ary[i]
+    }
+    for (var k in obj){
+        arr.push(obj[k])
+    }
+    return arr
+}
+
+console.log(clearRep3(ary2));
+</script>

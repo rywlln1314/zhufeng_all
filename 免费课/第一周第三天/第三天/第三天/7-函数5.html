@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    var sum = function (a,b) {
+        console.log(this);
+        return a + b;
+    };
+    //函数中的this 指向问题：函数执行  看点前边是谁  函数中的this就是谁
+    // console.log(sum());
+
+    var obj = {
+        fn: sum,
+        w:12
+    };
+    sum();
+    obj.fn();
+
+    var oDiv = document.getElementById('div1');
+    oDiv.onclick = function () {
+        console.log(this);
+    };
+
+    //自己就能执行
+    (function () {
+        console.log(22)
+    })()
+</script>  

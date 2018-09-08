@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<div class="div1"></div>
+</body>
+</html>
+<script>
+    //1、JS三种引入方式  行内式  内嵌式   外链式
+    //2、alert() console.log console.dir confirm() ---> 调试代码 debugger（断点）
+    //3、document.getElementById('div1') 单个元素
+    //   document.getElementsByClassName('div1') 获取的是元素集合
+    //   document.getElementsByTagName('div')  获取的也是一组元素的集合
+    console.log(document.getElementsByClassName('div2')[0]);
+    console.log(document.getElementsByTagName('div'));
+
+    //4、 变量  （可以变化的量） 以字母  _(下划线)  $  ;遵循驼峰式命名规则
+    //  下边要用某个变量时  上边一定要有过声明或定义
+    var perInfo // 起名的语义化；
+    var a =2 ; var A = 1; var a = 3;
+
+
+    //5、基本数据类型：  number  string  boolean  null undefined
+    //  number  整数 小数  NaN
+    // NaN出现的情况有  1 强制转化成数字类型失败时   2 四则运算失败时
+    // Number()   parseInt()    parseFloat()
+    Number('12') // - >12
+    Number('12a')// - > NaN  针对字符串  从左到右依次查看， 只要有非数字 就是NaN
+    console.log(Number(a)); //-->3
+    console.log(Number(a+a)); //-->33
+    // console.log(Number(b)); //-->
+
+    parseInt('12.3')// 12
+    parseInt('.5')// NaN
+    parseFloat('.5') //0.5
+    parseInt(.5) // 0
+    parseInt('12a') // 12
+    parseInt('q12a') // NaN
+
+    1/'a' //-- > NaN
+    5%2// -->1
+
+    1 + '2'// 两边只要有一个是字符串  ，那么转化成了字符串拼接
+
+    '3' - 1 // 先把两边用Number转化成数字 然后在进行的数学运算 除了 字符串拼接时的 +
+
+    NaN - 2 // 所有跟NaN做的数学运算 结果都是NaN  除了 字符串拼接时的 +
+
+    '12q' - 12 // NaN - 12 -->
+
+    NaN + "1" // ---> "NaN1"
+
+
+    //6、 string 用单引号或双引号包起来的字符  成为字符串
+    var str = "ab\"c";
+    var str2 = 'qwer';
+    var n = 12;
+    var str3 = str + str2 + n;
+    var str4 = 'abc"+n+"defg';
+    var str5 = 'abc'+n+'defg';
+    var str6 = `abc${n}defg`;
+    console.log(str4, str5,str6);
+    console.log(str4 == 'str4'); // false;
+    'abc'.length; //3
+    ''.length; // 0
+    ' '.length; //1
+    var str7 = 'abcd';
+    var str8 = str7[2];
+    console.log(str8);
+
+    //7、boolean true false  // 0 NaN undefined '' null
+    Number(null); //-->0
+    Number(''); //-->0
+    Number([]);// 0
+
+    Boolean(null); // false
+    Boolean(''); // false
+    Boolean([]); //true
+
+    !true //  先用Boolean转化成布尔类型  完了再取反
+    !!true // 相当于Boolean()
+
+
+    //8、typeof
+    typeof 12 //--> 字符串 number
+    typeof typeof 12// --> 字符串 string  typeof 'number' -- >'string'
+
+</script>  

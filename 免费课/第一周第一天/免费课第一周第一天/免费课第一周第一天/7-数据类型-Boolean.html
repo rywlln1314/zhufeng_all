@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    Boolean() // true 或者 false
+    Boolean('abc')// true
+    Boolean('0');  // true
+    Boolean(0); //false
+
+
+    //第一部分练习
+    Boolean('     '); //true
+    Boolean('');// false
+    Boolean(Number(''));//false
+    Boolean(Number('       '));//false
+    Boolean(Number('12a'));//Boolean(NaN) --> false
+    Boolean(parseInt('   '));// Boolean(NaN) -- >false
+    Boolean(parseFloat('12.2w'));// Boolean(12.2)  --> true
+
+
+    //第二部分练习
+    Boolean(!'     ');  //false
+    Boolean(!'');// true
+    Boolean(!Number(''));//true
+    !Boolean(!Number('       '));//false
+    Boolean(!Number('12a'));//true
+    Boolean(!parseInt('   ')); //true
+    !Boolean(!parseFloat('12.2w')); // true
+
+    !!Number([]); //---> false
+    !!Number(null); //---> false
+    !!Number(undefined); //---> false
+
+
+
+
+
+    //布尔类型为false的只有五个 0 null undefined '' NaN
+</script>  

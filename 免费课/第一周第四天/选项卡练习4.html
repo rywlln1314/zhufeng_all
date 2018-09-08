@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .til {
+            width: 500px;
+            height: 50px;
+            margin: auto;
+            position: relative;
+            top: 1px;
+        }
+
+        .til ul {
+            width: 500px;
+            height: 50px;
+        }
+
+        .til ul li {
+            width: 20%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 30px;
+            float: left;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .til ul li.onclick {
+            background: #cc0711;
+        }
+
+        .body {
+            width: 500px;
+            height: 300px;
+            margin: auto;
+        }
+
+        .body ul {
+            width: 500px;
+            height: 300px;
+        }
+
+        .body ul li {
+            width: 500px;
+            height: 300px;
+            float: left;
+            font-size: 50px;
+            line-height: 300px;
+            text-align: center;
+            display: none;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .body ul li.onclick {
+            display: block;
+            background: #cc0711;
+            content: '我是第几个LI ';
+        }
+
+    </style>
+</head>
+<body>
+<div class="til">
+    <ul>
+        <li class="onclick">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+<div class="body">
+    <ul>
+        <li class="onclick"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+
+</body>
+</html>
+<script>
+    var tils = document.getElementsByClassName('til')[0];
+    var tList = tils.getElementsByTagName('li');
+
+    var bodys = document.getElementsByClassName('body')[0];
+    var bList = bodys.getElementsByTagName('li');
+
+    function clearClass() {
+        for (var i = 0; i < tList.length; i++) {
+            tList[i].className = '';
+            bList[i].className = '';
+        }
+    }
+    function clearColor() {
+        for (var i = 0; i < tList.length; i++) {
+            tList[i].style.background = '';
+            bList[i].style.background = '';
+        }
+    }
+
+        for (var i = 0; i < tList.length; i++) {
+            tList[i].myindex = i;
+            tList[i].onclick = function () {
+                clearClass();
+                clearColor();
+                tList[this.myindex].className = 'onclick';
+                bList[this.myindex].className = 'onclick';
+
+                bgcol = tList[this.myindex].style;
+                bodycol = bList[this.myindex].style;
+                if (this.myindex == 0) {
+                    bgcol.background= '#cc0711';
+                    bodycol.background = '#cc0711';
+                } else if (this.myindex == 1) {
+                    bgcol.background = '#01cc00';
+                    bodycol.background = '#01cc00';
+                } else if (this.myindex == 2) {
+                    bgcol.background = '#0300cc';
+                    bodycol.background = '#0300cc';
+                } else if (this.myindex == 3) {
+                    bgcol.background = '#f100ca';
+                    bodycol.background = '#f100ca';
+                }
+                if (this.myindex == 4) {
+                    bgcol.background = '#ff8200';
+                    bodycol.background = '#ff8200';
+                }
+            }
+        }
+
+
+
+</script>

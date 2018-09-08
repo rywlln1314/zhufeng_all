@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <script src="jquery/jquery-3.3.1.js"></script>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+
+</body>
+</html>
+
+<script>
+// var oLis = document.getElementsByTagName('li');
+// for (let i = 0; i < oLis.length; i++) {
+//     oLis[i].onclick = function () {
+//         alert(i+1)
+//     }
+//
+// }
+$('ul>li').click(function () {
+    console.log($(this).index()+1);
+    console.log($(this));
+});
+    /*
+    * $()参数接受css选择器
+    *    参数接受原生JS对象
+    * */
+    var oDiv = document.getElementById('div1');
+    $(oDiv);//吧原生对象转成JQ对象
+console.log($('ul>li')[0]);
+console.log($($('ul>li')[0]));
+console.log($('ul>li').get(0));
+console.log($('ul>li').eq(0));
+</script>

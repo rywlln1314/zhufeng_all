@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+
+    //对象的存储过程
+    var obj = {
+        w:1,
+        e:2
+    };
+    obj = {q:1};
+    //1、新开辟一个堆内存
+    //2、把属性名和属性值，一对一对的存到堆内存中
+    //3、把这个对内存的地址（xxxfff000） 赋给 obj这个变量
+
+
+    //函数的存储过程
+    function sum(a,b) {
+        return a + b;
+    }
+
+    //1、新开辟一个堆内存
+    //2、把函数体当作字符串存到这个堆内存中
+    //3、把这个对内存的地址赋给 函数名 sum
+
+    sum();
+
+    var n = parseFloat('width:100px');
+    if(n > 100){
+        console.log(200)
+    }else if(n == 100){
+        console.log(100)
+    }else if(n == NaN){
+        console.log('NaN')
+    }else {
+        console.log('good')
+    }
+
+
+
+
+</script>  

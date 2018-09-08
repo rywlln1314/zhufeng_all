@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    //1、 函数的定义 （2种）
+    // function 函数名(){函数体}
+    // var fn = function(){}
+
+    //2、return 可有可无 ；
+    // 跳出函数体
+    // 确定返回值
+    // 当不写return时，函数执行返回的  *结果*  是undefined
+    // 当写了 return  但是后边没有任何内容；这时的 执行返回的结果 undefined
+    // return a+b; 它是把表达式运行的结果返回出去
+    // return 的位置 不固定， 根据业务需求来确定 return的位置；
+
+    //3、形参 和 实参
+    // function sum(a,b,c){} // a b c  在函数定义阶段确定的参数是 形参
+    // sum(1,2,3) // 在函数调用的阶段，传进去的参数叫做实参
+    // sum(1) // b c 多余的形参给的默认值是 undefined
+    // sum(1,2,3,4) // 多余的实参 没有对应的实参接收，形参是按照先后顺序来接受实参的
+
+    //4、arguments (实参集合)
+    //它是一个函数内部的属性，跟咱们设不设置形参 和 传不传 实参 是没有关系的；他一直都存在
+    function sum() {
+        console.log(arguments)
+    }
+    sum(1,2,3)
+
+    //5、this :函数的执行主体 ； 谁调用的函数；简单规律就是看点 点前边是谁  函数中的this 就是谁
+</script>  

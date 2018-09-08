@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 数组的排序
+* 
+* ary.sort(function(q,b){return a-b})升序排列
+* 
+* localeCompare
+* */
+var ary = [1,23,43,5,6,7,9,3,6,1];
+/*
+* 思路1：冒泡排序
+* 两两比较   如果前面大于后边 那么 我就让他们两个交换位置；否则不动
+* */
+function sortBubble(ary) {
+    for (var i = 0; i < ary.length; i++) {
+        //外面的for循环  表示比较的轮数
+        for (var j = 0; j < ary.length-1-i; j++) {
+            //里面的for循环  表是两两比较
+            var temp = ary[j];
+            if (ary[j] > ary[j+1]) {
+                ary[j] = ary[j+1];
+                ary[j+1] = temp
+            }
+        }
+
+
+    }
+    return ary
+}
+
+console.log(sortBubble(ary));
+
+/*
+* 思路2 快速排序
+* 行数的递归思想  自己调动自己
+* */
+function sum(n) {
+    if (n <= 0) {
+        return 0
+    }
+    return n + sum(n-1)
+}
+var t = sum(10);//从1加到10
+
+/*
+* 先去找数组中间一项，把这一项拿出来，用暗处之后的数组中的每一项拿出的这一项比较
+* 比这项大的放到一个数组；小的放到另外一个数组
+* 接着对着两个数组做上述同样的操作
+* */
+function quickSort(ary) {
+    if (ary.length <=1) {
+        return ary
+    }
+    var n = parseInt(ary.length/2);
+    var cur = ary.splice(n,1)[0];
+    var left = [],right = [];
+    for (var i = 0; i < ary.length; i++) {
+        if (ary[i] < cur) {
+            left.push(ary[i])
+        }else{
+            right.push(ary[i])
+        }
+
+    }
+    return quickSort(left).concat(cur,quickSort(right))
+}
+
+function quickSort1(ary) {
+    if (ary.length <= 1){
+        return ary
+    }
+    var n = parseInt(ary.length/2),
+        cur = ary.splice(n,1)[0],
+        left = [],
+        right = [];
+    for (var i = 0; i < ary.length; i++) {
+        if (ary[i] < cur){
+            left.push(ary[i])
+        } else{
+            right.push(ary[i])
+        }
+
+    }
+    return quickSort1(left).concat(cur,quickSort1(right))
+}
+</script>

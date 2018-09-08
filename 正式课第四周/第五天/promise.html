@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* Promise
+* es6  新增的类
+* 回调地狱
+* */
+// var data = null;
+// var xhr = new XMLHttpRequest();
+// xhr.open('get', 'JSON/data.json');//第三个参数不写就是true也就是异步执行
+// xhr.onreadystatechange = function () {
+//     if (xhr.readyState == 4 && /^[23]\d{2}$/.test(xhr.status)) {
+//         data = utils.toJson(xhr.responseText);
+//         //请求成功之后才会执行
+//         //cb(data)
+//     }
+// };
+// xhr.send();
+// var p = new Promise(function (res,rej) {
+//     //res:是处理 异步请求成功时执行的函数
+//     //rej:是处理 异步请求失败时执行的函数
+//     var data = null;
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('get', 'JSON/data.json');//第三个参数不写就是true也就是异步执行
+//     xhr.onreadystatechange = function () {
+//         if (xhr.readyState == 4 && /^[23]\d{2}$/.test(xhr.status)) {
+//             data =xhr.responseText;
+//             //请求成功之后才会执行
+//             //cb(data)
+//             res(data);
+//         }
+//         if (!/^[23]\d{2}$/.test(xhr.status)){
+//             rej();
+//         }
+//     };
+//     xhr.send();
+// }).then(function (data) {
+//     console.log('yes');
+// },function (data2) {
+//     console.log('no');
+// });
+
+var p = new Promise((res,rej)=>{
+    resolve();
+}).then(success,fail);
+function success() {
+    console.log('yes');
+}
+function fail() {
+    console.log('no');
+}
+
+
+
+var p = new Promise((resolve, reject)=>{
+    reject();
+    resolve();
+    //一旦状态确定袭来；就不会再更改
+
+    if(!true){
+        resolve()
+    }else {
+        reject()
+    }
+});
+p.then(success,fail);
+function success() {
+    console.log('yes');
+    console.log(p)
+};
+function fail() {
+    console.log('no');
+    console.log(p);
+}
+/*
+* then是Promise里边执行完成后，相应的要执行的函数；需要传入两个实参；第一个是Promise里边代码执行成功后执行的函数；第二个参数是Promise里边大妈执行失败后执行的函数
+* */
+
+var p = new Promise((resolve,reject)=>{});
+p.then((data)=>{return 12},()=>{}).then((data)=>{console.log(data);},()=>{})
+
+
+
+</script>

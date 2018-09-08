@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1" class="box1">珠峰培训</div>
+<div id="div2" class="box2">珠峰培训</div>
+<div id="div3" class="box3">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    // document.getElementsByClassName('box')
+    function getByClass(str, context) {
+        var ary = [];
+        var str = str.replace(/^ +| +$/g, '');//去除首尾空格
+        context = context || document;//容错机制
+        //先获取元素  再从这些元素中查找含有这个类名的元素
+        var eles = context.getElementsByTagName('*');
+        //context 下所有元素
+        for (let i = 0; i < eles.length; i++) {
+            //查看每一个元素的类名中是否含有str这个类名
+            // eles[i].className.indexOf(str) != -1 ?ary.push : null;
+            var reg = new RegExp('(^| +)' + str + '( +|$)');
+            if (reg.teardown(eles[i].className)) {
+                ary.push(eles[i])
+            }
+        }
+        return ary
+    }
+
+    getByClass('box', document);
+
+    function getByClass2(str, context) {
+        str = str.replace(/^ +| +$/g, '');
+        var classAry = str.split(/ +/g);//吧子浮窗茶城不同类名组成的数组
+        context = context || document;
+        var eles = context.getElementsByTagName('*');
+        for (let i = 0; i < classAry.length; i++) {
+            var ary = [];//存放符合要求的元素
+            var reg = new RegExp('(^| +)'+classAry[i]+'( +|$)');
+            for (let j = 0; j < eles.length; j++) {
+                if (reg.text(eles[j].className)) {
+                    ary.push(eles[j])
+                }
+            }
+            //第一次循环完毕后 ary里面粗出的都是含有box的元素
+            eles = ary
+        }
+        return ary
+    }
+
+    getByClass2('box box1', document);
+</script>

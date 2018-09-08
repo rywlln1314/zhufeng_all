@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<!--
+1.jpg当作默认图   2.jpg  当作真正的图片链接
+-->
+<img src="images/1.jpg" alt="">
+
+</body>
+</html>
+<script>
+//window.onresize  监听浏览器可视窗口的变化
+//window.onscroll  监听页面滚动事件
+/*
+* 图片的懒加载
+* 之后又当页面滚动到图片位置显示的时候采取加载图片；一开始图片的位置可以放一张小的默认图
+* 优势：提升页面的加载速度
+*      在移动端省流量
+*
+* 实现原理：监听页面滚动；当页面滑倒图片位置的时候，再去让图片显示(图片的src换成真正的链接)
+* */
+/*
+* 需求：当页面滑动 图片的头部刚刚露出来；让图片的链接换成img/2.jpg
+* */
+function ingLoad(ele) {
+   var tarT = ele.offsetTop;
+   var cliH = document.documentElement.clientHeight || document.body.clientHeight;
+   var scrH = document.documentElement.scrollTop;
+   if (scrH + cliH > tarT) {
+       ele.src = 'images/2.jpg'
+   }
+}
+</script>

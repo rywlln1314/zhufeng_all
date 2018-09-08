@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        #div1{
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: #ff0bc4;
+            border-radius: 10%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var oDiv = document.getElementById('div1');
+oDiv.onclick = function () {
+    console.log(1);
+};
+oDiv.onclick = function () {
+    console.log(2);
+};
+/*
+* DOM 0级事件绑定会存在覆盖的问题；下边的代码会把上边的代码覆盖
+*
+* DOM 2级事件绑定  支持绑定多个函数
+* 只有三个参数都相同时；才会处理成重复绑定；这时就不再往事件池添加
+* */
+oDiv.addEventListener('click',function () {
+    console.log(3);
+},false);
+oDiv.removeEventListener('click',function () {
+
+});
+//移除时只能移除有能找到地址的函数，绑定的匿名函数没办法移除掉
+//IE低版本的DOM2级绑定
+//ele.attachEvent('onclick',function(){})
+oDiv.attachEvent('onclick',function () {
+
+})
+/*
+* 第一个参数  事件类型（没有on）
+* 第二个参数  对应要执行的函数
+* 第三个参数  布尔值--->true代表绑定的事件在捕获阶段出发，false代表绑定的事件在冒泡阶段出发；  一般都是false
+* */
+
+
+
+</script>

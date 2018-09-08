@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    var ary = [11, 288, 3256, 544, 722, 244, 82, 34, 1223, 5556];
+    /*
+    * 去除一个最大值  去除一个最小值
+    * 然后求平均数
+    * */
+    ary.sort((a, b) => {
+        return a - b
+    });
+    ary.shift();
+    ary.pop();
+    var num = eval(ary.join('+')) / ary.length;
+    console.log(num.toFixed(2));
+    //toFixed()  返回结果是字符串
+
+    //第一种思路  应用es6 的扩展运算符
+    //第二种思路  做一个空数组，把arguments中的数据放到数组里
+    //第三种思路  把arguments的__proto__指向数组的原型
+    //第四种思路  通过call或apply让类数组利用数组的方法
+
+    //思路1
+    function f(...arg) {
+        arg.sort((a, b) => {
+            return a - b
+        });
+        arg.shift();
+        arg.pop();
+        return eval(arg.join('+')) / arg.length
+    }
+
+    //思路2
+    function f1() {
+        var ary = [];
+        for (let i = 0; i < arguments.length; i++) {
+            ary.push(arguments[i])
+        }
+        ary.sort((a, b) => {
+            return a - b
+        });
+        ary.shift();
+        ary.pop();
+        return eval(ary.join('+')) / ary.length
+    }
+
+    //思路三
+    function f2() {
+        var arg = arguments;
+        arg.__proto__ = Array.prototype;
+        arg.sort((a, b) => {
+            return a - b
+        });
+        arg.shift();
+        arg.pop();
+        return eval(arg.join('+')) / arg.length
+
+    }
+
+    //思路四
+    function f3() {
+        var ary = [].slice.call(arguments);
+        //利用数组的slice把arguments中的内容赋值一份到ary
+        ary.sort((a, b) => {
+            return a - b
+        });
+        ary.shift();
+        ary.pop();
+        return eval(ary.join('+')) / ary.length
+    }
+    /*
+    * 类数组调用数组的方法
+    * 先去通过数组查找到对应的方法，然后用call先改变方法里边的this指向
+    * 然后再去让方法执行
+    * 有些方法可以用，但有些方法不能用
+    * 会改变原有数组的方法也会改变arguments
+    * */
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    //1、 typeof
+    var a = 12;
+    typeof a//  ---> 'number'
+    typeof 'number' // ---> 'string'
+    typeof true // ----> 'boolean'
+    typeof 'true' //  ---> 'string'
+    typeof null // ---> 'object'
+    typeof undefined // ---> 'undefined'
+    typeof ({}) // ---> 'object'
+    typeof ([]) // ---> 'object'
+
+    //2、constructor
+
+    var str = 'www';
+    console.log(str.constructor.toString());
+    console.log(a.constructor.toString());
+    console.log(({}).constructor.toString());
+    console.log(([]).constructor.toString());
+    // console.log(null.constructor);
+
+    //3、 instanceof  查看对象
+    var obj = {};
+    var ary = [];
+    console.log(obj instanceof Array); // false
+    console.log(ary instanceof Array); // true
+    console.log(obj instanceof Object);// true
+    console.log(ary instanceof Object);// true
+
+    //4、Object.prototype.toString.call(xxx);
+    console.log(Object.prototype.toString.call([]));
+    console.log(Object.prototype.toString.call({}));
+    console.log(Object.prototype.toString.call(/\d/));
+    console.log(Object.prototype.toString.call(12));
+    console.log(Object.prototype.toString.call('www'));
+    console.log(Object.prototype.toString.call(true));
+
+
+</script>  

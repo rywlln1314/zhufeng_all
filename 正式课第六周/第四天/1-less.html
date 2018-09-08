@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style type="text/less" rel="stylesheet/less">
+        @q:200px;
+        @img:'../images/';
+        .w{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .q(@a:200px,@b:300px){
+            width: @a * 2;
+            height: @b / 2;
+        }
+        body{
+            @q:400px;
+            #div1,#div2{
+                width: @q * 2;
+                height: @q + @q;
+                background: url("@{img}1.jpg");
+                .div3{
+                    width:  @q / 2;
+                    height: @q - 100;
+                }
+                .div4{
+                    .q(200px,200px); // 宽400  高100
+                    .q(); // 宽400  高150
+                }
+            }
+            #div2{
+                //#div1; //把#div1 中的样式统一复制（包含子元素样式）一份过来
+                // &  代表父元素自身
+                &:extend(#div1);//只把#div1自身的样式复制过来；不复制 子元素的样式
+            }
+        }
+        .a(@a) when (@a < 5){
+            .box_@{a}{
+                width: @a * 100px;
+                height: @a * 200px;
+            }
+            .a(@a + 1);
+        }
+        .a(1);
+    </style>
+    <script src="js/less.js"></script>
+    <link rel="stylesheet" href="css/2.css">
+</head>
+<body>
+    <div id="div1">
+        <div class="div3"></div>
+    </div>
+    <div id="div2">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * 1、嵌套
+    * 2、变量  @ww:200px; @img：'../images/'
+    * 3、混合  .w{width:100%;height:100%}  extend
+    * 4、函数  .fn(@a:100px,@b:200px){
+    *               width: @a;
+    *               height: @b;
+    *         }
+    *         #div1{
+    *           .fn(200px)
+    *         }
+    *
+    * 5、循环  .a(@n) when (@n < 5){
+    *              .box_@{n}{
+    *                   width: @n * 200px;
+    *                   height: @n * 100px
+    *              }
+    *              .a(@n + 1)
+    *         }
+    *
+    * */
+</script>  

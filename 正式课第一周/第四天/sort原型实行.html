@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    var ary = [22, 51, 74, 96, 21, 53, 30, 12, 60,];
+    //  console.log(ary.sort(function (a, b) {
+    //      return a - b
+    //  }));
+    // console.log(ary);
+    function toSort(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    var n = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = n;
+
+                }
+
+            }
+
+        }
+        return arr
+    }
+
+    toSort(ary);
+    console.log(ary);
+</script>

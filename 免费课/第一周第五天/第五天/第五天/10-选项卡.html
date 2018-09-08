@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .til_box{
+            width: 400px;
+            display: flex;
+            margin: auto;
+        }
+        .til_box .til{
+            flex: 1;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 25px;
+        }
+        .til_box .til:nth-child(2){
+            border-left:1px solid #ccc;
+            border-right:1px solid #ccc ;
+        }
+        .til_box .til.active{
+            background-color: paleturquoise;
+        }
+        .content{
+            width: 400px;
+            margin: auto;
+            border: 1px dashed #ccc;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            font-size: 40px;
+            display: none;
+        }
+        .content.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+    <div class="til_box">
+        <div class="til active">JS</div>
+        <div class="til">html</div>
+        <div class="til">CSS</div>
+    </div>
+    <div class="content active">JSBOX</div>
+    <div class="content">HTMLBOX</div>
+    <div class="content">CSSBOX</div>
+</body>
+</html>
+<script>
+    function byClass(str) {
+        return document.getElementsByClassName(str);
+    }
+    var tils = byClass('til');
+    var contents = byClass('content');
+
+    function clearClass(divs,div2s){
+        for(var i = 0; i < divs.length; i++){
+            divs[i].className = 'til';
+            div2s[i].className = 'content';
+        }
+    }
+
+    // tils[1].onclick = function () {
+    //     clearClass(tils);
+    //     this.className += ' active';
+    //     // this.className = this.className + ' active';
+    // };
+    /*for(var i = 0; i < tils.length; i++){
+        tils[i].myIndex = i;
+        tils[i].onclick = function () {
+            clearClass(tils,contents);
+            this.className += ' active';
+            contents[this.myIndex].className += ' active';
+        };
+    }*/
+
+    /*for(var i = 0; i < tils.length; i++){
+        tils[i].onclick = function () {
+            clearClass(tils,contents);
+            this.className += ' active';
+            contents[i].className += ' active';
+        };
+    }
+    tils[0].onclick = function () {
+        clearClass(tils,contents);
+        this.className += ' active';
+        contents[i].className += ' active';
+    };
+    tils[1].onclick = function () {
+        clearClass(tils,contents);
+        this.className += ' active';
+        contents[i].className += ' active';
+    };
+    tils[2].onclick = function () {
+        clearClass(tils,contents);
+        this.className += ' active';
+        contents[i].className += ' active';
+    };*/
+
+    //方法2
+    // for(var i = 0; i < tils.length; i++){
+    //     !function (n) {
+    //         tils[n].onclick = function () {
+    //             clearClass(tils,contents);
+    //             this.className += ' active';
+    //             contents[n].className += ' active';
+    //         };
+    //     }(i)
+    // }
+    // i = 0; 这种方法是比上个错误的方法 多了一层作用域
+    // 1、先执行了一个自执行函数，形成一个新的作用域，我们把 每一个i当参数传到自执行函数里边，这时每个自执行函数 都有自己的一个 变量取存储了咱们传进来的i；
+    //2、我们再自执行函数中，给元素绑定了点击事件
+    //3、当点击事件被触发的时候，他会找上级的变量 n ;
+    //4、他的上级作用域就是咱们自治性函数形成作用域，这个作用于里边存着我们每一次的i,也就是作用于里边的变量 n
+    //5、这时，onclick 执行时 就能找到对应的 索引 n;
+
+
+
+    //方法3
+    // for(var i = 0; i < tils.length; i++){
+    //     tils[i].onclick = (function (n) {
+    //         return function(){
+    //             clearClass(tils,contents);
+    //             this.className += ' active';
+    //             contents[n].className += ' active';
+    //         }
+    //     })(i)
+    // }
+    // tils[0].onclick = (function (n) {
+    //     return function(){
+    //         clearClass(tils,contents);
+    //         this.className += ' active';
+    //         contents[n].className += ' active';
+    //     }
+    // })(0);
+    // tils[0].onclick = function(){ // 他的外层有一个自执行函数形成的作用域
+    //     clearClass(tils,contents);
+    //     this.className += ' active';
+    //     contents[n].className += ' active';
+    // }
+
+
+    //方法4
+    // function tab(n) {
+    //     return function(){
+    //         clearClass(tils,contents);
+    //         this.className += ' active';
+    //         contents[n].className += ' active';
+    //     }
+    // }
+    // for(var i = 0; i < tils.length; i++){
+    //     tils[i].onclick = tab(i)
+    // }
+
+    //方法5
+    // let :ES6中声明变量的关键字   const
+    var a = 12;
+    let b = 18;
+    // 块级作用域  { } if for switch 这些语句中的 {} 都是一个块级作用域
+    for(let i = 0; i < tils.length; i++){
+        tils[i].onclick = function () {
+            clearClass(tils,contents);
+            this.className += ' active';
+            contents[i].className += ' active';
+        };
+    }
+
+</script>  

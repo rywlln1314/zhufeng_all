@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var ary = [];
+//本身就是对象的一种细分，属性名是从0开始一次递增的数字
+//我们把这些一次递增的数字属性名叫做索引
+//数组里的每一项  都可以是任意数据类
+    var ary = [1,2,3,4,5];
+    var obj = {
+        1:12,
+        2:13,
+        a:14
+        //b:  属性值可以是任意数据类型
+    };
+    //对象中获取对应属性名的属性值   打点   ['']
+    //对象中  若属性名是数字，那么我们智能用[]的方式
+    obj[1];//数字属性名的时候我们可以把引号省略
+    obj['1'];
+    obj['a'];
+    obj[a];//a是变量
+
+
+    ary.length
+    var sum = function () {
+        console.log(222);
+        //return   这是的返回值仍然是undefined
+        //这个函数没有return  所以它的默认返回值是undefined
+    }
+    var arr = [1,true,'wer',null,undefined,{q:1},[12],function () {
+        console.log(111);
+    },sum,sum()];
+    //arr[9]  这个位置放的是sum执行之后的返回结果
+    console.log(arr[9]);
+    arr[7]();//arr[7]  代表咱们的那个匿名函数  价格小括号  让这个函数执行
+    arr[8]();//sum 执行
+    sum();//sum 执行
+
+    arr[11] = 'true';
+    //当数组没有对应的项时，咱们去获取的时候会返回回一个undefiined
+console.log(arr, arr[10]);
+
+var str = 'qwertyu';
+    for (var k in str){
+        console.log(str[k]);
+    }
+for (var i = 0; i < str.length; i++) {
+    console.log(str[i]);
+
+}
+
+var arr = [1,true,'wer',null,undefined,{q:1},[12],function () {
+    console.log(111);
+},sum,sum()];
+arr.zhufeng = '12345'
+for (car k in arr) {
+    console.log(arr[k]);
+};
+for (var i = 0; i < arr.length; i++) {
+    //i 都是一些数字
+    console.log(arr[i]);
+
+}
+
+</script>

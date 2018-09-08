@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        #div1,#div2,#div3,#div4,#div5,#div6,#div7{
+            width: 400px;
+            height: 200px;
+            background: #ff0bc4;
+            border-radius: 25px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 50px;
+            margin: 20px;
+            float: left;
+            font-size: 24px;
+        }
+        p{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">任玉伟<p>幸运号码</p></div>
+<div id="div2">刘伟杰<p>幸运号码</p></div>
+<div id="div3">高泽乾<p>幸运号码</p></div>
+<div id="div4">董祎程<p>幸运号码</p></div>
+<div id="div5">李英<p>幸运号码</p></div>
+<div id="div6">齐楠<p>幸运号码</p></div>
+<div id="div7">郭天佑<p>幸运号码</p></div>
+
+
+</body>
+</html>
+<script>
+var oDiv1 = document.getElementById('div1');
+var oDiv2 = document.getElementById('div2');
+var oDiv3 = document.getElementById('div3');
+var oDiv4 = document.getElementById('div4');
+var oDiv5 = document.getElementById('div5');
+var oDiv6 = document.getElementById('div6');
+var oDiv7 = document.getElementById('div7');
+var p = document.getElementsByTagName('p');
+var n=7;
+var ary = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+oDiv1.onclick = function () {
+    n--;
+    var l = Math.round(Math.random()*n);
+    var arr = ary.splice(l,1);
+    p[0].innerHTML += arr.toString()
+};
+oDiv2.onclick = function () {
+    n--;
+    var l = Math.round(Math.random()*n);
+    var arr = ary.splice(l,1);
+    p[1].innerHTML += arr.toString()
+};
+oDiv3.onclick = function () {
+    n--;
+    var l = Math.round(Math.random()*n);
+    var arr = ary.splice(l,1);
+    p[2].innerHTML += arr.toString()
+};
+oDiv4.onclick = function () {
+    n--;
+    var l = Math.round(Math.random()*n);
+    var arr = ary.splice(l,1);
+    p[3].innerHTML += arr.toString()
+};
+oDiv5.onclick = function () {
+    n--;
+    var l = Math.round(Math.random()*n);
+    var arr = ary.splice(l,1);
+    p[4].innerHTML += arr.toString()
+};
+oDiv6.onclick = function () {
+    n--;
+    var l = Math.round(Math.random()*n);
+    var arr = ary.splice(l,1);
+    p[5].innerHTML += arr.toString()
+};
+oDiv7.onclick = function () {
+    n--;
+    var l = Math.round(Math.random()*n);
+    var arr = ary.splice(l,1);
+    p[6].innerHTML += arr.toString()
+}
+
+
+</script>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box,.box2{
+            margin: auto;
+            width: 400px;
+        }
+        .til{
+            display: flex;
+            width: 400px;
+            height: 50px;
+            line-height: 50px;
+        }
+        .til li{
+            flex: 1;
+            text-align: center;
+            border: 1px dashed seashell;
+        }
+        .til li.current{
+            background: darkorange;
+            color: #fff;
+        }
+        .content{
+            display: none;
+            width: 400px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            background: #24ccc8;
+        }
+        .content.current{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<div class="box">
+    <ul class="til">
+        <li class="current">css</li>
+        <li>js</li>
+        <li>vue</li>
+    </ul>
+    <div class="content_box">
+        <div class="content current">css</div>
+        <div class="content">js</div>
+        <div class="content">vue</div>
+    </div>
+</div>
+<div class="box2">
+    <ul class="til">
+        <li class="current">css</li>
+        <li>js</li>
+        <li>vue</li>
+    </ul>
+    <div class="content_box">
+        <div class="content current">css</div>
+        <div class="content">js</div>
+        <div class="content">vue</div>
+    </div>
+</div>
+
+</body>
+</html>
+<script src="jquery/jquery-3.3.1.js"></script>
+<script>
+    (function () {
+        function tabPlugin(options) {
+            options = options || {};
+        var _default = {
+            eventType:'click',
+            index:0
+        };
+            for (var k in options) {
+                _default[k] = options[k]
+            }
+        var $box = this;
+        var $lis = $box.find('.til>li'),
+            $contents = $box.find('.content');
+        $lis.eq(_default.index).addClass('current').siblings().removeClass('current');
+        $contents.eq(_default.index).addClass('current').siblings().removeClass('current');
+        $lis.on(_default.eventType,function () {
+            var $this = $(this);
+            $this.addClass('current').siblings().removeClass('current');
+            var n = $this.index();//获取点击的LI在兄弟中的索引
+            $contents.eq(n).addClass('current').siblings().removeClass('current');
+        })
+        }
+        $.fn.extend(
+            {tab:tabPlugin}
+        )
+    })();
+    $('.box').tab();
+    $('.box2').tab({
+        eventType:'mouseenter',
+        index:1
+    });
+</script>

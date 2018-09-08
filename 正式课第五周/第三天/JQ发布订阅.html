@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script src="jquery/jquery-3.3.1.js"></script>
+<script>
+var $start = $.Callbacks();//产生一个事件池
+var $move= $.Callbacks();//产生一个事件池
+var $end = $.Callbacks();//产生一个事件池
+
+    function f1(m) {
+        console.log(1,m);
+    }
+    function f2(m) {
+        console.log(2,m);
+    }
+    function f3(m) {
+        console.log(3,m);
+    }
+
+    $start.add(f1);
+    $start.add(f2);
+    $start.add(f3);
+
+    $start.fire();
+
+    $start.remove(f2);
+
+    $start.fire();
+</script>

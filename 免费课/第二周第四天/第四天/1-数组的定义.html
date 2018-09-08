@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    var ary = [];
+    // 本身就是对象的一种细分,属性名是从 0 开始依次递增的数字
+    // 我们把这些依次递增的数字属性名 叫做 索引,
+    // 数组里的每一项 都可以是任意数据类型
+    var ary = [1,2,3,4,5,6];
+    console.dir(ary);
+
+    var obj = {
+        1:12,
+        2:13,
+        a:14,
+        // b:  任意数据类型
+        b:'qwer',
+        c:function () {
+            console.log('ccc')
+        },
+        d:true
+    };
+    function c(){console.log('AAA')};
+    c();// AAA
+    obj.c();//ccc
+    obj['c']();//ccc
+    //对象中 获取对应属性名的属性值  打点  ['']
+    // 对象中 若属性名是数字，那么我们只能用[]的方式
+    // obj[1] // 数字属性名的时候我们可以把引号省略
+    // obj['1']
+    // obj['a']
+    // obj[a]// a在这里是个变量
+    // obj['a'] = 15;
+    // obj.a = 15;
+
+    ary[0] = 10;
+    console.log(ary);
+    var str = 'qwer';
+    console.log(str.length);
+    // ary.length
+
+    var sum = function () {
+      console.log(222);
+      // return; 这时的返回值仍然是 undefined
+      //这个函数没有return  所以它的默认返回值是 undefined
+    };
+    var arr = [1,true,'wer',null,undefined,{q:1},[12],function () {
+        console.log(111)
+    },sum,sum()];
+    //arr[9] 这个位置放的是 sum执行之后的返回结果
+    // console.log(arr,arr[9]);
+    arr[7]();//arr[7] 代表咱们的那个匿名函数  加个小括号  让这个函数执行
+    arr[8]();// sum执行
+    sum();// sum 执行
+
+    arr[11] = 'true';
+
+    // 当数组没有对应的项时 咱们去获取的时候 会返回一个 undefined
+    console.log(arr,arr[10]);
+
+    // var str = 'qwertyu';
+    // for(var k in str){
+    //     console.log(str[k]);
+    // };
+    // for(var i = 0; i < str.length; i++){
+    //     console.log(str[i]);
+    // };
+
+    var arr = [1,true,'wer',null,undefined,{q:1},[12],function () {
+        console.log(111)
+    },sum,sum()];
+    arr[11] = 'qqqq';
+    arr.zhufeng = '12345';
+    // for(var k in arr){
+    //     console.log(arr[k])
+    // };
+    for(var i = 0; i < arr.length; i++){
+        //i 都是一些数字
+        console.log(arr[i]);
+    };
+    console.log(arr);
+
+
+</script>  

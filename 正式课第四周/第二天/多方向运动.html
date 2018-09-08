@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <script src="JS/utils.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            position: relative;
+            left: 100px;
+            background: #ff0bc4;
+        }
+        body{
+            background-image: url(https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4286417502,156226781&fm=173&app=25&f=JPEG?w=550&h=451&s=DBD757867EBE579E87BC7CD5030050EA);
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var oDiv = document.getElementById('div1');
+
+
+function move2(ele,duration,obj) {
+    //var beginL = utils.css(ele,attr);//初始值
+    var beginL = {};
+    var changeL = {};
+    for (var k in obj) {
+        if (obj.hasOwnProperty(k)) {
+            beginL[k] = utils.css(ele,k);
+            changeL[k] = obj[k] - beginL[k]
+        }
+    }
+
+    //var changeL = tarL - beginL;
+    var times = 0;
+    //var speed = changeL/duration;
+    var timer = setInterval(function () {
+        times += 20;
+        if (times >= duration) {
+            clearInterval(timer);
+            times = duration
+        }
+        //times*speed  运动距离
+        //当前位置 = 运动距离 + 初始值
+        //var curPos = linear(times,changeL,duration,beginL);
+        //ele.style[attr] = curPos +'px'
+        //utils.setCss(ele,attr,curPos)
+        for (var k in obj) {
+            if (obj.hasOwnProperty(k)){
+                var curPos = linear(times,changeL[k],duration,beginL[k]);
+                utils.setCss(ele,k,curPos)
+            }
+        }
+        utils.setCss(ele,)
+    },20);
+
+}
+function linear(time,changeL,duration,beginL) {
+    return changeL/duration*time+beginL;
+}
+
+
+
+move2(oDiv,10000,{left:1000,top:500,opacity:0.2})
+
+</script>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var ary = [1,2,3];
+function sum(ary) {
+    ary[0] = 10;
+    console.log(ary);
+    ary = [2,2,3];
+    return ary;
+}
+sum(ary);
+console.log(ary);
+
+/*
+*
+* 作用域   函数执行开辟栈内存（作用域）
+* 私有作用域   ------>函数执行都会形成一个私有作用域
+* 全局作用域   ------>页面一打开就会形成一个全局作用域
+*
+* 私有变量     ------>在私有作用域里面形成的变量（通过var声明或形参）
+* 全局变量     ------>在全局作用域习惯成的变量（通过var 或者 直接赋值）
+*
+* 作用域链
+* 每个私有作用域都会有一个他的上级作用域，他的上级作用域跟他在哪定义的有关系
+*
+*
+* */
+//函数执行的一个过程
+//函数执行，先开辟一个私有作用域
+//然后再进行变量提升（var function 提前声明，先形参赋值，再变量提升）
+//代码从上到下一次执行
+
+console.log(a);
+var a=12;
+function fn(){
+    console.log(a);
+    var a=13;
+    return a = 13;
+}
+// a = fn();
+console.log(fn());
+console.log(a);
+console.log(a);
+var a=12;
+function fn(){
+    console.log(a);
+    a=13
+}
+fn();
+console.log(a);
+console.log(a);
+a=12;
+function fn(){
+    console.log(a);
+    var a = 13;
+}
+fn();
+console.log(a);
+
+var foo = 1;
+function bar() {
+    //不管条件是否成立  都要进行变量提升
+    //这时的foo属于私有变量，给的默认值是undefined
+    if (!foo){
+        var foo = 10;
+    }
+    console.log(foo);
+}
+bar();
+</script>

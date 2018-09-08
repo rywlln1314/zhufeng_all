@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .imgBox{
+            margin: auto;
+            width: 480px;
+            height: 640px;
+            padding: 10px 0 0 10px;
+            background: #ff920f;
+            position: relative;
+        }
+        .imgBox li{
+            float: left;
+            width: 150px;
+            height: 150px;
+            margin: 0 10px 10px 0;
+            background: #78c071;
+        }
+        .imgBox li img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<ul class="imgBox">
+    <li>
+        <img src="images/aaaa.png" alt="">
+    </li>
+    <li>
+        <img src="images/pppp.png" alt="">
+    </li>
+    <li>
+        <img src="images/llll.png" alt="">
+    </li>
+    <li>
+        <img src="images/kkkk.png" alt="">
+    </li>
+    <li>
+        <img src="images/rrrr.png" alt="">
+    </li>
+    <li>
+        <img src="images/iiii.png" alt="">
+    </li>
+    <li>
+        <img src="images/gggg.png" alt="">
+    </li>
+    <li>
+        <img src="images/ssss.png" alt="">
+    </li>
+    <li>
+        <img src="images/eeee.png" alt="">
+    </li>
+    <li>
+        <img src="images/dddd.png" alt="">
+    </li>
+    <li>
+        <img src="images/cccc.png" alt="">
+    </li>
+    <li>
+        <img src="images/qqqq.png" alt="">
+    </li>
+
+
+</ul>
+
+</body>
+</html>
+<script src="js/drag.js"></script>
+<script src="js/event.js"></script>
+<script src="jquery/jquery-3.3.1.js"></script>
+<script>
+/*
+* 1、拖拽对应的照片  我们让对应的图片移动
+* 2、判断碰撞  跟谁碰  就让谁变色
+* 3、我们把狮驼洞的这张图片跟离他最近的图片交换位置
+* */
+//给每一个li加定位
+var oLis = document.getElementsByTagName('li'),
+    ul = document.getElementsByTagName('ul')[0];
+ul.onmousemove = function (e) {
+    e.preventDefault();
+};
+[...oLis].reverse().forEach((item)=>{
+    //每一个li的当前位置都是可以用它的offset值进行定位
+    item.style.left = item.offsetLeft + 'px';
+    item.style.top = item.offsetTop + 'px';
+    item.style.position = 'absolute';
+    on(item,'mousedown',dragStart);
+    // on是event.js提供的方法 dragstart是drag.js提供的方法
+    on(item,'myIndex',addZIndex);//给这个元素的myIndex事件池增加一个时间
+    on(item,'myHit',isHit);//给这个元素绑定碰撞函数
+    on(item,'myChangePos',changePos);
+});
+var n = 1;
+function addZIndex() {
+    this.style.zIndex = n++;
+}
+
+//判断碰撞
+function isHit() {
+    //判断是否发生碰撞
+    this.sl = this.offsetLeft;//存储拖动元素的左边到盒子的距离
+    this.el = this.sl + this.offsetWidth;//拖动元素的右边到盒子的距离
+    this.st = this.offsetTop;//存储拖动元素上边到盒子的距离
+    this.et = this.st + this.offsetHeight;//拖动元素的下边边到盒子的距离
+    //我们需要拿 拖动元素 跟其他所有元素做比较 查看是否碰撞
+    this.ary = [];//存放给拖动元素碰撞上的元素
+    [...oLis].forEach((item)=>{
+        if (item == this)return;
+        item.sl = item.offsetLeft;
+        item.el = item.sl + item.offsetWidth;
+        item.st = item.offsetTop;
+        item.et = item.st + item.offsetHeight;
+        if (this.sl > item.el || this.el < item.sl || this.st > item.et || this.et < item.st) {
+            item.style.background = '';
+            //装不上的情况
+        }else{//装上的情况
+            item.style.background = '#566acc';
+            this.ary.push(item);//把能碰撞上元素放到ary里面
+        }
+    });
+}
+function changePos() {
+    //要跟距离拖动元素最近的那个li交换位置
+    this.ary = this.ary || [];
+    this.ary.forEach((item)=>{
+        var l = this.offsetLeft - item.offsetLeft,
+            t = this.offsetTop - item.offsetTop;
+        item.style.background = '';
+        item.instance = Math.pow(l,2) + Math.pow(t,2)
+    });
+    //根据每一个元素的instance排序
+    this.ary.sort((a,b)=>{
+        return a.instance - b.instance;
+    });
+    //用this.ary[0]  跟咱们的this（拖动的元素）交换位置
+    if (!this.ary.length){
+        $(this).animate({
+            left:this.startX,
+            top:this.startY,
+        },500);
+        // this.style.left = this.startX + 'px';
+        // this.style.top = this.startY + 'px';
+    }else{
+        $(this).animate({
+            left:this.ary[0].offsetLeft,
+            top:this.ary[0].offsetTop,
+        });
+        $(this.ary[0]).animate({
+            left:this.startX,
+            top:this.startY,
+        },500);
+        // this.style.left = this.ary[0].offsetLeft + 'px';
+        // this.style.top = this.ary[0].offsetTop + 'px';
+        // this.ary[0].style.left = this.startX + 'px';
+        // this.ary[0].style.top = this.startY + 'px';
+        // this.flag = false;
+      }
+}
+
+
+
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>珠峰培训</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<div class="div2">zhufeng</div>
+<div class="div2">peixun</div>
+<div class="div3">zhufengpeixun</div>
+<p id="div2" class="div3">珠峰培训</p>
+<script>
+    //通过ID获取
+    console.log(document.getElementById('div1'));
+    //通过类名获取
+    console.log(document.getElementsByClassName('div2')[0]);
+
+    document.getElementsByClassName('div2')[1].onclick = function () {
+        alert('培训')
+    }
+
+    //通过标签名
+    console.log(document.getElementsByTagName('p')[0].id = 'div4');
+
+    //给元素增加一个class名
+    document.getElementsByClassName('div2')[0].zhufeng = '珠峰培训'
+</script>
+</body>
+</html>

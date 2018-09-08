@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 1、原型继承
+* */
+function Person() {
+
+}
+function son() {
+
+}
+son.prototype = new Person;
+//让子类的原型 指向父类的一个实例
+
+/*
+* 2、call继承
+* */
+function Father() {
+
+}
+function Son() {
+    Father.call(this)//把Father中的this指向改成Son中的this指向
+}
+var son1 = new Son();
+//new Son时；开辟了一个空的堆内存；把son中的this指向到这个堆内存
+//Father.call(this)是让Father当作普通函数执行，并把其中的this也指向到刚开辟的堆内存
+console.log(son1.name);//
+son1.hasOwnProperty('name');//true
+
+/*
+* 寄生组合式
+* */
+function Father() {
+    this.name = 'zf';
+    this.age = 9;
+}
+function Son() {
+    Father.call(this);//利用CALL继承私有
+    this.sex = '男'
+}
+Son.prototype = Father.prototype;
+//这种写法，当我们修改Son的原型上的属性时，Father的也会跟着改
+Son.prototype = Object.create(Father.prototype)   ;
+//它是让Son的prototype指向了一个空的对象（不是普通的对象）；这个对象的__proto__指向了Father的原型对象
+
+/*
+* class 继承
+* */
+class A{
+    constructor(){
+        this.a = 23;
+        this.b = 223;
+    }
+    getName(){
+        console.log(1);
+    }
+    static getName(){
+        console.log(2);
+    }
+
+}
+var a = new A;
+A.getName();//2  static getName(){}相当于A.getName = function(){}
+a.getName();
+
+class B extends A{
+    constructor(){
+        super();
+        this.a = 12;
+        this.d = 34;
+    }
+    getAge(){
+        console.log('age');
+    }
+    static getAge(){
+        console.log('static age');
+    }
+}
+var b = new B;
+B.getName();//2
+b.getName();//1
+b.getAge();//age
+B.getAge();//'static age'
+
+
+</script>

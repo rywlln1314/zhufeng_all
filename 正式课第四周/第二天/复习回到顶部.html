@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <script src="JS/utils.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            height: 5000px;
+            background: linear-gradient(#17cc00,#ff0bc4,#0c80dc,#9715a2,#17cc00,#ff0bc4,#0c80dc,#9715a2,#17cc00,#ff0bc4,#0c80dc,#9715a2,#17cc00,#ff0bc4,#0c80dc,#9715a2,#17cc00,#ff0bc4,#0c80dc,#9715a2);
+        }
+        .btn{
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 50%;
+            background: #0AEEAA;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<div class="btn">回到顶部</div>
+
+</body>
+</html>
+<script>
+var btn = utils.getByClass('btn')[0];
+/*
+* 按固定市场回到顶部
+* */
+var timer = null;
+
+
+    function toTop() {
+        //clearInterval(timer);
+        if (timer != null)return;
+        var interval = 20;//定时器执行的时间间隔
+        var times = 0;//已经运动的时间
+        var changeL = utils.scrollT();
+        var duration = 400;//总的运动使劲啊
+        var step = changeL/duration*interval;
+        timer = window.setInterval(function () {
+            //让页面的scrollTop减少
+            changeL -= step;
+            if (changeL <= 0){
+                clearInterval(timer);
+                timer = null;
+                changeL = 0;
+            }
+            document.documentElement.scrollTop = changeL
+        },interval);
+    }
+    function toTop2() {
+        //clearInterval(timer);
+        if (timer != null)return;
+        var interval = 20;//定时器执行的时间间隔
+        var times = 0;//已经运动的时间
+        var changeL = utils.scrollT();
+        var duration = 400;//总的运动使劲啊
+        var step = changeL/duration*interval;
+        timer = window.setInterval(function () {
+            //让页面的scrollTop减少
+            changeL -= step;
+            if (changeL <= 0){
+                clearInterval(timer);
+                timer = null;
+                changeL = 0;
+            }
+            document.documentElement.scrollTop = changeL
+        },interval);
+    }
+    btn.onclick = function () {
+        toTop2();
+    };
+window.onscroll = btnDis;
+function btnDis() {
+    var scrT = utils.scrollT();
+    var cliH = utils.clientH();
+    if (scrT > cliH){
+        btn.style.display = 'block'
+    } else {
+        btn.style.display = 'none'
+    }
+}
+window.onmousewheel = function () {
+    clearInterval(timer);
+    timer = null
+}
+</script>

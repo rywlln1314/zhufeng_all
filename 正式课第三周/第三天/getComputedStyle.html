@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" style="background-color: #f10040">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* getComputedStyle
+* */
+var oDiv = document.getElementById('div1');
+console.log(oDiv.style);//这种方式只能获取行内设置的样式
+
+//怎么获取oDiv的宽高
+console.log(oDiv.clientWidth);
+
+//console.log(window.getComputedStyle(oDiv, null));\
+//ele是要获取样式的元素，第二个参数是这个元素对应的伪类  可以省略
+//IE6-8不支持getComputedStyle这个方法 --->currentStyle--->ele.currentStyle
+//通过Window.getComputedStyle(ele,null)获取到的是个对象
+//对象存储的是ele 当前所有的样式
+var styleObj = window.getComputedStyle(oDiv);
+console.log(styleObj.height);
+console.log(styleObj.width);
+
+/*
+* 函数功能： 实现获取某个元素对应的样式的样式值
+* */
+function getCss(ele,style) {
+    var styleObj = window.getComputedStyle(ele);
+    return styleObj[style]
+}
+</script>

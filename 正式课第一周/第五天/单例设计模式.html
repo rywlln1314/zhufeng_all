@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 单例设计模式
+* 本身就是一个对象
+*
+* 单例模式调用自己的属性时的方法
+* 1、对象名.属性名
+* 2、this调用；需要注意this的指向问题
+* 调用其他人的属性  我们只能通过对象名.属性名
+*
+* 命名空间  --->就是咱们定义的这些对象名
+*
+* 单例 ---> 单独的实例 --->就是利用普通的对象作为命名空间 --->所用的普通对象都属于Object基类的一个实例
+*
+* 高级单例模式
+* 由于普通单例模式，没有什么隐私，谁都能看，谁都能改，有时我们需要保护自己的一些隐私；这时就需要我们的这些高级单例模式
+* return function  父作用域查看不了子作用域的东西
+* 高级单例模式有个缺点--->会形成一个不晓辉的作用域；占用浏览器的内存
+*
+* 单例模式 每次都要重新var一个对象；属于手工模式
+* */
+var obj = {
+    name: 'zfpx',
+    set:function () {
+        
+    },
+    get:function () {
+        
+    }
+};
+var obj2 = {
+    name: 'px',
+    set:function () {
+
+    },
+    get:function () {
+
+    }
+};
+
+//高级单例模式
+var person = (function () {
+    var name = 'zfpx';
+    var fn = function () {
+        console.log(12);
+    };
+    var fn2 = function () {
+        console.log(name);
+    };
+    return {
+       f:fn
+    }
+})()
+
+
+</script>

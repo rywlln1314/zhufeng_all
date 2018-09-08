@@ -1,0 +1,23 @@
+.pub(@a:100px,@b:100px){
+  width: @a;
+  height: @b;
+  background: #17cc00;
+}
+//.pub{
+//  width: 400px;
+//  height: 600px;
+//  background: #17cc00;
+//}
+#div1{
+  .pub(300px,500px);
+}
+
+//循环
+.w(@n) when(@n < 5){
+  .box_@{n}{
+    width: @n * 100px;
+    height:@n * 200px;
+  }
+  .w(@n + 1)
+}
+.w(1);

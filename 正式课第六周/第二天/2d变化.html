@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style type="text/less">
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #box{
+            position: relative;
+            margin: auto;
+            width: 500px;
+            height: 500px;
+            overflow:hidden;
+            >img{
+               position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                &:nth-child(1){
+                    z-index: 1;
+                }
+                &:nth-child(1):target{
+                    animation: move 1s;
+                }
+                &:nth-child(2):target{
+                    animation: move2 1s;
+                }
+                &:nth-child(3):target{
+                    animation: move3 1s;
+                }
+                &:nth-child(4):target{
+                    animation: move4 1s;
+                }
+            }
+            & :target{
+               z-index: 10;
+            }
+            ul{
+                list-style: none;
+                text-align: center;
+                position: absolute;
+                bottom: 20px;
+                width: 100%;
+                z-index: 20;
+                li{
+                    display: inline-block;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        @keyframes move {
+            from{
+              transform: translateY(-400px);
+            }
+            to{
+              transform: translateY(0);
+            }
+        }
+        @keyframes move2 {
+            0%{
+                transform: scale(1.2);
+            }
+            50%{
+                transform: scale(0.6);
+            }
+            100%{
+                transform: scale(1.2);
+            }
+        }
+        @keyframes move3 {
+            0%{
+                transform: rotate(0) scale(0.2);
+            }
+            100%{
+                transform: rotate(360deg) scale(1);
+            }
+        }
+        @keyframes move4 {
+            0%{
+                transform: scale(2);
+                opacity: 0;
+            }
+            100%{
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+    <script src="./js/less.js"></script>
+</head>
+<body>
+<div id="box">
+    <img id="img1" src="images/timg.jpg" alt="">
+    <img id="img2" src="images/timg%20(2).jpg" alt="">
+    <img id="img3" src="images/timg%20(1).jpg" alt="">
+    <img id="img4" src="images/139-160225100R6.jpg" alt="">
+<ul>
+    <li><a href="#img1"><img src="images/timg.jpg" alt=""></a></li>
+    <li><a href="#img2"><img src="images/timg%20(2).jpg" alt=""></a></li>
+    <li><a href="#img3"><img src="images/timg%20(1).jpg" alt=""></a></li>
+    <li><a href="#img4"><img src="images/139-160225100R6.jpg" alt=""></a></li>
+</ul>
+</div>
+</body>
+</html>
+<script>
+
+var str = window.location.href.replace(/#img\d/g,'');
+window.location.href = str;
+
+</script>

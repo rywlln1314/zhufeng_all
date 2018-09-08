@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #div1{
+            width: 455px;
+            height: 610px;
+            padding: 10px;
+            background: #fffc94;
+            margin: auto;
+            position: relative;
+        }
+        #div1 .img_box{
+            width: 465px;
+            height: 620px;
+
+            margin: -20px -10px 0 0;
+
+        }
+        #div1 .img_box .img{
+            width: 145px;
+            height: 145px;
+            float: left;
+            background: #00a77b;
+            margin: 10px 10px 0 0;
+            cursor: move;
+        }
+        #div1 .img_box .img img{
+            width: 100%;
+            height: 100%;
+            background: no-repeat;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <ul class="img_box">
+        <li class="img">
+            <img src="images/aaaa.png" alt="">
+        </li>
+        <li class="img">
+            <img src="images/bbbb.png" alt="">
+        </li>
+        <li class="img">
+            <img src="images/cccc.png" alt="">
+        </li>
+        <li class="img">
+            <img src="images/dddd.png" alt="">
+        </li>
+        <li class="img">
+            <img src="images/eeee.png" alt="">
+        </li>
+        <li class="img">
+            <img src="images/ffff.png" alt="">
+        </li>
+        <li class="img">
+            <img src="images/gggg.png" alt="">
+        </li>
+        <li class="img">
+            <img src="images/hhhh.png" alt="">
+        </li>
+        <li class="img">
+            <img src="images/iiii.png" alt="">
+        </li>
+        <li class="img">
+            <img src="images/jjjj.png" alt="">
+        </li>
+        <li class="img">
+            <img src="images/kkkk.png" alt="">
+        </li>
+        <li class="img">
+            <img src="images/llll.png" alt="">
+        </li>
+
+    </ul>
+</div>
+
+
+</body>
+</html>
+<script>
+var box = document.getElementById('div1'),
+    ul = box.getElementsByClassName('img_box')[0],
+    oLis = ul.getElementsByClassName('img');
+
+[...oLis].reverse().forEach(function (item,index) {
+    item.style.left = item.offsetLeft + 'px';
+    item.style.top = item.offsetTop + 'px';
+    item.style.position = 'absolute';
+    var n = 1;
+    item.onmousedown = function (e) {
+        item.style.zIndex = n++;
+        console.log(n);
+        this.col = this.style.background;
+        console.log(this.col);
+        this.style.background = 'red';
+        this.startL = this.offsetLeft;
+        this.startT = this.offsetTop;
+        this.mx = e.pageX;
+        this.my = e.pageY;
+        this.maxL = parseFloat(oLis[oLis.length-1].style.left);
+        this.maxT = parseFloat(oLis[oLis.length-1].style.top);
+        this.minL = parseFloat(oLis[0].style.left);
+        this.minT = parseFloat(oLis[0].style.top);
+        this.onmousemove = mousemove.bind(this);
+        this.onmouseup = mouseup.bind(this);
+        document.onmousemove = mousemove.bind(this);
+        document.onmouseup = mouseup.bind(this);
+    };
+    function mouseup(e) {
+
+        this.style.background = this.col;
+        this.style.left = e.pageX;
+        this.style.top = e.pageY;
+        document.onmousemove = null;
+        document.onmouseup = null;
+    }
+
+
+    function mousemove(e) {
+        var x = e.pageX - this.mx;
+        var y = e.pageY - this.my;
+        if (x > this.maxL){
+            x = this.maxL;
+        }
+        if (x < this.minL){
+            x = this.minL
+        }
+        if (y > this.maxT){
+            y = this.maxT;
+        }
+        if (y < this.minT){
+            y = this.minT
+        }
+
+        this.style.left = x + this.startL + 'px';
+        this.style.top = y + this.startT + 'px';
+    }
+})
+
+</script>

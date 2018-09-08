@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var xhr = new XMLHttpRequest();
+xhr.open('post','./1.xml',true);
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && /^2\d{2}|^304/.test(xhr.status)){
+        //0   UNSENT
+        //1   OPENED
+        //2   HEADER-RECEIVED
+        //3   LOADING
+        //4   DONE
+
+        //2XX   代表成功
+
+        //301   永久重定向
+        //302   临时重定向
+        //304   从缓存区获取数据
+
+        //400   参数错误
+        //404   路径错误
+        //405   请求方式（跟后台要求不统一）
+
+        //5xx   一般都是后台问题
+    }
+}
+
+</script>

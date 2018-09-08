@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style>
+        *{
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+    <div id="div2">珠峰培训</div>
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById('div1');
+    var oDiv2 = document.getElementById('div2');
+    function getStr() {
+        var str1 = '';
+        var str = 'qwertyuiopasdfghjklzxcvbnm0123456789QWERTYUIOPASDFGHJKLZXCVBNM';
+        for(var i = 0; i < 4;i++){
+            var n = Math.round(Math.random()*61);
+            // str1.indexOf(str[n]) == -1 ? str1 += str[n] : i--;
+            // for(var j = 0; j < str1.length; j++){
+            //     // 这个for循环的是 已经拼接好的字符串 ’abc‘  d
+            //     if(str1[j] == str[n]){
+            //         //说明 原字符串中有当前要拼接的字符，这时我们要重新生成一个
+            //         i--;
+            //         break;
+            //     }
+            //     str1 += str[n]
+            // }
+        }
+        return str1;
+    }
+    function getStr2() {
+        var str1 = '';
+        var str = 'qwertyuiopasdfghjklzxcvbnm0123456789QWERTYUIOPASDFGHJKLZXCVBNM';
+        var ary = [];//存放每一次生成的随机数
+        // for(var i = 0; i < 4;i++){
+        //     var n = Math.round(Math.random()*61);
+        //     if(ary.indexOf(n) == -1){
+        //         ary.push(n);// 若是数组里边没有这一项 这说明该项是不重复的，我们可以直接用这个 随机数对应的字符 拼接 字符串，然后把这一项放到数组里边
+        //         str1 += str[n];
+        //     }else {
+        //         i--;
+        //     }
+        // }
+        // for(var i = 0; i < 4;){
+        //     var n = Math.round(Math.random()*61);
+        //     if(ary.indexOf(n) == -1){
+        //         ary.push(n);// 若是数组里边没有这一项 这说明该项是不重复的，我们可以直接用这个 随机数对应的字符 拼接 字符串，然后把这一项放到数组里边
+        //         str1 += str[n];
+        //         i++;
+        //     }
+        // }
+        // var i = 0;
+        // while(i < 4){
+        //     var n = Math.round(Math.random()*61);
+        //     if(ary.indexOf(n) == -1){
+        //         ary.push(n);
+        //         str1 += str[n];
+        //         i++;
+        //     }
+        // }
+        while(ary.length < 4){
+            var n = Math.round(Math.random()*61);
+            if(ary.indexOf(n) == -1){
+                ary.push(n);
+                str1 += str[n];
+            }
+        }
+        return str1;
+    }
+    oDiv.onclick = function () {
+        this.innerHTML = getStr();
+    };
+    oDiv2.onclick = function () {
+        this.innerHTML = getStr2();
+    }
+</script>  

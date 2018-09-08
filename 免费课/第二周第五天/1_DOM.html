@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<!--这是一个注释-->
+<span>珠峰</span>
+<p>培训</p>
+<h1>珠峰培训2018</h1>
+
+</body>
+</html>
+<script>
+/*
+* 一个页面  以有一个  根节点  document  只有一个跟元素  html
+* 根节点   元素节点    注释节点   文本节点
+*
+*             nodeType     nodeName     nodeValud
+* 元素节点         1       大写的标签名      null
+* 文本节点         3         #text       文本的内容
+* 注释节点         8        #comment     注释的内容
+* 文档节点         9        #document      null
+* */
+//获取body元素
+//body    document.getElementsByTagName('body')[0]
+//body    document.body
+//获取html
+//html    document.getElementsByTagName('html')[0]
+//html    document.docummentElement
+
+//查看body下所有的标签
+//1、父节点.childNodes:父节点下所有的子节点
+console.log(document.body.childNodes);
+//2、父节点.children:父节点下所有的元素子节点
+console.log(document.body.children);
+var oDiv = document.getElementById('div1');
+//3、oDiv.previousSibling  oDiv的哥哥节点
+console.log(oDiv.previousSibling);
+//4、oDiv.nextSibling   oDiv的弟弟节点
+console.log(oDiv.nextSibling);
+
+
+
+
+
+//7、父节点.firstChild   第一个子节点
+console.log(document.body.firstChild);
+//8、父节点.firstElementChild
+console.log(document.body.firstElementChild);
+//9、父节点.lastChild  最后一个节点
+//10、父节点.lastElementChild  最后一个子元素节点
+//11、oDiv.parentNode  oDiv的父节点
+console.log(oDiv.parentNode);//oDiv的父节点
+
+/*以上这些属性中，带有element字样的属性 都不兼容IE低版本*/
+
+function getBigBrother(ele) {
+    //先去拿元素的哥哥节点  判断该节点是不是元素节点
+    //若是  则返回这个节点   若不是接着向上查找该元素的哥哥节点
+    ele = ele.previousSibling;
+    while(ele && ele.nodeType !=1){
+        ele = ele.previousSibling;
+    }
+    return ele;
+
+    var temp = ele.previousSibling;
+    while (temp && temp.nodeType !=1){
+        temp = temp.previousSibling;
+    }
+    return temp;
+}
+
+//1、创造标签
+var myH1 = document.createElement('h1');
+myH1.className = 'www';
+
+//节点.innerHTML   要给某个节点添加内容
+//节点.innerText   要给某个节点添加内容
+//两者的区别就是innerHTML能识别元素标签
+myH1.innerText = '<a>珠峰培训</a>>';
+myH1.innerHTML = '<a>珠峰培训</a>>';
+
+
+//2、父节点.appendChild  在父节点的最后便添加一个元素
+oDiv.appendChild(myH1);
+
+//3、父节点.insertBefore(new,old),  在父节点下，old元素的前边添加一项new元素
+var oSpan = document.getElementById('span');
+oDiv.insertBefore(myH1,oSpan);
+
+//4、父节点.replaceChild(new,old);在父节点下，用new去代替old元素
+    oDiv.replaceChild(myH1,oSpan);
+
+//5、父节点.removeChild(元素)；在父节点下删除 某个元素
+oDiv.removeChild(myH1)   ;
+
+//6、getArrribute
+    oDiv.getAttribute('myDate');
+    oDiv.getAttribute('id');
+//若是 通过 打点的方式 添加到元素的属性  我们智能通过打点的方式获取
+//若是  写到行内的属性 我们只能通过 getAttribute 的方式获取
+
+//7、setAttribute('属性名'，属性值)  添加行内属性
+oDiv.setAttribute('myId',100);
+</script>

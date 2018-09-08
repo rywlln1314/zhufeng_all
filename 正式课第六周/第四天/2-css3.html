@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style type="text/less" rel="stylesheet/less">
+        /*ul:nth-child(1){ // 第一个 ul
+
+        }*/
+        /*ul :nth-child(1){ // ul 下的第一个元素
+
+        }*/
+        /*ul{
+            !*li:nth-child(1){*!
+                !**!
+            !*}*!
+            !*li:nth-of-type(1){*!
+                !**!
+            !*}*!
+            & :nth-child(1){ // ul 下的 第一个元素
+
+            }
+            & :nth-of-type(1){// ul 下 同标签的第一个元素
+
+            }
+        }
+        #div1{
+            //box-shadow: x y blur spread color;
+            // x  横轴偏移  y 纵轴偏移
+            // blur  模糊半径
+            // spread 扩展半径
+            // color 偏移的底色
+        }*/
+        #div1{
+            transition: width 1s linear 2s;
+            width: 200px;
+            height: 200px;
+            background: #cc080b;
+            /*transform: translate(200px,500px);*/
+            &:hover{
+                /*width: 400px;*/
+                /*height: 200px;*/
+                /*transform: translate(200px,200px);// x y 同时移动*/
+                // 通过 css3 的transform 改变元素的位置后，
+                // 再通过JS获取元素的位置时， 还是元素 原始的位置
+                /*transform: rotate(45deg);*/
+                /*transform: scale(2);*/
+                /*transform: scale(2,1);*/
+                transform: skew(30deg,30deg);
+            }
+        }
+
+    </style>
+    <script src="js/less.js"></script>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+    <ul>
+        <div></div>
+        <div></div>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
+<script>
+</script>  

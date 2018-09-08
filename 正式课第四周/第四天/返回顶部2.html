@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        #div1 {
+            height: 20000px;
+            width: 500px;
+            margin: auto;
+            background: linear-gradient(#cc0711, #fffa00, #f100ca,#cc0711, #fffa00, #f100ca);
+        }
+
+        #btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<button id="btn">返回顶部</button>
+
+</body>
+</html>
+<script src="JS/utils.js"></script>
+<script>
+    var btn = document.getElementById('btn');
+
+
+btn.onclick = function () {
+    // clearInterval(this.timer);
+    if(this.running)return;
+    this.running = true;
+    var duration = 1000;
+    var changeL = utils.scrollT();//当前页面卷上去的高度
+    var speed = changeL/duration;
+    this.timer = setInterval(() => {
+        var moveL = speed*30;
+        changeL = utils.scrollT();
+        if (changeL <= 0){
+            clearInterval(this.timer);
+            this.running = false
+        }
+        document.documentElement.scrollTop -= moveL;
+        document.body.scrollTop -= moveL
+    }, 20)
+};
+function btnDis() {
+    var scrT = utils.scrollT();
+    if(scrT > 400){
+        btn.style.display = 'block'
+    }else{
+        btn.style.display = 'none'
+    }
+}
+window.onscroll = function () {
+    btnDis()
+};
+window.onmousewheel = function () {
+    clearInterval(btn.timer);
+    btn.running = false
+}
+</script>

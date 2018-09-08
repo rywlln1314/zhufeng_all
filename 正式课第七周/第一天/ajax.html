@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* ajax async javascript and xml
+*
+* xml  是一种数据传输的格式
+* */
+var oDiv = document.getElementById('div1');
+var xhr = new XMLHttpRequest();
+
+xhr.open('get','./1.xml',false);
+
+xhr.onreadystatechange = function () {
+    console.dir(xhr);
+};
+
+xhr.send();
+
+var ele = xhr.responseXML.children[0];
+oDiv.appendChild(ele);
+
+/*
+* 返回的结果
+* response ： 是个字符串
+* responseText ： 也是个字符串
+* responseXml ： 由的话 就是一个对象
+* */
+
+</script>

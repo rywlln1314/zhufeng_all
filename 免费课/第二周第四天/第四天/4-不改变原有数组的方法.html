@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * 1、toString() 把数组 按照逗号拼接成一个字符串
+    * 没参数
+    * 返回值 就是用逗号拼接成的字符串
+    * */
+    var ary = [1,2,3,4];
+    var str = ary.toString();
+    console.log(typeof str,ary);
+    // Number([]);
+    // Number([1]);
+
+    /*
+    * 2、join() 把数组按照指定字符 拼接成 一个字符串
+    * 参数 可有可无，没有参数 就是默认的逗号
+    * 返回值 就是 按照指定字符拼接成的字符串
+    * */
+    var str2 = ary.join(',');
+    var str3 = ary.join();
+    var str4 = ary.join('+');
+    eval('1+2') ;// 把字符串 转化成 表达式
+
+    // 结合 eval和 join 我们实现数组的求和；
+    var t = 0;
+    for(var i = 0; i < ary.length ; i++){
+        t += ary[i];
+        // t = t + ary[i];
+    }
+    console.log(t);
+    console.log(eval(str4));
+
+    //3、slice(n,m) 从索引 n 开始 获取到 索引m（不包含m） 返回一个由获取到的元素组成的新数组
+    //ary = [1,2,3,4];
+    var tempAry = ary.slice(2,3);
+
+    // var tempAry3 = ary.splice();
+    // tempAry3//[]
+    var tempAry2 = ary.slice();//把原数组复制一份
+    var tempAry3 = ary.slice(0);//把原数组复制一份
+    var tempAry4 = ary.slice(-4,-1);//从倒数第四项 找到 倒数第一项
+    //ary.slice(ary.length-4,ary.length-1);
+    console.log(tempAry4,ary);
+
+    //4、concat()// 数组拼接 接收参数 参数类型不限
+    // var tempAry5 = ary.concat(12);
+    // var tempAry6 = ary.concat([12],{q:1},null);
+    // console.log(tempAry6);
+    var temp = ary.concat([1,2,3,4],null,{w:1});
+    console.log(temp);
+
+    //5、indexOf lastIndexOf 查看某个元素在数组里边的索引
+    //indexOf(n,m) 从索引 m 开始查看 n在数组里边的索引
+    // 返回值是参数再数组里边的索引 ， 数组里若没有这个元素 则返回 -1
+    var ary = [1,2,1,3,4,1,2];
+    var n = ary.indexOf(1,3);//
+    var m = ary.lastIndexOf(1);
+    console.log(n,m);
+
+</script>  

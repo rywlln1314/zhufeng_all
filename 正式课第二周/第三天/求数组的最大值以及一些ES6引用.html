@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* call  改变this
+* f1.call(obj,1,2,3)
+* f1中的this指向obj；让f1（call中的this）执行
+*
+* apply：
+* f1.apply(obj.数组或类数组)
+*
+* bind
+* var f2 = f1.bind(obj,1,2,3)
+*
+* */
+Object.prototype.toString.call('qqq');
+({}).toString.call('qq');
+//数组中的最大值和最小值
+var ary = [1,2,3,45,6,799,4,2,56,9];
+
+//1、先排序然后拿头或尾
+ary.sort(function (a,b) {
+    return a - b
+});
+var max = ary[ary.length-1],min = ary[0];
+
+//2、假设法
+//先假设第一个是最大的，然后循环数组，挨个比较
+var max = ary[0]    ;
+for (let i = 1; i < ary.length; i++) {
+    if (max < ary[i]) {
+        max = ary[i]
+    }
+}
+console.log(max);
+
+
+//Math方法
+var ary1 = [1,2,3,45,6,799,4,2,56,9];
+var str = ary1.toString();
+var max = eval('Math.max('+str+')')  ;
+console.log(max);
+
+//apply方法
+var ary2 = [1,2,3,45,6,799,4,2,56,9];
+var max = Math.max.apply(null,ary2);
+console.log(max);
+
+//ES6的方法
+var ary3 = [1,2,3,45,6,799,4,2,56,9];
+var max = Math.max(...ary3);
+console.log(max);
+/*
+* ...扩展运算符
+* */
+function f(...a) {
+    //a 是个数组 ；  arguments 是个类数组
+    //console.log(arguments.join('+'));//错误
+    //eval(a.join('+'));//正确
+    console.log(a);
+}
+f(1,2,3,4,5)
+
+
+    /*
+    * ES6   箭头函数
+    * */
+    ary.sort(function (a,b) {
+        return a - b;
+    });
+    ary.sort((a,b) =>{
+        return a - b;
+    });
+    var fn2 = (a,b) =>{
+        console.log(12);
+    };
+    /*
+    * 区别
+    * 箭头函数没有this；往上级作用域查找this
+    * 箭头函数不能当作构造函数用
+    * */
+
+    var f3 = ()=>{
+        console.log(this);
+    };
+    var obj = {f:f3};
+    obj.f()
+
+//ES6方法写个myBind
+function myBind() {
+    //this--->f1
+    var _this = arguments[0];
+    var that = this;//--->f1
+    var ary = [];
+    for (var i = 1; i < arguments.length; i++) {
+        ary.push(arguments[i])
+    }
+    return function () {
+        var arr = [];
+        for (var i = 0; i < arguments.length; i++) {
+            arr.push(arguments[i])
+        }
+        that.apply(_this,ary.concat(arr))
+    }
+}
+Function.prototype.myBind = myBind;
+    var myBind = function (...arg) {
+        var _this = arg[0];
+        arg.shift();
+        return (...arg2)=>{
+            this.apply(_this,arg.concat(arg2))
+        }
+    };
+
+    var myBind = function (...arg) {
+        arg.shift();
+        return (...arg2)=>{
+            this.apply(arg.shift(),arg.concat(arg2))
+        }
+    };
+    Function.prototype.myBind = myBind;
+</script>

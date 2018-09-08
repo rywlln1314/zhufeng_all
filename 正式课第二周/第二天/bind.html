@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* bind
+* var f2 = f1.bind(obj,1,2,3)
+* var f3 = f1.call(obj,1,2,3)
+* 改变this指向，并把改变后的函数返回出去
+* f2执行时 再传参数 会跟bind传的参数（除了第一个参数）结合
+*
+* */
+function f1() {
+    console.log(arguments);
+    console.log(this);
+}
+var obj = {
+    name:'zfpx'
+};
+var f2 = f1.bind(obj,1,2,3);
+console.log(f2);
+f2(5,6,7);
+
+//自己写一个bind
+    function myBind() {
+        //this--->f1
+        var _this = arguments[0];
+        var that = this;//--->f1
+        var ary = [];
+        for (var i = 1; i < arguments.length; i++) {
+            ary.push(arguments[i])
+        }
+        return function () {
+            var arr = [];
+            for (var i = 0; i < arguments.length; i++) {
+                arr.push(arguments[i])
+            }
+            that.apply(_this,ary.concat(arr))
+        }
+    }
+    Function.prototype.myBind = myBind;
+
+
+</script>

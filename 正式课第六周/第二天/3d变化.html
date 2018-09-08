@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style type="text/less">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        @w:200px;
+        .box{
+            width: @w;
+            height: @w;
+            position: relative;
+            margin: 200px auto 0;
+            transform-style: preserve-3d;
+            ul{
+                list-style: none;
+                width: @w;
+                height: @w;
+                position: relative;
+                transform: rotateX(30deg) rotateY(30deg);
+                transform-style: preserve-3d;
+                animation: move 4s linear infinite;
+                transform-origin: @w/2 @w/2 @w/2;
+                li{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    background: rgba(200, 0, 188, 0.5);
+                    text-align: center;
+                    line-height: @w;
+                    font-size: 40px;
+                    box-sizing: border-box;
+                    border: 1px solid rgba(0, 135, 255, 0.5);
+                }
+                li:nth-child(1){
+                    transform: translateY(-@w) rotateX(-90deg);
+                    transform-origin: bottom;
+
+                }
+                li:nth-child(2){
+                    transform: translateY(@w) rotateX(90deg);
+                    transform-origin: top;
+                }
+                li:nth-child(3){
+                    transform: translateX(-@w) rotateY(90deg);
+                    transform-origin: right;
+                }
+                li:nth-child(4){
+                    transform: translateX(@w) rotateY(-90deg);
+                    transform-origin: left;
+                }
+                li:nth-child(6){
+                    transform: translateZ(@w) rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+
+                }
+            }
+        }
+        @keyframes move {
+            0%{
+                transform: rotateX(0) rotateY(0);
+            }
+            100%{
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+    </style>
+    <script src="js/less.js"></script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</div>
+
+
+</body>
+</html>
+<script>
+
+
+</script>

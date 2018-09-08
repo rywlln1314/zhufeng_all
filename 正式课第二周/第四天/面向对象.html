@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    var per1 = new Person('小明',18);
+    per1.__proto__.getName = function () {
+        console.log(12);
+    };
+    per1.getName();
+    var per2 = new Person('小红',20);
+    per2.getName();
+
+    Person.prototype = {
+        name:'珠峰',
+        getName: function () {
+            console.log('www.zhufengpeixun.com')
+        }
+    };
+    var per3 = new Person();
+    per3.getName();
+    per2.getName2();
+    per1.getName();
+
+</script>

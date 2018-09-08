@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 循环数组的两个方法
+*
+* forEach  必须以函数作为参数
+* map
+* */
+let ary = [12,342,45,675,123,234];
+var a = ary.forEach(function (item,index) {
+    console.log(item,index);
+    //item是数组中的项
+    //index是对应的索引
+    //item = 0;-->改变不了原数组
+    //ary[index] = 0;-->改变原数组
+    console.log(arguments);
+});
+console.log(a);//forEach没有返回值
+console.log(ary);
+var b = ary.forEach((item,index)=>{
+
+})
+
+    /*
+    * map
+    * 有返回值 返回值是由回调函数内的return确定的；没有return默认返回由undefined组成的数组
+    * */
+    var c = ary.map(function(item,index){
+        console.log(item, index);
+        console.log(arguments);
+        //箭头函数没有arguments
+    });
+console.log(c,ary);
+</script>

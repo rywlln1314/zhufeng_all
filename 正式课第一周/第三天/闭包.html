@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 闭包:它是一种保护机制，保护里边的变量不受外界的影响
+* 函数执行，形成一个私有作用域，这个私有作用域就是闭包；
+* 不销毁的私有作用域才是闭包；
+*
+* */
+function f() {
+    return 10
+}
+f();
+//栈内存：销毁，当这个作用域没有用处时就销毁，跟外界没有任何关系了
+//私有作用域销毁，函数执行完成之后，看这个作用域是否有用用处，没用处就直接销毁
+//全局作用域的销毁，之后又再关闭页面的时候销毁
+
+//堆内存：函数体，对象的键值对等等
+//销毁：没用的时候，再浏览器查看到这个堆内存没有用处时就销毁
+
+//所有匿名函数都不会进行变量提升
+//自执行函数也不会有变量提升
+//return后边的函数也不会有变量提升
+// =号 右边不进行变量提升
+    var obj = {q:1,w:2};
+    var obj = null;
+
+//
+var fn = (function () {
+    var a = 12;
+    return function () {
+        console.log(a)
+    }
+})()
+
+/*
+* 闭包的形式
+*
+* */
+//形式1
+var fn = (function () {
+    var a = 19;
+    return function () {
+        console.log(a);
+    }
+})()  ;
+//形式2
+var obj = (function () {
+    var fn = function () {
+        console.log(12);
+    };
+    return {
+        f:fn
+    }
+})();
+//obj 存储的是返回的对象-{f：xxxfff000}，先让xxxfff000执行，我们就要先找到这个xxxfff000 然后加小括号 让他执行  obj.f  就是xxxfff000
+//形式3
+var sum = function () {
+    var a = 12;
+    return function () {
+        console.log(a);
+    }
+};
+sum();//销毁
+sum()();//暂时不销毁
+var qq = sum();//不销毁
+qq();//销毁
+var a = qq();//销毁
+
+
+//练习题
+var i = 2;
+function fn() {
+    i += 2;
+    return function (n) {
+        console.log(n + (--i));
+    }
+}
+var f = fn();
+f(2);
+f(3);
+fn()(2);
+fn()(3);
+f(4);
+
+</script>

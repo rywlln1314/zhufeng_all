@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+//[] == 0;
+//1、引用数据类型 和 引用数据类型之间的比较
+//   永远比较的是地址
+var a = [1,2,3];
+var b = [1,2,3];
+var c = b;
+a == b; // false  两个不是一个地址
+b == c; // true   同一个地址
+a.join() == b.toString();//true  '1,2,3' == '1,2,3'
+
+//2\ 引用数据类型 和 字符串 比较；
+//   先把引用数据类型 用toString（）  转化成字符串  再去比较
+a.join() == b;//true   '1,2,3' == '1,2,3'
+
+//3、 null  == undefined   --->true
+
+//4、其他情况   都是先转化成字符串  然后再转化成数字  比较
+</script>

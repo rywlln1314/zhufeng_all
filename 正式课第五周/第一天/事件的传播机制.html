@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        #outer{
+            width: 300px;
+            height: 300px;
+            background: #ff0bc4;
+            margin: auto;
+        }
+        #center{
+            width: 200px;
+            height: 200px;
+            background: #00c0a5;
+            margin: auto;
+        }
+        #inner{
+            width: 100px;
+            height: 100px;
+            background: #9715a2;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="center">
+        <div id="inner">
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+<script src="jquery/jquery-3.3.1.js"></script>
+<script>
+/*
+* 事件的传播机制，分为两个阶段
+* 第一个阶段是    捕获阶段
+* 第二个阶段是    冒泡阶段
+*
+* DOM 0级事件： 执行是在冒泡阶段执行的
+*
+* 取消冒泡传播
+* e.stopPropagation ? e.stopPropagation : e.cancelBubble = true;
+* */
+var outer = document.getElementById('outer');
+var center = document.getElementById('center');
+var inner = document.getElementById('inner');
+outer.onclick = function (e) {
+    e.stopPropagation();
+    console.log('outer');
+};
+center.onclick = function (e) {
+    e.stopPropagation();
+    console.log('center');
+};
+inner.onclick = function (e) {
+    console.log('inner');
+    e = e || window.event;
+    var tar = e.target || e.srcElement;
+    e.stopPropagation();
+    e.cancelBubble = true;
+    /*
+    * 取消冒泡传播
+    * e.stopPropagation ? e.stopPropagation : e.cancelBubble = true;
+    * */
+};
+$('#outer').on('click',function () {
+    console.log(arguments);
+})
+
+//mouseenter 是在捕获阶段触发  mouseover 是在冒泡阶段出发
+
+</script>

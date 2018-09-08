@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #div1,#div2,#div3{
+            width: 100px;
+            height: 100px;
+            background: deeppink;
+            text-align: center;
+            line-height: 100px;
+            position: absolute;
+            user-select: none;
+            border-radius: 50%;
+        }
+    </style>
+
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script src="js/drag.js"></script>
+<script src="js/event.js"></script>
+<script>
+  var oDiv = document.getElementById('div1');
+  on(oDiv,'onmousedown',dragStart);
+  on(oDiv,'myFly',fly);
+  function fly() {
+
+      clearTimeout(this.flyTimer);
+      this.running = false;
+      this.speed *= 0.98;
+      var l = this.offsetLeft + this.speed;
+      var maxL = (document.documentElement.clientWidth || document.body.clientWidth) - this.offsetWidth;
+      //l = l > maxL ? maxL : (l < 0 ? 0 : l);
+      if (l > maxL){
+          l = maxL;
+          this.speed *= -1;
+      } else if (l < 0){
+          l = 0;
+          this.speed *= -1;
+      }
+      this.style.left = l + 'px';
+
+      if (Math.abs(this.speed) > 0.01){
+          this.flyTimer = setTimeout(fly.bind(this),30);
+          this.running = true;
+      }else {
+          this.running = false
+      }
+  }
+
+  //这里做一个约定，只要是自己的时间我们统一用my开头
+
+</script>

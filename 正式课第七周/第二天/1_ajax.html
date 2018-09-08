@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* xml json
+* */
+var xhr = new XMLHttpRequest();//readyState = 0
+xhr.open('get','1.xml',false);//请求方式 接口 同步
+//open 执行完 变成1
+//2 3 4  都是http重置的
+xhr.onreadystatechange = function () {
+    console.log(xhr.readyState);
+};
+
+xhr.setRequestHeader('name','zhufeng');//设置请求头
+// xhr.setRequestHeader('name','珠峰');//不能设置中文  报错
+//可以把中文转成计算机支持的字符
+var str = escape('珠峰');//unescape('')再把字符转成中文
+//后台的语言一般不支持这样转义的方式
+var str2 = encodeURI('珠峰');//decodeURI('')解码成中文
+//以上两种都不太常用
+var str3 = encodeURIComponent('珠峰');//decodeURIComponent('')
+xhr.setRequestHeader('name',str);
+
+xhr.send();
+/*
+* escape  ---  unescape  //基本不用
+*
+* encodeURI  ---  decodeURI  //不常用  支持多次转义  不转义一些特殊字符
+*
+* encodeURIComponent  ---  decodeURIComponent
+* //常用 支持encodeURI不能转义的特殊字符
+* */
+
+</script>

@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+a {
+    text-decoration: none
+}
+
+.fr {
+    float: right
+}
+
+.fl {
+    float: left
+}
+
+.li {
+    list-style: none
+}
+#div1{
+    background-color: black;
+}

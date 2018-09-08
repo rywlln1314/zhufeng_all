@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .til{
+            width: 400px;
+            height: 50px;
+            border: 1px solid #ccc;
+            margin: auto;
+            box-sizing: border-box;
+        }
+        .til ul {
+            overflow: hidden;
+            display: flex;
+        }
+        .til ul li{
+            /*float: left;*/
+            flex: 1;
+            line-height: 50px;
+            /*width: 33%;*/
+            font-size: 25px;
+            text-align: center;
+        }
+        .til ul li.active{
+            background: paleturquoise;
+            color: #161616;
+        }
+        .body{
+            margin: auto;
+            width: 400px;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            font-size: 30px;
+        }
+        .body ul {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .body ul li{
+            width: 100%;
+            height: 100%;
+            background: papayawhip;
+            display: none;
+        }
+        .body ul li.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+    <div class="til">
+        <ul>
+            <li>css</li>
+            <li class="active">html</li>
+            <li>js</li>
+        </ul>
+    </div>
+    <div class="body">
+        <ul>
+            <li>这是cssBody</li>
+            <li class="active">这是htmlBody</li>
+            <li>这是JSBody</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    var tilDiv = document.getElementsByClassName('til')[0];
+    var tilDivUl = tilDiv.getElementsByTagName('ul')[0];
+    var tils = tilDivUl.getElementsByTagName('li');
+
+    var bodyDiv = document.getElementsByClassName('body')[0];
+    var bodyDivUl = bodyDiv.getElementsByTagName('ul')[0];
+    var bodys = bodyDivUl.getElementsByTagName('li');
+    console.log(tils,bodys);
+
+    function clearClass(){
+        //清空所有 tils 里的 li的class名  和  bodys 里的 li 的class名
+        for(var i = 0; i < tils.length ; i++){
+            tils[i].className = '';
+            bodys[i].className = '';
+        }
+    }
+
+    // tils[0].onclick = function () {
+    //     clearClass();
+    //     tils[0].className = 'active';
+    //     bodys[0].className = 'active';
+    // };
+    // tils[1].onclick = function () {
+    //     clearClass();
+    //     tils[1].className = 'active';
+    //     bodys[1].className = 'active';
+    // };
+    // tils[2].onclick = function () {
+    //     clearClass();
+    //     tils[2].className = 'active';
+    //     bodys[2].className = 'active';
+    // };
+
+    for(var i = 0; i < tils.length; i++){
+        tils[i].myIndex = i;
+        tils[i].onclick = function () {
+            clearClass();
+            // tils[i].className = 'active';
+            tils[this.myIndex].className = 'active';
+            // bodys[i].className = 'active';
+            bodys[this.myIndex].className = 'active';
+        };
+    }
+
+    console.dir(tils[2].myIndex);
+    // 开辟一个堆内存  把函数体当作字符串 存储起来  把这个堆内存的地址（） 赋给 onclick这个事xxxfff000件
+    //div1.onclick = xxxfff000
+
+
+    /*//======================================
+    // 把  for  拆开
+    //i = 0
+    // tils[0].onclick = xxxfff111;
+    tils[0].onclick = function(){
+        clearClass();
+        tils[i].className = 'active';
+        bodys[i].className = 'active';
+    }
+    //i = 1
+    // tils[1].onclick = xxxfff222;
+    tils[1].onclick = function(){
+        clearClass();
+        tils[i].className = 'active';
+        bodys[i].className = 'active';
+    }
+    //i = 2
+    // tils[2].onclick = xxxfff333;
+    tils[2].onclick = function(){
+        clearClass();
+        tils[i].className = 'active';
+        bodys[i].className = 'active';
+    }
+    // i = 3
+    //=========================================*/
+
+    // 开辟一个堆内存(xxxfff111) 把函数体（clearClass();tils[i].className = 'active';bodys[i].className = 'active';）当作字符串 存储起来 把地址赋给onclick
+    // 开辟一个堆内存(xxxfff222) 把函数体（clearClass();tils[i].className = 'active';bodys[i].className = 'active';）当作字符串 存储起来 把地址赋给onclick
+    // 开辟一个堆内存(xxxfff333) 把函数体（clearClass();tils[i].className = 'active';bodys[i].className = 'active';）当作字符串 存储起来 把地址赋给onclick
+
+
+
+
+</script>  

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //Number 数据类型
+    //包含 整数 小数  NaN(not a number)
+    var a = 1233;
+    var b = 12.34;
+    //1/'a'
+    //把其他数据类型转化成数字，他在转化时，只要字符里边有非数字，就会转成NaN
+    Number() // ---> 把其他数据类型
+    // console.log(Number(.5));// 0.5
+    // console.log(Number('.5'));// 0.5
+    // console.log(Number('')); // 0
+    // console.log(Number(' '));// 0
+    // console.log(Number('12q'));// NaN
+    // console.log(Number());// 0
+    // console.log(Number(false));// 0
+    // console.log(Number(true));// 1
+    // console.log(Number([])); // 0
+    // console.log(Number({})); // NaN
+    // console.log(Number(null)); // 0
+    // console.log(Number(undefined));// NaN
+
+
+    //把浮点型转化成 整型
+    //parseInt()
+    console.log(parseInt('1.3q'));
+    console.log(parseInt('12q.3'));
+    //parseInt('')-->NaN
+    console.log(parseInt('.5'))//NaN
+    console.log(parseInt('0.5'));//0
+    console.log(parseInt(.5));//0
+    console.log(parseInt('q12'))//NaN
+    // console.log(parseInt(1.9));
+
+    //parseFloat()
+    console.log(parseFloat('.5q'))
+    console.log(parseFloat(1.8))
+
+    // Number(undefined) == NaN  ===> NaN == NaN ==> false
+
+    isNaN(parseInt(''))// parseInt('') --> NaN   isNaN(NaN) -- >true
+
+    isNaN('') //-- >false
+    isNaN([]) // --> false []--->0  isNaN(0)
+    isNaN(undefined)// true
+
+    // - / * % 先把非数字用Number转化成数字 在进行运算
+    1/'q' // ---> NaN
+    1/'1' // ---> 1
+    1*'1.2'// ---> 1.2
+    1*'1.2a'// ---> NaN
+    1*'q' // ---> NaN
+
+    //  +  两边都是数字类型，那就是正常的加法运算
+    //  假如 连边有一边时字符串， 那就是字符串拼接
+    1 + 2 * 2 - 1 + 'a';
+    'a' + 2 - 3 * 2 + 1;// --> "a" + 2 - 6 + 1 -- > "a2" - 6 + 1==> NaN
+    isNaN('a' + 2 ) - '2' + parseInt('2.5a') ;
+    // isNaN('a2') - '2' + 2;
+    // isNaN(NaN) - '2' + 2;
+    // true - '2' + 2;
+    // 1 - 2 + 2 == > 1
+
+
+
+</script>  

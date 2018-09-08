@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 订阅
+*
+* 发布
+*
+* 取消订阅
+* */
+//订阅
+var ary = [];//报社订阅人的名单
+function on(f) {//on自己起的名 这个函数是用来把订阅人加入到名单里
+    ary.push(f)
+}
+
+//发布
+function fire() {//循环每一个人，对每一个人进行发报纸（每一个人执行）
+    ary.forEach((item)=>{
+        item && item();
+    })
+}
+
+//取消订阅
+    function off(f) {
+        var n = ary.indexOf(f);
+        if (n !== -1){//查看这个人是否在名单里
+            ary.splice(n,1);//把这个人从这个名单中移除掉
+        }
+    }
+
+function f1() {
+    console.log(1);
+}
+function f2() {
+    console.log(2);
+}
+
+on(f1);
+on(f2);
+fire();
+
+off(f2);
+fire();
+
+
+</script>

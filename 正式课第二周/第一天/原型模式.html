@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 原型模式
+* 利用构造函数
+* 原型： prototype
+*
+* 每一个函数都有一个属性：prototype  这个属性指向函数自己的原型对象
+* 每一个对象都有一个__proto__的属性，指向所属类的原型对象
+* 每一个默认的原型对象都有一个属性constructor ； 指向所属的函数本身
+*
+* 所有的实例都是一个对象
+* 所有的类都是一个函数
+*
+* Object的原型也是个对象，是对象就有一个__proto__的属性；指向所属类（Object）的原型，相当于指向它自己，这时JS默认把这个指向改成了null
+*
+* Function它所属的类 还是函数；它自己是它自己的一个实例；它的__proto__就是指向自己的原型对象
+* */
+function Person() {
+    this.name = 'zhufeng';
+    this.age = 9;
+}
+
+console.log(Person.prototype);
+
+var per1 = new Person();
+//var per1 = new Person --->当构造函数不需要传参数的时候，后边括号可以省略
+//per1 称为 Person 这个类的一个实例；同时它也是一个对象
+console.log(per1.__proto__ === Person.prototype);//true
+console.log(per1)
+</script>

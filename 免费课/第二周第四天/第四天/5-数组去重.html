@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * 数组去重
+    * 思路1
+    *  去拿当前项 跟后边的每一项去比较 ；如果 后边有某一项 跟当前项相同，那就证明，后边这项是重复的，删除这一项即可
+    * */
+    var ary = [1,2,3,1,2,6,7,2,3,5];
+    // obj ={
+    //     1:1,
+    //     2:2,
+    //     3:3,
+    //     6:6,
+    //     7:7,
+    // };
+    // var ary = [1,2,3,2,6,7,2,3,5];
+    function removeRep(ary) {
+        for(var i = 0; i < ary.length; i++){
+            var cur = ary[i];// 当前项
+            //用当前项 跟后边的每一项去比较；
+            for(var j=i+1;j < ary.length;j++){
+                //若后边有一项跟当前项相同，那就证明重复 删掉后边这一项
+                if(cur == ary[j]){
+                    ary.splice(j,1)//删除 索引为 j 的这一项
+                    j = j - 1;
+                    // 当 j ==  3 时 发现 跟cur 相同
+                    // j == 3 时， 对应的值是  1， 删除这一项之后
+                    // j==3 的位置 2
+                }
+            }
+        }
+    }
+    // 思路 2
+    // 造一个新数组， 循环老数组，判断新数组中是否由老数组的当前项；
+    //若没有，则给这个新数组添加一项，值为老数组的当前项；
+
+    // var removeRepFn = function(ary){
+    //     var arr = [];
+    //     for(var i = 0; i < ary.length; i++){
+    //         if(arr.indexOf(ary[i]) == -1){
+    //             arr.push(ary[i])
+    //         }
+    //     };
+    //     // ary =  arr;
+    //     return arr;
+    // };
+
+    // var removeRepFn = function(ary){
+    //     for(var i = 0; i < ary.length; i++){
+    //         if(ary.indexOf(ary[i],i+1) != -1){
+    //             var n = ary.indexOf(ary[i],i+1);
+    //             ary.splice(n,1);
+    //             i--;
+    //         }
+    //     };
+    //     // ary =  arr;
+    //     return arr;
+    // };
+    // var temp = removeRepFn(ary);
+    console.log(temp, ary);
+
+
+    //3、 利用对象的属性名不能重复
+    // 先造一个空对象，循环数组，把数组的每一项 当作属性名添加到对象里；属性值 也是数组的这一项；
+    function removeRep3(ary) {
+        var obj = {};
+        for(var i = 0; i < ary.length; i++){
+            if(typeof obj[ary[i]] != 'undefined'){
+                ary[i] = ary[ary.length-1];
+                ary.length --;
+                i--;
+                continue;
+            }
+            obj[ary[i]] = ary[i];
+        }
+        return ary;
+    }
+    function removeRep4(ary) {
+        var arr = [],obj = {};
+        for(var i = 0; i < ary.length; i++){
+            obj[ary[i]] = ary[i];
+        }
+        console.log(obj);
+        for(var k in obj){
+            arr.push(obj[k]);
+        }
+        return arr;
+    }
+    var temp = removeRep3(ary);
+    console.log(temp, ary);
+
+
+</script>  

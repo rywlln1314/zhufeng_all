@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+//let const   都属于es6 的内容
+//let 声明的变量 没有变量提升 而且他也不是window上的一个属性
+//let 不能重复声明  可以重新赋值
+//const 属性和let基本一样，但是也不能重新赋值
+//var a = 12;
+//let a = 13;
+
+let a = 12;
+function f() {
+    console.log(a)
+};
+function f1() {
+    console.log(a,b);
+    let a = 15;
+    var b = 10;
+    console.log(a,b);
+}
+f();
+f1();
+/*
+* 在函数里面形成的私有作用域中
+* 用var声明过的变量，会有比那辆提升，给一个默认值是undefined
+* 用let和const 声明的变量  不会惊醒变量提升，但是他也会对里边的带let和const 的变量进行预览这时，浏览器不会再往上级作用域查找相应变量
+*
+* 专业名词：暂时性死区
+* */
+
+/*
+* 全局作用域
+* 私有作用域：函数执行的时候形成的
+*
+* ed6 块级作用域{}： for  if  while
+* 块级作用域：只跟 let 和 const 声明的变量有作用；对于var没有块级作用域的限制
+*
+* */
+if (true){
+    let aa = 12;
+}
+console.log(aa);
+
+if (true){
+    var bb = 12;
+}
+console.log(bb);
+
+//一个变量第一次出现可以赋值，但不能调用
+//typeof g  'undefined'
+//typeof f  ; let f = 12;//报错：f is not defined
+</script>

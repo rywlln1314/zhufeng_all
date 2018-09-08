@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">
+    珠峰培训
+</div>
+
+</body>
+</html>
+<script>
+    var name = 'zfpx';
+    var age = 9;
+    var name = '小明';
+    var age = 9;
+
+    //引用数据类型（应运而生）{} [] Date TegExp fn  ......
+    //对象是符合数据的载体 ， 用{}包起来，内容是一对一堆的键值对（属性名:属性值）
+    //这里的冒号相当于等号 ； 是赋值的意思，不同的键值对之间用逗号隔开
+    //属性名  对应  变量名    (属性名可以是纯数字，但是不能是以数字开头加字母)
+    //  冒号 ：对应咱们的等号
+    //属性值  对应咱们的变量的值（可以是任意的数据类型）
+    var per = {
+        name:'zfpx',
+        age:9,
+        hobby:{
+            hobby1:'play',
+            hobby2:'read',
+        },
+        fn: function () {
+
+        }
+
+    };
+    vat per2 = {
+        name:'小明',
+        age:12
+    }
+    console.log(per2.name, per.name);
+
+    //对象的  增  删  改  查
+    //产看
+    //如果属性名是数字的话  我们在获取该属性对应的属性值的时候智能红【】的这种方式
+    //属性名可以带引号也可以不带引号（不区分单双）；  带不带引号表示的都是一个属性
+    //1、 打点的方式（从属关系）
+    per.name;
+    //2、中括号的方式
+    per['name'];
+
+    //定义属性时，属性名的引号可带可不带
+    //调用时，若是通过打点的方式获取某个属性对应的值，我们不能给这个属性加引号
+    //        若是通过[]的方式获取某个属性对应的值，我们必须用引号把这个属性名包起来
+    //        如果不用引号包起来，则[]内代表的是变量对应的值
+    //        若属性名是数字的时候我们必须用[]的方式获取该属性对应的值，这时的数字属性名的引号可加可不加
+
+    //给对象添加  一项
+    var user = {
+        name:'xiaoming',
+        password:'1234',
+    }
+    //修改
+    console.log(user.name);
+    user.name = 'xm1';
+    console.log(user.name);
+
+    //增加
+    console.log(user.sex);
+    user.sex = '男';
+    console.log(user.sex);
+    //当这个对象里边有这个属性的时候我们在重新赋值时，是相当于修改这个属性对应的熟悉感值
+    //当这个对象里边没有这个属性时，我们给这个属性赋值时，就相当于给这个对象添加了这个属性
+
+    //对象的属性的删除
+    //1、真删除  2、假删除
+    //真的删除
+    delete user.name;
+    console.log(user);
+
+    //假删除
+    user.name = null;
+
+
+
+</script>

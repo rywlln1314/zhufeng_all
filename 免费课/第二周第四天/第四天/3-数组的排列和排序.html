@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    var ary = [1,2,3,6,5,4,7];
+    /*
+    *reverse()  数组的 翻转
+    * 参数 无
+    * 返回值 是 翻转后的数组（跟原数组是一个数组）
+    *
+    * 改变了原有数组
+    * */
+    // var tempAry = ary.reverse();
+    // tempAry[0] = 8;
+    // console.log(tempAry, ary);
+
+    // 要交换位置 ， 我们首先要能获取到要交换的元素，那么就需要我们用for循环获取每一项， 然后让第一项 和 最后一项交换位置，第二项和 倒数第二项交换位置 。。。。；若是整个交换完，就相当于交换位置后，有交换了回来， 所以需要我们 交换进行到一半即可
+    function myReverse(ary) {
+        for(var i = 0; i < ary.length/2; i++){
+           var  temp = ary[i];
+           //ary[0] = ary[ary.length-1]
+           //ary[1] = ary[ary.length-1 - 1]
+           //ary[2] = ary[ary.length-1 - 2]
+           ary[i] = ary[ary.length-1-i];
+           ary[ary.length-1-i] = temp;
+        }
+        return ary;
+    }
+    // var temp = myReverse(ary);
+    // console.log(temp, ary);
+
+    //2、sort()  数组的排序
+    // 返回值 是排好序后的数组 （跟原数组是一个地址）
+    // 改变原有数组；
+    // 可传 可不传
+    //传参数时  参数是个回调函数
+    //不传参数  可以排序10以内的数字
+
+    // var temp = ary.sort();
+    // temp[0] = 9;
+    // console.log(temp, ary);
+
+    var ary = [12,3,5,14,12,45];
+    // var temp = ary.sort(function (a,b) {
+    //     return a - b;//把原数组 升序排 （从小到大）
+    // });
+    var temp = ary.sort(function (a,b) {
+        return b - a;
+    })
+    // function sum(f){
+    //     //.....
+    //     f();
+    // }
+    // sum(function () {
+    //     console.log(1111)
+    // });
+    // console.log(temp, ary);
+
+    var ary2 = [
+        {name:'xh',age:'18'},
+        {name:'xm',age:'19'},
+        {name:'xm1',age:16},
+        {name:'xm2',age:14},
+        {name:'xm3',age:29},
+        ];
+    ///.......
+    ary2.sort(function (a,b) {
+        return a.age - b.age;
+    });
+    // ary2 = [
+    //     {name:'xm2',age:14},
+    //     {name:'xm1',age:16},
+    //     {name:'xh',age:18},
+    //     {name:'xm',age:19},
+    //     {name:'xm3',age:29},
+    // ];
+    console.log(ary2);
+
+</script>  

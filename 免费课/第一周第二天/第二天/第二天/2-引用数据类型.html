@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    var name = 'zfpx';
+    var age = 9;
+
+    var name = '小明';
+    var age = 12;
+
+    //引用数据类型（应运而生）{} [] Date RegExp fn ....
+    // 对象 是复合数据的载体， 用{}包起来， 内容是一对一对的键值对（属性名: 属性值）
+    // 这里的冒号相当于 等号 ；是赋值的意思，不同的键值对之间用逗号隔开
+    // 属性名 对应 咱们变量名  (但是属性名可以是数字，也不能是数字开头的字符)
+    // ：  对应咱们的  等号
+    // 属性值  对应咱们的 变量的值（可以是任意的数据类型）
+    var per = {
+        "name":'zfpx',
+        1:'wwww',
+        age:9,
+        bol: true,
+        hobby:{
+            hobby1:'play',
+            hobby2: 'read'
+        },
+        fn: function () {
+
+        }
+    };
+    var per2 = {
+        name:'小明',
+        'name':'小红',
+        age:12,
+        age: 15,
+        2:13,
+        '2':18
+    };
+    console.log(per2["name"],per2.name);
+
+    // console.log(name, age,name1,age1);
+    // 对象的  增  删  改  查
+    //查看
+    //**如果属性名是数字的话  我们再获取该属性对应的属性值的时候只能用 [] 的这种方式
+    //属性名可以带引号 也可以不带引号(不区分单双)； 带不带引号，表示的都是一个属性
+    // 1、 打点的方式 （从属关系）
+    per.name;
+    console.log(per2[2]);//当属性名是数字的时候 我们只能用 [] 的方式获取
+    //2、中括号的方式
+    console.log(per['name']);
+
+    var name1 = 'age';
+    console.log(per[name1],per.name1,per["name1"],per[1],per["1"]);
+    var name2 = 'hobby';
+    console.log(per[name2].hobby1,per.name,per["bol"]);
+    console.log(per[name2][12222222]);
+    console.log(per[name2]['hobby1']);
+    per[name] //--> per['age'] -- > 9  per.age
+
+    //定义属性时，属性名的引号可带可不带
+    //调用时，若是通过打点的方式获取某个属性对应的值，我们不能给这个属性加引号
+    //       若是通过 [] 的方式获取某个属性对应的值，我们必须用引号把这个属性名包起来
+    //       如果不用引号包起来，则 [] 内代表的是变量对应的值；
+    //       若属性名是数字的时候， 我们必须用 [] 的方式获取该属性对应的值，这时的数字属性名的引号可加可不加
+
+    //给对象添加 一项
+    var user = {
+        name:'xiaoming',
+        password:'1234'
+    };
+    //修改
+    console.log(user.name);
+    user.name = 'xm1';
+    console.log(user.name);
+
+    //增加
+    console.log(user.sex);
+    user.sex = '男';
+    console.log(user.sex);
+    //当这个对象里边有这个属性的时候，我们再重新赋值时，是相当于修改这个属性对应的属性值
+    //当这个对象里边没有这个属性时，我们给这个属性赋值时，就相当于给这个对象添加了这个属性
+
+    // 对象的属性的删除
+    // 1、真删除  2、假删除
+
+    //真删
+    //delete user.name;
+    // console.log(user);
+
+    //假删
+    console.log(user);
+    user.name = null;
+
+
+
+    var a = 12;
+    var b = a;
+    b = 13;
+    console.log(a, b);
+
+    var obj = {
+        a: 12,
+        b: 13
+    };
+    var obj2 = obj;
+    obj2.a = 24;
+
+    console.log(obj);
+
+
+</script>
+<script>
+    var oDiv = document.getElementById('div1');
+    var oDivStyle = oDiv.style;
+    console.log(typeof oDivStyle);
+    oDivStyle.fontSize = '30px';
+
+    var oDivStyleColor = oDiv.style.fontSize;
+    console.log(typeof  oDivStyleColor,oDivStyleColor);
+    oDivStyleColor = '12px';
+
+    var obj3 = {
+        a: {
+            b: {
+                c:23
+            }
+
+        }
+    };
+    var obj4 = obj3;
+    var a = obj3.a;
+    var b = obj3.a.b;
+    var c = obj3.a.b.c;
+    console.log(obj3);
+    a.q = '12';
+    b.w = '13';
+    c = 32;
+    obj3.a.b.c = 32;
+    a.q = b;
+    console.log(c);
+    console.log(obj4);
+    var obj5 = {q:12};
+    obj5 = obj4;
+
+
+    var obj = {
+        name:'张居正',
+        age:40,
+        detail:{
+            height:'165cm',
+            weight:'50kg'
+        }
+    };
+    var obj2 = obj.detail;
+    obj2.nickname = '张白圭';
+    console.log(obj);
+
+</script>

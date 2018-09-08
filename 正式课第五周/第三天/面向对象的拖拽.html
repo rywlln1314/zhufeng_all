@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1,#div2 {
+            width: 100px;
+            height: 100px;
+            background: #ff0bc4;
+            line-height: 100px;
+            text-align: center;
+            border-radius: 50%;
+            user-select: none;
+            cursor: move;
+            position: absolute;
+        }
+        #div2{
+            background: #0c80dc;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<div id="div2">珠峰培训</div>
+
+
+</body>
+</html>
+<script src="JS/event.js"></script>
+
+<script>
+    var oDiv1 = document.getElementById('div1');
+    var oDiv2 = document.getElementById('div2');
+
+    class Drag {
+        constructor(ele,e) {//ele就是通过new传进来的参数
+            //放的都是私有属性
+            //绑定onmousedown在这里进行
+            ele.onmousedown = this.dragStart.bind(this);
+            this.ele = ele;
+        }
+
+        dragStart(e) {
+            e = e || window.event;
+            this.startX = this.ele.offsetLeft;
+            this.startY = this.ele.offsetTop;
+            this.mx = e.clientX;//鼠标的初始值
+            this.my = e.clientY;//鼠标的初始值
+
+            this.ele.flag = true;
+            document.onmousemove = this.dragMove.bind(this);
+            document.onmouseup = this.dragEnd.bind(this);
+
+        }
+
+        dragMove(e) {
+            e = e || window.event;
+            var x = e.clientX - this.mx + this.startX;
+            var y = e.clientY - this.my + this.startY;
+            this.ele.style.left = x + 'px';
+            this.ele.style.top = y + 'px';
+
+            if (!this.preveX) {
+                this.preveX = 0
+            }
+            this.speed = e.pageX - this.preveX;//两次move出发时移动的距离当作速度
+            this.preveX = e.pageX
+        }
+
+        dragEnd() {
+            document.onmousemove = null;
+            document.onmouseup = null;
+            // this.maxL = (document.documentElement.clientWidth || document.body.clientWidth) - this.offsetWidth;
+            // this.maxT = (document.documentElement.clientHeight || document.body.clientHeight) - this.offsetHeight;
+            // if (!this.running){//上一次的fly不停；新的fly就不执行
+            //     fly.call(this)
+            // }
+        }
+    }
+
+
+    //目标 通过 new 能直接实现 oDiv 的拖拽
+    var d = new Drag(oDiv1);
+    var b = new Drag(oDiv2);
+    var n = 1;
+    function addZIndex() {
+        this.ele.style.zIndex = n++
+    }
+    on(d,'dragStart',addZIndex.bind(d))
+
+</script>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            padding: 20px;
+            border: 10px solid red;
+            margin: auto;
+            background-color: #24ccc8;
+        }
+        #center{
+            position: relative;
+            width: 350px;
+            height: 350px;
+            padding: 10px;
+            margin: auto;
+            border: 10px solid salmon;
+            background-color: palegoldenrod;
+        }
+        #inner{
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            margin: auto;
+            border: 10px solid #3059fa;
+            background-color: #ee2ad6;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="outer">
+    outer
+    <div id="center">center
+        <div id="inner">inner</div>
+    </div>
+</div>
+
+
+</body>
+</html>
+<script>
+/*
+* document.documentElement
+* */
+//console.log(document.documentElement.scrollTop);
+/*
+* 获取浏览器一屏的高度
+* document.documentElement.clientHerght 或者 document.body.clientHeight
+* 有 <!DOCTYPE html> 文档声明 document.documentElement.clientHerght 这个值是准确的
+* 没有 <!DOCTYPE html> 文档声明时；document.body.clientHeight这个值是准确的
+* */
+
+function offset(ele) {
+    var n = ele.offsetLeft;//先保存元素外边框到上级曹兆物的内边框的距离
+    var t = ele.offsetTop;
+    var temp = ele.offsetParent;//用temp去存储上级参照物
+    while(temp && temp.nodeName !== 'BODY'){
+        //判断上级参照物是不是存在，不存在的话说明temp就是body；
+        // 如果存在并且不是body就接着向上累加offset值
+        n += temp.offsetLeft + temp.clientLeft;
+        t += temp.offsetTop + temp.clientTop;
+        temp = temp.offsetParent
+    }
+    return {
+        top:t,
+        left:n
+    }
+}
+
+console.log(offset(inner).left);
+</script>

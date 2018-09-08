@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1" id1="qqqw">
+        <span myIndex = 'www'><i>珠峰</i></span>
+        培训
+    </div>
+    <span>珠峰</span>
+</body>
+</html>
+<script>
+    //
+    var oDiv = document.getElementById('div1');
+
+    var div1 = document.createElement('div');
+
+    //给创造的div 中添加一个span标签  标签的内容是 珠峰培训
+
+    div1.innerHTML = '<span class="mySpan">珠峰培训</span>';
+    div1.className = 'myDiv';
+    // document.body.appendChild(div1);
+
+    //父节点.insertBefore(newEle,oldEle);
+    // document.body.insertBefore(div1,oDiv)
+    //  当页面上已经有某个元素时， 不管是 通过appendChild 还是 insertBefore 操作， 都不会新增该元素 ，只是改变该元素的位置
+
+    // 父节点.removeChild(oDiv); 从父节点中 删除 指定元素
+
+    // oDiv.removeChild(div1);
+    // document.body.removeChild(div1);
+
+    // 父节点.replaceChild(newEle,oldEle); // 用newEle 代替  oldEle
+
+    // document.body.replaceChild(div1,oDiv);
+
+    //cloneNode()  参数为 true  是 子孙全部拷贝  不传参只拷贝 它自己
+    var oDiv2 = oDiv.cloneNode(true);
+    // console.log(oDiv2);
+
+    // document.body.appendChild(oDiv2);
+
+    oDiv.qqq = '自定义属性';
+    console.log(oDiv.qqq);
+    //setAttribute 设置元素的行内属性 参数两个  第一个是设置的属性名  第二个是设置的属性值
+    //getAttribute 获取元素的行内属性 参数只有一个  就是咱们要获取的属性的属性名
+    oDiv.setAttribute('myID','qqq');
+
+    console.log(oDiv.getAttribute('myID'));
+    console.log(oDiv.getAttribute('id'));
+
+
+</script>

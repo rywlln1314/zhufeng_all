@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <script src="JS/utils.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        #div1{
+            width: 200px;
+            height: 2000px;
+            background: #ff0bc4
+        }
+        #div2{
+             width: 200px;
+             height: 2000px;
+             background: #ff0bc4
+         }
+    </style>
+    <script src="JS/utils.js"></script>
+</head>
+<body>
+<div id="div1">珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训</div>
+<img src="images/1.jpg" alt="" realSrc='images/3.jpg'>
+<div id="div2">任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟任玉伟</div>
+
+</body>
+</html>
+<script>
+// var flag = false;
+// function loadImg(ele) {
+//     if (flag) return;
+//     var imgH = ele.offsetTop;
+//     var winH = document.documentElement.clientHeight;
+//     var scrH = document.documentElement.scrollTop;
+//     if (winH + scrH >= imgH) {
+//         ele.src = 'images/2.jpg';
+//         flag = true;
+//     }
+// }
+var img = document.getElementsByTagName('img')[0];
+// img.setAttribute('realSrc','images/3.jpg');
+// console.dir(img);
+// window.onscroll = function () {
+//     loadImg(img)
+// };
+
+
+/*
+* 写一个load函数；去做图片的懒加载
+* */
+
+function loadImg1(ele) {
+    if (ele.loaded)return;
+    var scrollT = utils.scrollT();
+    var clientH = utils.clientH();
+    var tarT = utils.offset(ele).t;
+    // console.log(scrollT, clientH, tarT);
+    if (scrollT + clientH > tarT){
+        var realSrc = ele.getAttribute('realSrc');
+        // console.log(realSrc);
+        //先用一张不显示的图片去加载真正的图片
+        //等这张大图加载完成之后，再去吧真是img标签的src换成这张大图
+        // ele.src = realSrc;
+        // ele.loaded = true;
+        var temp = document.createElement('img');
+        temp.str = realSrc;
+        temp.onload = function () {
+            ele.src = realSrc;
+            ele.loaded = true;
+            fadeIn(ele);
+        }
+    }
+}
+window.onscroll = function () {
+    loadImg1(img)
+};
+
+function fadeIn(ele) {
+    ele.style.opacity = 0;
+    var opa = 0.1;
+    var timer = setInterval(function () {
+        opa += 0.1;
+        ele.style.opacity = opa;
+        if (opa >= 1){
+            ele.style.opacity = 1;
+            clearInterval(timer);
+        }
+    },20)
+}
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 400px;
+            margin: 30px auto;
+        }
+        ul li{
+            width: 400px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-bottom: 1px solid #ff0bc4;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+
+</body>
+</html>
+<script>
+function byTag(tag) {
+    var oLis = document.getElementsByTagName(tag);
+    return oLis;
+}
+var lis = byTag('li');
+console.log(lis);
+function changeBg(oLis) {
+    for (var i = 0;i < lis.length;i++){
+        if (i%2 == 0) {
+            oLis[i].style.backgroundColor = '#FF0065'
+        }else {
+            oLis[i].style.backgroundColor = '#FF7600'
+        }
+    }
+}
+
+changeBg(lis);
+//思路    在函数外边定义一个变量 用来存储 每一行变色之前的色值
+var col = '';
+for (var i = 0;i < lis.length;i++){
+    //lis[i].my = lis[i].style.backgroundColor
+    //this的思想；把初始色值存储到了每一个li的自定义属性上
+    //           当划出li时，再用li身上的自定义的my的值 赋给li的背景色
+    lis[i].onmouseover = function () {
+        col=this.style.backgroundColor;
+        console.log('over');
+        this.style.backgroundColor = '#46FF00'
+    };
+    lis[i].onmouseout = function () {
+        this.style.backgroundColor = col;
+        console.log('out');
+        //changeBg(lis)  思路   在划出之后  重新给每一项赋上前的颜色
+        //this..style.backgroundColor = this.my   this的思想；把初始色值存储到了每一个li的自定义属性上
+    }
+}
+</script>

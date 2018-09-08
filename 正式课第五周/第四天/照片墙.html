@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #div1{
+            width: 455px;
+            height: 610px;
+            padding: 10px;
+            background: #fffc94;
+            margin: auto;
+            position: relative;
+        }
+        #div1 .img_box{
+            width: 465px;
+            /*height: 620px;*/
+            /*margin: 0 0 0 0;*/
+
+        }
+        #div1 .img_box .img{
+            width: 145px;
+            height: 145px;
+            float: left;
+            background: #00a77b;
+            margin: 0 10px 10px 0;
+            cursor: move;
+            position: relative;
+        }
+        #div1 .img_box .img div{
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+        #div1 .img_box .img img{
+            width: 100%;
+            height: 100%;
+            background: no-repeat;
+            user-select: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <ul class="img_box">
+        <li class="img">
+            <div></div>
+            <img src="images/aaaa.png" alt="">
+        </li>
+        <li class="img">
+            <div></div>
+            <img src="images/bbbb.png" alt="">
+        </li>
+        <li class="img">
+            <div></div>
+            <img src="images/cccc.png" alt="">
+        </li>
+        <li class="img">
+            <div></div>
+            <img src="images/dddd.png" alt="">
+        </li>
+        <li class="img">
+            <div></div>
+            <img src="images/eeee.png" alt="">
+        </li>
+        <li class="img">
+            <div></div>
+            <img src="images/ffff.png" alt="">
+        </li>
+        <li class="img">
+            <div></div>
+            <img src="images/gggg.png" alt="">
+        </li>
+        <li class="img">
+            <div></div>
+            <img src="images/hhhh.png" alt="">
+        </li>
+        <li class="img">
+            <div></div>
+            <img src="images/iiii.png" alt="">
+        </li>
+        <li class="img">
+            <div></div>
+            <img src="images/jjjj.png" alt="">
+        </li>
+        <li class="img">
+            <div></div>
+            <img src="images/kkkk.png" alt="">
+        </li>
+        <li class="img">
+            <div></div>
+            <img src="images/llll.png" alt="">
+        </li>
+
+    </ul>
+</div>
+
+
+</body>
+</html>
+<script src="JS/utils.js"></script>
+<script>
+    var box = document.getElementById('div1'),
+        ul = box.getElementsByClassName('img_box')[0],
+        oLis = ul.getElementsByClassName('img');
+    var n = 2;
+    var ary = utils.toArray(oLis);
+
+    console.log(ary);
+
+
+
+
+    [...oLis].reverse().forEach(function (item,index) {
+        item.style.left = item.offsetLeft + 'px';
+        item.style.top = item.offsetTop + 'px';
+        item.style.position = 'absolute';
+
+        item.onmousedown = function (e) {
+            dragStart.call(this,e);
+            this.style.zIndex = n++;
+            this.DragMove = dragMove.bind(this);
+            this.DragEnd = dragEnd.bind(this);
+            document.onmousemove = dragMove.bind(this);
+            document.onmouseup = dragEnd.bind(this)
+        };
+
+        function dragStart(e) {
+            this.startX = this.offsetLeft;
+            this.startY = this.offsetTop;
+            console.log(this.startX);
+            this.col = this.style.background;
+            this.style.background = 'red';
+            this.maxL = parseFloat(oLis[oLis.length-1].style.left);
+            this.maxT = parseFloat(oLis[oLis.length-1].style.top);
+            this.minL = parseFloat(oLis[0].style.left);
+            this.minT = parseFloat(oLis[0].style.top);
+            console.log(this.minL, this.minT);
+            this.mx = e.pageX;
+            this.my = e.pageY;
+            this.flag = true;
+        }
+        function dragMove(e) {
+            e.preventDefault();
+            if (!this.flag)return;
+            var x = e.pageX - this.mx + this.startX;
+            var y = e.pageY - this.my + this.startY ;
+            if (x > this.maxL){
+                x = this.maxL;
+            }
+            if (x < this.minL){
+                x = this.minL
+            }
+            if (y > this.maxT){
+                y = this.maxT;
+            }
+            if (y < this.minT){
+                y = this.minT
+            }
+            this.style.left = x + 'px';
+            this.style.top = y + 'px';
+
+            this.myX = utils.css(this,'left');
+            this.myY = utils.css(this,'top');
+
+            console.log(this.style.left);
+            var lisAry = oLis;
+            var ary = [];
+            var ary1 = [];
+            console.log(lisAry);
+            for (let i = 0; i < lisAry.length; i++) {
+                ary.push(Math.pow(utils.css(lisAry[i],'left') - this.myX,2) + Math.pow(utils.css(lisAry[i],'top') - this.myY,2))
+            }
+            var arr = ary.slice();
+            arr.sort((a,b)=>{
+                return a - b
+            });
+            var n = ary.indexOf(arr[1]);
+            console.log(n);
+            lisAry[n].style.background = 'red';
+        }
+        function dragEnd(e) {
+            this.style.background = this.col;
+
+            document.onmousemove = null;
+            document.onmouseup = null;
+            this.flag = false;
+        }
+    })
+
+</script>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+</body>
+</html>
+<script>
+
+    var obj = {q:1,w:2};
+    var q ='ww';
+    obj[q]=obj['q'];
+    // obj['ww'] = obj['q'];
+    // obj.ww = obj.q;
+    // obj.ww = 1;
+    console.log(obj);
+    //
+    typeof typeof  12  //--- > 字符串string
+    typeof null //--> 'object'
+    typeof {} // ---> 'object'
+    typeof [] // ---> 'object'
+    //constructor;//指向构造函数本身
+    //instanceof;//改实例 在不在某个类的原型上
+    //Object.prototype.toString.call();// 对象原型上的toString方法
+
+    //普通对象
+    var obj = {
+        '属性名': '属性值',
+        abc:12,
+        1:23
+    }
+    obj[1]
+    obj['1']
+    obj["abc"] === obj.abc;
+    //obj[abc]
+
+
+    //条件语句
+    /*
+    * if(条件1){
+    *   条件1成立执行代码
+    * }else if(条件2){
+    *   .....
+    * }else{
+    *   其他情况
+    * }
+    *
+    * switch(值){
+    *       case 值1:
+    *           值1 === 值 执行的代码
+    *           break;
+*           case 值2：
+*           case 值3：
+*               console.log(2);
+*               值 === 值2  或者  值 === 值3；
+*               break;
+*
+*           default:
+*               其他情况；
+    * }
+    *
+    * */
+
+    var n = 10;
+    if(n > 10){
+        console.log(11)
+    }else  if(n < 5){
+        console.log(4)
+    }else {
+        console.log(7)
+    };
+
+    switch (true){
+        case n > 10:
+            console.log(11);
+            break;
+        //....
+        default:
+            console.log(7)
+    }
+
+
+    // 循环语句
+
+    //for in  ---> 一般用来循环对象用的   for(var key in obj) :key-->对听对象里边的每一个属性名
+
+    // for  ---> for(var i = 0 ; i < 10 ; i++){}
+    // i = 0 , i < 10  执行循环的内容
+    // i++;  i = 1 , i < 10 执行循环的内容
+    // ....
+    // i++； i = 9, i < 10  执行代码
+    // i++ ； i = 10， i < 10  跳出循环
+
+    // continue ; 只要碰见这个 就跳出本次循环 ，continue 下边的代码不再执行
+    // break ; 跳出整个循环； 整个循环结束；
+
+    for(var i = 3 ; i < 6; i++){
+        if(i >3){
+            console.log(i);
+            // continue;
+            break;
+            console.log(100);
+        }
+    }
+
+    //倒着来
+    for(var i = 10; i > 0 ; i--){}
+
+    //while 循环
+    // while (条件){
+    //     条件成立执行的代码；
+    //     条件不成立的时候直接跳出while循环
+    // }
+    // while 一定要注意设计条件不成立的边界 ，若没有边界，就是死循环
+    // 他一般适用于 不知道要循环多少次的情况
+
+    for (var i = 0; i < oLis.length; i++) {
+        const qElement = q[i];
+
+    }
+
+
+</script>  

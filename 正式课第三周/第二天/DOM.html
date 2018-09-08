@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<ul id="ul_box">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+</body>
+</html>
+<script>
+/*
+* 获取元素
+* 1、getElementById--->元素本身
+* 2、getElementsByClassName--->元素集合
+* 3、getElementsByTagName--->元素结合
+*
+* querySelector（css选择器）
+* querySelectorAll（css选择器）
+* */
+
+var oLis = document.getElementsByTagName('li');
+
+var oLis2 = document.querySelectorAll('#ul_box li');
+var oLis2 = document.querySelectorAll('#ul_box>li');
+console.log(oLis, oLis2);
+
+/*
+* 创造元素
+* document.creatrElement('li');
+* */
+var li = document.createElement('li');
+li.innerHTML = '7';//能识别DOM结构
+//li.innerText = '7';//只能当作文本
+
+/*
+* 把元素放到页面上
+* appendChild//放到指定父元素的下边
+* insertBefore（new，old）//把new放到old前边
+* */
+
+var oUl = document.getElementById('ul_box');
+//oUl.appendChild(li)
+
+/*
+* DOM映射：通过getElementsxxxx方法获取的元素集合存在DOM映射
+* 通过querySelectorxxx获取的元素集合不存在DOM映射
+* */
+
+/*
+* 文档碎片
+* */
+var frag = document.createDocumentFragment();
+var li2 = document.createElement('li');
+li2.innerText = '8';
+frag.appendChild(li);
+frag.appendChild(li2);
+oUl.appendChild(frag);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

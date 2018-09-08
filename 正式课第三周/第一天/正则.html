@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 正则：是用来处理字符串的一种规则
+*
+* 处理字符串的两种方式
+* 1、匹配  test；编写了一个正则；用这个正则去查看这个字符串满足你的规则
+* 2、捕获  exec；编写一个正则；然后去字符串种获取满足你规则的字符串
+*
+* */
+var reg = /-/;//字面量的声明定义方式
+var reg2 = new RegExp('-');//构造函数式的定义方式
+console.log(reg, reg2);
+reg == reg2;//false
+
+//用上边字面量方式生成的正则；两个斜杠种的内容叫做元字符
+var reg = / /;
+
+//修饰符：
+//i  ignoreCase：忽略大小写
+//m  multiline:多行匹配
+//g  global：全局匹配
+
+//特殊意义的元字符
+//  \    ：转义的意思； 把在正则里有特殊意义的字符转成字符本身
+//  .    ：除了换行以外的所有字符
+//  \d   ：代表 0-9之间的数字
+//  \D   ：代表除了0-9以外的字符
+//  \w   ：代表 数字、字母、下划线 任意字符
+//  \W   ：除了 数字、字母、下划线 以外的字符
+// [a-z] ：a 到 z 之间的任意字母
+// [A-Z] ：A 到 Z 之间的任意字母
+// [abc] ：a，b，c中的任意一个
+// a\b   ：a 或者 b
+// [^abc]：除了 abc 以外的任意字符
+// [^a-z]：除了小写字母a-z以外的任意字符
+
+//量词元字符
+//  +  ；代表前边的字符出现一次或者多次
+//  *  ：代表前边的字符出现0次或多次
+//  ?  ：代表前边的字符出现0次或者1次
+// {n} ：代表前边的字符出现n次
+//{n,} ：代表前边的字符最少出现n次
+//{n,m}：代表前边的字符出现n到m次
+
+//^  $
+var reg = /^\d+$/;
+// ^   代表字符串以什么开头
+// $   代表字符串以什么结尾
+
+// ()  在正则里面代表分组
+// ?:  --->代表 只匹配 不捕获
+// ?=  --->正向预查
+// ?!  --->负向预查
+// \s  --->空白符
+// \n  --->换行符
+
+</script>
+<script SRC="JS/5.js">
+
+</script>

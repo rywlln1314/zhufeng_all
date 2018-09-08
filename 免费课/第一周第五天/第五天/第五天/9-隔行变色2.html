@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            /*background-color: #cccccc;*/
+        }
+        ul{
+            width: 400px;
+            margin: auto;
+        }
+        ul li{
+            height: 50px;
+            line-height: 50px;
+            border-bottom: 1px solid #ccc;
+            text-align: center;
+            color: #161616;
+            font-size: 25px;
+            background-color: paleturquoise;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+</ul>
+</body>
+</html>
+<script>
+    var oLis = document.getElementsByTagName('li');
+    function changeColor(){
+        for(var i = 0; i < oLis.length; i++){
+            switch (i%3){
+                case 0:
+                    oLis[i].style.backgroundColor = '#DFE02F';
+                    break;
+                case 1:
+                    oLis[i].style.backgroundColor = '#2DE086';
+                    break;
+                default:
+                    oLis[i].style.backgroundColor = '#8571E0';
+            }
+        }
+    }
+    changeColor();
+
+    oLis[0].onmouseover = function () {
+        console.log('in')
+    };
+    oLis[0].onmouseout = function () {
+        console.log('out')
+    }
+    // 给每一个li绑定两个事件
+    //方法1
+    //是循环绑定
+    function change1(lis) {
+        var bg = '';
+        for(var i = 0; i < lis.length; i++){
+            lis[i].onmouseover = function () {
+                bg = this.style.backgroundColor;
+                this.style.backgroundColor = '#ccc';
+                // console.log('in')
+            };
+            lis[i].onmouseout = function () {
+                //颜色恢复原来颜色
+                // console.log('out');
+                this.style.backgroundColor = bg;
+            }
+        }
+    }
+    // change1(oLis);
+
+
+    //方法2
+    function change2(lis) {
+        for(var i = 0; i < lis.length; i++){
+            lis[i].bgColor = lis[i].style.backgroundColor;
+            lis[i].onmouseover = function () {
+                this.style.backgroundColor = '#ccc';
+            };
+            lis[i].onmouseout = function () {
+                //颜色恢复原来颜色
+                this.style.backgroundColor = this.bgColor;
+            }
+        }
+    }
+    // change2(oLis)
+
+    //方法3
+    function change3(lis) {
+        for(var i = 0; i < lis.length; i++){
+            lis[i].onmouseover = function () {
+                this.bgColor = this.style.backgroundColor;
+                this.style.backgroundColor = '#ccc';
+            };
+            lis[i].onmouseout = function () {
+                //颜色恢复原来颜色
+                this.style.backgroundColor = this.bgColor;
+            }
+        }
+    }
+    change3(oLis)
+
+</script>  

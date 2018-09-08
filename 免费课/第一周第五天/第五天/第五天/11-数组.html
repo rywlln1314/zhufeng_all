@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    // 数组  数组本身也是对象  ；它是对象的一种细分
+    // 他把属性名换成数字，有length ,有自己的一套方法
+    // [2,'dd'] 用一个中括号包含，每一项用 逗号隔开，每一项可以时任意数据类型
+    function sum() {
+        console.log('sum')
+    };
+    var ary = [1,null,undefined,true,'qwer',{a:1},[2,3],function () {
+        console.log(123)
+    },sum,sum()];
+    console.log(ary);
+    ary[0]();
+    var fn = ary[7];
+    fn();
+</script>  

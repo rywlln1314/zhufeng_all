@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 变量提升（声）
+* 再js代码执行之前浏览器要先过一遍代码，然后把其中带 var 和 function 关键字内容提前声明
+* 带 var 是只声明（给个默认值undefined）  不定义
+* 带 function 是声明加定义
+*
+* 因为用 function 关键字声明的函数；再变量提升阶段已经赋好值了，所以我们不可以在js文件中的任意位置调用这个函数
+*
+* 变量提升 只会提升 =号 左边的部分  不会提升右边的部分
+*
+* var 一个变量 相当于给window添加一个属性
+* 带var 的会进行变量提升  不带var的没有变量提升
+*
+* var a = 12；
+* let a = 12；   //let不能重复声明  但是能重复定义
+* let 是没有变量提升的
+*
+* const a = 12；声明常量用的  不能重复声明 也不能重复定义
+* const 也没有变量提升
+*
+* 变量提升 是不看条件成立不成立的； 这个是针对var来说的
+* 针对function 来说 ，条件语句中的function声明 ；标准浏览器下是只声明不定义的；在IE低版本是既声明 也 定义的
+*
+*
+* */
+var c;//声明
+c = 14;//定义的过程就是一个赋值的过程
+var a = 12,
+    b = 13;
+let e = 15;//let声明
+e = 15;//重复定义
+function sum() {
+    console.log(1);
+}
+const aa = 16;
+//aa = 19;
+
+if (1 > 2){
+    var f = 12;
+}else {
+    var g = 14;
+}
+</script>

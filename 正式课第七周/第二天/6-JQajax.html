@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script src="jquery/jquery-3.3.1.js"></script>
+<script>
+
+    $.ajax({
+        type:'get',
+        url:'./1.xml',
+        data:{q:12,w:13},
+        async:true,
+        dataType:'json',//获取的数据要 是一个JSON数据
+        cache:true,//支持使用缓存；针对get有作用
+        //get方式的缓存  我们通过rul+随机数来解决
+        success:function (data) {
+            console.log(data);
+        },
+        error:function (res) {
+            console.log(res);
+        }
+    });
+    $.get('https://www.easy-mock.com/mock/5b8f8eeaf9900e4a46af7616/ajax/userinfo',{eee:123},function (data) {
+        console.log(data);
+    })
+
+</script>

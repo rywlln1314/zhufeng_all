@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        #div1{
+        height: 2000px;
+            width: 500px;
+            margin: auto;
+            background: linear-gradient(#17cc00,#ff0bc4,#0c80dc);
+    }
+        #btn{
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<button id="btn">放回顶部</button>
+
+</body>
+</html>
+<script src="JS/utils.js"></script>
+<script>
+var btn = document.getElementById('btn');
+btn.onclick = function () {
+    var timer = setInterval(function () {
+      if (utils.scrollT()<=0){
+          clearInterval(timer)
+      }
+        document.documentElement.scrollTop -= 20;
+
+    })
+}
+
+</script>

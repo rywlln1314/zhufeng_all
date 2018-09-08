@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+</body>
+</html>
+<script src="JS/utils.js"></script>
+<script>
+    var data = null;
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', 'JSON/data.json');//第三个参数不写就是true也就是异步执行
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && /^[23]\d{2}$/.test(xhr.status)) {
+            data = utils.toJson(xhr.responseText);
+            //请求成功之后才会执行
+            //cb(data)
+        }
+    };
+    xhr.send();
+    function cb(data2){
+        console.log(data2);
+    }
+   // console.log(data);
+    window.onload = function () {
+        //页面所有内容加载完成 不包含ajax
+        console.log(data);
+    };
+    document.ready = function () {
+        //DOM 树加载完成
+    }
+</script>

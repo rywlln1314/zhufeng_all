@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: #ff0bc4;
+            border: 2px dashed #17cc00;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script src="JS/utils.js"></script>
+<script>
+/*
+* 固定时间的运动
+*
+* 用2s  走完400像素的距离
+* 需要知道运动的距离
+* 还需要知道鱼洞的时间
+* */
+//吧div1从 left 100 --->600  用时2s
+var oDiv = document.getElementById('div1');
+// var beginL = utils.css(oDiv,'left');
+// var tarT = 600;
+// var duration = 2000;
+// var speed = (tarT - beginL)/duration;
+// var times = 0;
+// var timer = setInterval(function () {
+//     times += 20;
+//     if (times >= duration){
+//         clearInterval(timer);
+//         times = duration
+//     }
+//     utils.css(oDiv,'left',times*speed+beginL)
+// },20);
+
+function move(ele,attr,tarT,duration) {
+    var beginL = utils.css(ele,attr);
+    var speed = (tarT - beginL)/duration;
+    var times = 0;
+    var timer = setInterval(function () {
+        times += 20;
+        if (times >= duration){
+            clearInterval(timer);
+            times = duration
+        }
+        utils.css(ele,attr,times*speed+beginL)
+    },20);
+}
+move(oDiv,'left',1000,20000);
+move(oDiv,'top',500,20000);
+
+</script>

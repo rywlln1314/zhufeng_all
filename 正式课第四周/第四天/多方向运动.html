@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: #cc9709;
+            border: 2px dashed #17cc00;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script src="JS/utils.js"></script>
+<script>
+    var oDiv = document.getElementById('div1');
+function move(ele,obj,duration) {
+    var beginL = {};//属性的初始值
+    var changeL = {};//属性改变的值
+    for (let k in obj) {
+        if (obj.hasOwnProperty(k)){
+            beginL[k] = utils.css(ele,k);
+            changeL[k] = obj[k] - beginL[k]
+        }
+    }
+    var times = 0;//运动时间
+    var timer = setInterval(function () {
+        times += 20;
+        if (times >= duration){
+            clearInterval(timer);
+            times = duration
+        }
+        for (var k in obj) {
+            if (obj.hasOwnProperty(k)){
+                var curPos = changeL[k]/duration*times + beginL[k];
+                var curPos = linear(beginL[k],changeL[k],times,duration);
+                utils.css(ele,k,curPos);
+            }
+        }
+    },20)
+}
+move(oDiv,{left:500,top:500,opacity:0.5},2000);
+    function linear(begin,changeL,times,duration) {
+        return changeL/duration*times + begin
+    }
+
+</script>

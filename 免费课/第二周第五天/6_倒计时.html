@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var tar = new Date('2018/7/22 18:00:00').getTime();
+//tar 是目标时间距离 1970年的毫秒数
+
+var now = new Date().getTime();
+//now 是当前时间距离 1970 年的毫秒数
+
+var time = tar - now;
+//time  当前时间距离目标时间的毫秒数
+
+//接下来 我们要把这个毫秒数转成咱们能看的时分秒
+//1h ---> 60*60*1000  毫秒
+//1m ---> 60*1000  毫秒
+//1s ---> 1000  毫秒
+
+//time中有几个整小时、
+var h = Math.floor(time/3600000) ;
+
+//time 现在是 刨去整数个小时之后剩余的毫秒数
+time = time - h*3600000   ;
+
+//剩余time中有多少个分钟
+var m = Math.floor(time/60000)  ;
+
+//time 是跑去 整数分钟后剩余的毫秒数
+time = time - m*60000;
+
+var s = Math.floor(time/1000);
+
+var str = `距离下课还会有${h}小时${m}分钟${s}秒`;
+
+var oDiv = document.getElementById('div1');
+oDiv.innerText = str;
+//oDiv.innerHTML = str;
+
+//定时器
+//setTimeout(f,time);到达指定时间后执行一次函数体
+//setInterval(f,time);每隔time时间执行一次函数体
+var timer2 = setInterval(function () {
+    timeCount()
+},1000)
+//clear  clearTimeout(timer)  clearIntercal(timer2)
+</script>

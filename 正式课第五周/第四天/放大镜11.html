@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #litBox{
+            width: 400px;
+            height: 300px;
+            float: left;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+        }
+        #litBox img{
+            width: 100%;
+            height: 100%;
+        }
+        #litBox .mask{
+            width: 200px;
+            height: 150px;
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        #bigBox{
+            width: 800px;
+            height: 600px;
+            float: left;
+            margin-top: 50px;
+            margin-left: 120px;
+            overflow: hidden;
+            position: relative;
+            display: none;
+        }
+        #bigBox .bigPic{
+            width: 1600px;
+            height: 1200px;
+            background-size: cover;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="litBox">
+    <img src="images/1111.jpg">
+    <div class="mask"></div>
+</div>
+
+<div id="bigBox">
+    <img src="images/1111.jpg" class="bigPic" alt="">
+</div>
+
+
+</body>
+</html>
+<script src="JS/utils.js"></script>
+<script>
+var lit = document.getElementById('litBox');
+var mask = lit.getElementsByClassName('mask')[0];
+var big = document.getElementById('bigBox');
+var bigImg = document.getElementsByClassName('bigPic')[0];
+
+
+
+lit.onmouseenter = function (e) {
+    mask.style.display = 'block';
+    big.style.display = 'block';
+    this.maxL = utils.css(lit,'width') - utils.css(mask,'width');
+    this.maxT = utils.css(lit,'height') - utils.css(mask,'height');
+};
+lit.onmousemove = function (e) {
+    var l = e.pageX - this.offsetLeft - utils.css(mask,'width')/2;
+    var t = e.pageY - this.offsetTop - utils.css(mask,'height')/2;
+    if(l>this.maxL){
+        l = this.maxL
+    }
+    if (l<0){
+        l = 0
+    }
+    if(t>this.maxT){
+        t =this.maxT
+    }
+    if (t<0){
+        t = 0
+    }
+    utils.css(mask,'left',l);
+    utils.css(mask,'top',t);
+    utils.css(bigImg,'left',-4*l);
+    utils.css(bigImg,'top',-4*t);
+
+};
+lit.onmouseleave = function () {
+    mask.style.display = 'none';
+    big.style.display = 'none';
+}
+
+
+</script>

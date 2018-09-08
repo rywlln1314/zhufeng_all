@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<a href="http://www.baidu.com" id="btn">百度一下</a>
+<a href="javascript:;" id="btn2">百度一下</a>
+<input type="text" id="inp">
+
+</body>
+</html>
+<script>
+/*
+* 阻止默认行为
+* 跳转或者刷新都属于a标签的默认行为
+* 阻止这种默认行为
+* 1、在结构上阻止  javascript:;   javascript:void 0; javascript:null; javascript:; undefined
+* 2、JS阻止默认行为
+* 执行的时候  return false
+* e.preventDefault阻止默认
+*
+* */
+var oA = document.getElementById('btn');
+var inp = document.getElementById('inp');
+oA.onclick = function (e) {
+    e = e || window.event;
+    alert(12);
+    //return false//
+    e.preventDefault()? e.preventDefault():e.returnValue = false;
+    //e.preventDefault();//标准浏览器
+    //e.returnValue = false;//IE
+};
+inp.onkeydown = function (e) {
+    console.log(this.value);
+    e = e || window.event;
+    var n = e.keyCode;
+    if ((n>=48&&n<=57)||(n>=96&&n<=105)||(n==8)){
+        // this.value+=e.key;
+    }else {e.preventDefault()? e.preventDefault():e.returnValue = false;}
+
+}
+</script>

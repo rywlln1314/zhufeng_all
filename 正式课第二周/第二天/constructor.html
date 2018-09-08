@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    function Person() {
+        this.name = 'zf';
+        this.age = 9;
+    };
+    Person.prototype.getName = function () {
+
+    };
+    var obj = {
+        name:'zfpx',
+        constructor: Person,
+        getName: function () {
+
+        },
+        getName2:function () {
+
+        }
+    };
+    var per1 = new Person;// 在修改 Person.prototype之前 new 的实例的__proto__ 都是指向 默认的 原型对象的
+    // 咱们把 Person 默认的原型对象 成为 A
+    // per1.__proto__ === A;
+    Person.prototype = obj;
+    var per2 = new Person; // 在修改 prototype指向之后； new 出来的实例的__proto__ 都是指向 新的 原型对象；
+    // per2.__proto__ === obj;
+    console.log(per1.constructor);// f  Person
+    // console.log(per2.constructor);// f  Object
+    console.log(per2.constructor);// f  Person
+
+
+</script>

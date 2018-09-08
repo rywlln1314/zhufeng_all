@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<div id="div2">珠峰培训</div>
+<div id="div3">珠峰培训</div>
+<div id="div4">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    var oDiv1 = document.getElementById('div1');
+    var oDiv2 = document.getElementById('div2');
+    var oDiv3 = document.getElementById('div3');
+    var oDiv4 = document.getElementById('div4');
+
+    function getStr1() {
+        var str = 'qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM';
+        var str1 = '';
+        var ary = [];
+        for (var i = 0; i < 4; i++) {
+            var n = Math.round(Math.random() * 61);
+            if (ary.indexOf(n) == -1) {
+                ary.push(n);
+                str1 += str[n];
+            } else {
+                i--
+            }
+        }
+        return str1
+    };
+
+    function getStr2() {
+        var str = 'qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM';
+        var str1 = '';
+        var ary = [];
+        for (var i = 0; i < 4; i++) {
+            var n = Math.round(Math.random() * 61);
+            for (var j = 0; j < str1.length; j++) {
+                if (str1[j] == str[n]){
+                    i--;
+                    break;
+                }
+                str1 += str[n]
+            }
+        }
+        return str1
+    };
+    oDiv1.onclick = function () {
+        this.innerHTML = getStr1()
+    };
+    oDiv2.onclick = function () {
+        this.innerHTML = getStr2()
+    };
+
+</script>

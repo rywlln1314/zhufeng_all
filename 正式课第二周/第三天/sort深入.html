@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var ary = [
+    {name:'小红',age:18,hobby:'play'},
+    {name:'张三',age:10,hobby:'sleep'},
+    {name:'李四',age:14,hobby:'eat'},
+];
+/*
+* 根据AGE排序
+* */
+var arr = ary.sort((a,b)=>{return a.age-b.age});
+console.log(arr);
+
+var arr2 = ary.sort((a,b)=>{
+    return a.hobby.localeCompare(b.hobby)
+
+});
+console.log(arr2);
+
+var arr3 = ary.sort(function (a,b) {
+    return a.name.localeCompare(b.name,'zh')
+});
+console.log(arr3);
+</script>

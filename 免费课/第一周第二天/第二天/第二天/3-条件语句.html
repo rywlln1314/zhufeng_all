@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * if(判断条件){
+    *   条件成立要执行的代码
+    * }else{
+    *   条件不成立时执行的代码
+    * }
+    *
+    *
+    * if(判断条件1){
+    *   条件1成立要执行的代码
+    * }else if(判断条件2){
+    *   条件1不成立,条件2成立时执行的代码
+    * }。。。
+    * else{
+    *   俩条件都不成立时执行的代码
+    * }
+    * */
+
+
+    var n = parseFloat('12q.23w') + 'NaN'; // n - >12
+    var m = Number('12q.23w');// NaN
+    // n 计算的结果是  12
+    // 在 if的括号里  他会先把括号里的内容转化成布尔类型，再去做判断
+    // if(m){
+    //     console.log(n+1)
+    // }else {
+    //     console.log(m+3);
+    // }
+    if(m){
+        console.log(n+1)
+    }else if(n) {
+        console.log(m+3);
+    }else {
+        console.log(n+'3');
+    }
+
+    var a = 5%3;
+    if(a <= 2){
+        b = 6
+    }else if(a < 0){
+        a = 10
+    }else {
+        a = 12;
+    }
+    var obj = {
+        r:b
+    }
+    console.log(a);
+    // &&（并且）  ||（或）
+    var a = 3;
+    if(a){
+
+    }
+    if(a >= 2 && a <= 5){
+        console.log(1244)
+        if(a == 3){
+            console.log(3)
+        }
+    }else {
+        if(a == 6){
+            console.log(6)
+        }
+    }
+
+
+    /*
+     ==   是相对比较 会默认的把 == 两边的值转化成同一类型再去比较
+     ===  是绝对比较
+    * switch (值){
+    *   case 值1: 值1 === 值
+    *       xxxxxxx....;
+    *       break;
+    *   case 值2:
+    *       xxxx.....;
+    *       break;
+    *   ......
+    *   default:
+    *       xxxxx....;
+    *
+    *
+    * }
+    *
+    *
+    * */
+    console.log(1 == '1');
+    console.log(1 === '1');
+
+    var aa = 10%4;//1
+    switch (aa){
+        case '1':
+            console.log(1);
+            break;
+        case 2:
+            console.log(2);
+            // break;
+        default:
+            console.log(3)
+    }
+    // if(aa === '1' ){
+    //     console.log(1)
+    // }else if(aa === 2){
+    //     console.log(2)
+    // }else {
+    //     console.log(3)
+    // }
+    var n = 5%4;
+    switch (n){
+        case 1:
+        case 2:
+            console.log('1 or 2');
+            // break;  一定要有这个break；没有的话会一直往下执行；知道碰见break或 把default执行完；
+        case 3:
+            console.log('3');
+            break;
+        default:
+            console.log(4);
+    }
+    // if(n === 1 || n ===2){}
+
+    var m = 10;
+    if(m > 10){ // m > 10 为true 时  才能进到这个条件里边
+        console.log('大于10')
+    }else if(m < 5){
+        console.log('小于5')
+    }else {
+        console.log('5-10')
+    }
+    //把上边的if else 转化成 switch case
+    m = 0;
+    switch (true){
+        case m >10://若想进到这个条件里,必须让 m > 10 的值 跟 switch 条件的值绝对相等
+            console.log('大于10');
+            break;
+        case m < 5:
+            console.log("小于5");
+            if(m == 0){
+                console.log('000000')
+            }
+            break;
+        default:
+            console.log('5-10')
+
+    }
+
+
+    if(aa === '1' ){
+        console.log(1)
+    }else if(aa === 2){
+        console.log(2)
+    }else {
+        console.log(3)
+    }
+    switch (aa){
+        case '1':
+    }
+
+    switch (true){
+        case aa === '1':
+            console.log(1);
+            break;
+            //.....
+    }
+
+
+    // if(1==1 && 2 ==2)
+    //  条件1 && 条件2  条件1成立 返回 条件2的结果
+    //                 条件1不成立 返回 条件1 的结果
+
+    var a = 1>2 && 2<4; //false 前边条件不成立 返回的时前边条件的结果
+    var a1 = 1 < 2 && 2 > 4; //false 前边条件成立；返回的时后边条件的结果
+    // var a1 = 1 < 2 && 2 < 4; //true 前边条件成立；返回的时后边条件的结果
+    var b = 1>2 || 2<4; // true 前边条件不成立；返回后边条件的结果
+    var b1 = 1 < 2 || 2 > 4;// true // 前边条件成立，返回前边条件的结果
+    console.log(a, b);
+
+    var c = 1 && 2 && 3;// 2
+    var c1 = 0 && 1;// 0
+    var c2 = -1 && 1;// 1
+    var d = 1 || 2;// 1
+    var d1 = 0 || 1;// 1
+    var d2 = -1 || 1; // -1
+    console.log(c,c1,c2, d,d1,d2);
+
+    // var a = 1 && 2;
+    // var b = 1 || 2;
+
+
+</script>  

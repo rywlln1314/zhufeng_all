@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var reg = /^1[345789]\d{9}$/;
+
+var reg = /^(1[89]|[2-5]\d|6[0-5])$/;
+
+RegExp.prototype.execAll = function (str) {
+    if (!this.global){
+        that = eval(this + 'g')
+    } else {
+        that = this
+    }
+    var ary = [];
+    var temp = that.exec(str);
+    while (temp){
+        ary.push(temp[0]);
+        temp = that.exec(str);
+    }
+    return ary
+};
+var reg2 = /\d+/g;
+console.log(reg2.execAll('wwe12312sadada1231sads'));
+
+
+var reg3 = /^\d{6}(\d{4})(\d{2})(\d{2})\d{3}[\dX]$/;
+
+
+
+
+
+var str = 'sldfiasflasfjasklfuogwgladjgiop';
+var obj = {};
+for (let i = 0; i < str.length; i++) {
+    if (obj.hasOwnProperty(str[i])){
+        obj[str[i]]++
+    } else {
+        obj[str[i]] = 1;
+    }
+}
+var n = 1;
+var str = '';
+for (let k in obj) {
+    if (obj[k] > n){
+        n = obj[k];
+        str = k;
+    }
+}
+</script>

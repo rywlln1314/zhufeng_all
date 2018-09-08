@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background-color: #cccccc;
+        }
+        ul{
+            width: 400px;
+            margin: auto;
+        }
+        ul li{
+            height: 50px;
+            line-height: 50px;
+            border-bottom: 1px solid #ccc;
+            text-align: center;
+            color: #161616;
+            font-size: 25px;
+            background-color: paleturquoise;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+</body>
+</html>
+<script>
+    var oLis = document.getElementsByTagName('li');
+    /*for(var i = 0; i < oLis.length; i++){
+        // if(i%3==0){
+        //     oLis[i].style.backgroundColor = '#DFE02F'
+        // }else if(i%3 == 1){
+        //     oLis[i].style.backgroundColor = '#2DE086'
+        // }else {
+        //     oLis[i].style.backgroundColor = '#8571E0'
+        // }
+        // switch (true){
+        //     case i%3==0:
+        //             break;
+        //         ....
+        // }
+        switch (i%3){
+            case 0:
+                oLis[i].style.backgroundColor = '#DFE02F';
+                break;
+            case 1:
+                oLis[i].style.backgroundColor = '#2DE086';
+                break;
+            default:
+                oLis[i].style.backgroundColor = '#8571E0';
+        }
+    }*/
+
+    var oDiv = document.getElementById('div1');
+
+    function changeColor(){
+        for(var i = 0; i < oLis.length; i++){
+            switch (i%3){
+                case 0:
+                    oLis[i].style.backgroundColor = '#DFE02F';
+                    // return;
+                    return '#DFE02F';
+                    break;
+                case 1:
+                    oLis[i].style.backgroundColor = '#2DE086';
+                    break;
+                default:
+                    oLis[i].style.backgroundColor = '#8571E0';
+            }
+        }
+    }
+
+    var a = changeColor();
+    console.log(a);
+
+
+    var col = 1;// 1 代表 #ccc   0 代表 #fff
+    oDiv.onclick = function () {
+        // var c = document.getElementsByTagName('body')[0].style.backgroundColor;
+        // console.log(c);
+        if(col == 1){
+            document.getElementsByTagName('body')[0].style.backgroundColor = '#fff';
+            col = 0;
+        }else {
+            document.getElementsByTagName('body')[0].style.backgroundColor = '#ccc';
+            col = 1;
+        }
+
+    }
+</script>  

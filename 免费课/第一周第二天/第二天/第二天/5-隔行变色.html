@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 500px;
+            list-style: none;
+            margin: auto;
+        }
+        ul li{
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 25px;
+            border-bottom: 1px solid #ccc;
+        }
+        /*li:nth-child(2n){*/
+            /*background: paleturquoise;*/
+        /*}*/
+        /*li:nth-child(2n-1){*/
+            /*background: palegoldenrod;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <!--<li>7</li>-->
+</ul>
+</body>
+</html>
+<script>
+    var oLis = document.getElementsByTagName('li');
+    console.log(oLis);
+    // oLis[0].style.background = 'paleturquoise';
+    // oLis[1].style.background = 'palegoldenrod';
+    //第一种方法
+    for(var i = 0; i < oLis.length; i++){
+        if(i%2 == 0){
+            //奇数行
+            oLis[i].style.background = 'paleturquoise';
+        }else {
+            //偶数行
+            oLis[i].style.background = 'palegoldenrod';
+        }
+    }
+    //李三才方法
+    for(var i = 1; i < oLis.length; i+=2){
+        oLis[i-1].style.background = 'palegoldenrod';
+        oLis[i].style.background = 'paleturquoise';
+    }
+</script>

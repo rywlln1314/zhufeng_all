@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 行数里边的两个特殊属性  1、this 函数的执行主体  2、arguments  实参集合
+* this 的指向问题
+* 1、看函数执行时，前边有没有点，有点，点前边是谁，this就是谁，没有的就是默认window
+*
+* 2、自执行函数的 this  是指向window
+*
+* 3、DOM时间绑定的this 是指向绑定的DOM元素
+* */
+(function () {
+    console.log(this);//window
+})();
+div1.onclick = function () {
+    console.log(this);//div1
+};
+
+function f() {
+    console.log(this);
+};
+var obj = {fn:f};
+console.log(obj.fn == f);
+obj.fn();//obj
+f();//window
+
+</script>

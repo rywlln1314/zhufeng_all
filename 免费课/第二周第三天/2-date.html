@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style>
+        *{
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    // var now = new Date();//拿的是电脑的本机时间
+    // console.log(now);
+    //
+    // var year = now.getFullYear();//获取年；
+    // var month = now.getMonth();//获取月；跟正常的月 差1; 6代表7月
+    // var date = now.getDate();//获取几号
+    // var day = now.getDay();//获取星期几 0->日  1->周一  2->周二
+    // var hour = now.getHours();//获取小时 （24小时制）
+    // var minute = now.getMinutes();//获取分钟
+    // var second = now.getSeconds();//获取秒
+    // var miniSecond = now.getMilliseconds();// 获取毫秒
+    //
+    // var t = now.getTime();// 获取当前时间距离 1970-0-0 0:0:0 的毫秒数
+    //
+    // console.log(t);
+
+
+    var weekObj = {
+        1:'一',
+        2:"二",
+        3:"三",
+        4:"四",
+        5:"五",
+        6:"六",
+        0:"天"
+    };
+    var ary = ['天','一','二','三','四','五','六'];
+
+    var oDiv = document.getElementById('div1');
+
+    function getTime() {
+        var now = new Date();
+        var year = now.getFullYear();//年
+        var month = now.getMonth()+1;//月
+        var date = now.getDate();//几号
+        var hour = now.getHours() < 10 ? '0'+now.getHours():now.getHours();//时
+        var minute = now.getMinutes() < 10 ? '0'+now.getMinutes():now.getMinutes();//分
+        var second = now.getSeconds() < 10 ? '0'+now.getSeconds():now.getSeconds();//秒
+
+        var day = now.getDay();//四
+
+        var str = `今天是${year}年${month}月${date}日 星期${ary[day]} ${hour}:${minute}:${second}`;
+        oDiv.innerHTML = str;
+        clearTimeout(timer);
+        timer = setTimeout(getTime,1000);
+    }
+    oDiv.onclick = function () {
+        getTime();
+    };
+
+    // var timer = setInterval(getTime,1000);
+    var timer = setTimeout(getTime,1000);
+
+
+
+
+</script>  

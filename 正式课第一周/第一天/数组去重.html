@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    //双for循环  改变原有数组
+    function removeRep2() {
+        for (var i = 0; i < ary.length; i++) {
+            //确定寻韩的轮数
+            for (var j = i+1; j < ary.length; j++) {
+                if (ary[i] == ary[j]) {
+                    ary.splice(j,1);
+                    j--;
+                }
+
+            }
+
+        }
+        return ary
+    }
+    //不改变原有数组的方法
+    function removeRep(arr) {
+        //利用新作一个数组  新宿组中存储不重复的项
+        var ary = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (ary.indexOf(arr[i]) == -1)
+            ary.push(arr[i])
+        }
+        return ary
+    }
+    //利用对象不能重复的方法
+    function removeRep3(arr) {
+        var obj = {},ary = [];
+        for (var i = 0; i < arr.length; i++) {
+            obj[arr[i]] = arr[i];
+        }
+        for (var k in obj){
+            ary.push(obj[k])
+        }
+        return ary
+    }
+</script>

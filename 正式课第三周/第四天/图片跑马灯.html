@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        #header{
+            width: 800px;
+            height: 200px;
+            margin: 100px auto;
+            overflow: hidden;
+            border: 1px solid #ff0bc4;
+        }
+        #pic{
+            width: 1600px;
+            height: 200px;
+        }
+        #pic img {
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+        #swk{
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            overflow: hidden;
+        }
+        #swk img{
+            width: 1600px;
+            height: 200px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+<div id="header">
+    
+        <div id="pic">
+            <img src="images/1.jpg" alt="">
+            <img src="images/2.jpg" alt="">
+            <img src="images/3.jpg" alt="">
+            <img src="images/4.jpg" alt="">
+        
+    </div>
+</div>
+
+<div id="swk">
+    <img src="images/west_01_3ca39fe.png" alt="">
+</div>
+
+
+</body>
+</html>
+<script>
+var header = document.getElementById('header');
+var pic = document.getElementById('pic');
+
+pic.innerHTML += pic.innerHTML;
+
+var timer = window.setInterval(function () {
+    var headerW = header.clientWidth;
+    var scrW = header.scrollLeft;
+    var picW = pic.scrollWidth;
+    if (headerW + scrW >= picW){
+        header.scrollLeft = 0;
+    }
+    header.scrollLeft++
+},20);
+
+var swk = document.getElementById('swk');
+var img = swk.getElementsByTagName('img')[0];
+
+var timer2 = window.setInterval(function () {
+    var swkW = swk.clientWidth;
+    var imgW = img.scrollWidth;
+    var scrW = swk.scrollLeft;
+    if (swkW + scrW >= imgW){
+        swk.scrollLeft = 0;
+    }
+    swk.scrollLeft += 200
+},150)
+
+
+</script>

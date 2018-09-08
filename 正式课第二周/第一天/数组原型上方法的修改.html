@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    /*
+    * JS 中所有的数据类型，他们的原型链终点站都是Object.prototype
+    * 也就是说Object.prototype上的方法  所有数据类型都能个使用
+    * */
+var myPush = function (n) {
+    this[this.length] = n;
+    return this.length
+
+};
+var myPush2 = function () {
+    for (let i = 0; i < arguments.length; i++) {
+        this[this.length] = arguments[i];
+    }
+    return this.length
+};
+[].__proto__.myPush = myPush;
+Array.prototype.myPush = myPush;
+
+var ary = [1,2,3];
+ary.myPush(10);//ary = [1,2,3,10]
+
+/*
+* instanceof  查看数据类型
+* */
+var ary = [];
+var obj = {};
+    console.log(obj instanceof Array); //false
+    console.log(ary instanceof Array); //true
+    console.log(ary instanceof Object);//true
+    console.log(/dd/ instanceof Object);//true
+//查看这个变量的类型 在不在对应的原型链上
+
+    /*
+    * hasOwnProperty : 查看某属性 是否是私有的
+    * */
+    function Person() {
+        this.name = '';
+        this.age = '';
+    }
+    Person.prototype.getName = function () {
+        console.log(this.name);
+    };
+    var per1 = new person();//{name:'',age:''}
+    per1.getName();
+
+    console.log(per1.hasOwnProperty('name'));
+    console.log(per1.hasOwnProperty('getName'));
+
+    /*
+    * in  属性是否属于某个对象
+    * 不区分 私有属性 或者 共有属性
+    * 可以调用到的方法或者属性 用 in 判断 结果都是true
+    * */
+    console.log('getName' in per1);
+    console.log('toString' in per1);
+
+    /*
+    * 写一个 判断某个属性或方法是否是 共有属性或方法
+    * */
+
+    per1.hasPublicProperty('getName');//true  getName 是不是 per1 的共有属性
+    per1.hasOwnProperty('getName');//false
+    per1.hasOwnProperty('name');//true
+
+    /*
+    * 基类 ----->  Object 类
+    * */
+Object.prototype.hasOwnProperty = function (str) {
+    //要判断某个属性 是否属于这个对象的共有属性，首先要判断，这个属性在不在对应的原型链上，若在，再去判断 它是否是公有属性
+    //return str in this && !this.hasOwnProperty(str)；
+    if(str in this && !this.hasOwnProperty(str)){
+       //在原型上  而且 也不是私有属性
+        return true
+    }
+    return false
+}
+
+
+</script>

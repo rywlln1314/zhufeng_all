@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 400px;
+            margin: auto;
+        }
+        ul li {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+        /*li:nth-child(2n){*/
+            /*background: greenyellow;*/
+        /*}*/
+        /*li:nth-child(2n-1){*/
+            /*background: paleturquoise;*/
+        /*}*/
+        /*ul li:hover{*/
+            /*background: palegoldenrod;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+</body>
+</html>
+<script>
+    function byTag(tag) {
+        var oLis = document.getElementsByTagName(tag);
+        return oLis;
+    };
+    var lis = byTag('li');
+    console.log(lis);
+    // for(var i = 0; i < lis.length; i++){
+    //     if(i%2==0){
+    //         lis[i].style.backgroundColor = '#1CCC3A'
+    //     }else {
+    //         lis[i].style.backgroundColor = '#CC8F21';
+    //     }
+    // }
+
+    function changeBg(olis) {
+        for(var i = 0; i < olis.length; i++){
+            if(i%2==0){
+                olis[i].style.backgroundColor = '#1CCC3A'
+            }else {
+                olis[i].style.backgroundColor = '#CC8F21';
+            }
+        }
+    }
+    // changeBg(lis);
+
+    // lis[0].onmouseover = function () {
+    //     console.log('over')
+    //     console.log(this);
+    // };
+    // lis[0].onmouseout = function () {
+    //     console.log('out')
+    // };
+    // lis[1].onmouseover = function () {
+    //     console.log('over')
+    // };
+    // lis[1].onmouseout = function () {
+    //     console.log('out')
+    // };
+    // lis[2].onmouseover = function () {
+    //     console.log('over')
+    // };
+    // lis[2].onmouseout = function () {
+    //     console.log('out')
+    // };
+    // lis[3].onmouseover = function () {
+    //     console.log('over')
+    // };
+    // lis[3].onmouseout = function () {
+    //     console.log('out')
+    // };
+    // lis[4].onmouseover = function () {
+    //     console.log('over')
+    // };
+    // lis[4].onmouseout = function () {
+    //     console.log('out')
+    // };
+    // lis[5].onmouseover = function () {
+    //     console.log('over')
+    // };
+    // lis[5].onmouseout = function () {
+    //     console.log('out')
+    // };
+
+    changeBg(lis);
+
+    /*//王涛  思路  在函数外边定义一个变量 用来存储 每一行变色之前的色值
+    //           在鼠标划出之后，让划出的li的颜色变成外边变量存储的色值
+    var col = null;
+    for(var i = 0; i < lis.length; i++){
+        console.log(lis[i].style.backgroundColor);
+        lis[i].onmouseover = function () {
+            col = this.style.backgroundColor;
+            this.style.backgroundColor = '#2EC2CC';
+        };
+        lis[i].onmouseout = function () {
+            this.style.backgroundColor = col;
+            console.log('out');
+        };
+    }*/
+
+    /*//李三才  ：思路  在划出之后 重新给每一项附上前的颜色
+    for(var i = 0; i < lis.length; i++){
+        lis[i].onmouseover = function () {
+            this.style.backgroundColor = '#2EC2CC';
+        };
+        lis[i].onmouseout = function () {
+            console.log('out');
+            changeBg(lis);
+        };
+    }*/
+
+    // 高泽乾  this的思想 ;把初始色值存储到了 每一个li的自定义myqqq属性上 ,
+    //    当划出li时，再用li身上的自定义的myqqq的值 赋给 li 的背景色
+    for(var i = 0; i < lis.length; i++){
+        lis[i].myqqq = lis[i].style.backgroundColor;
+        //是给 lis[i] 增加一个 属性 ；把这个属性的属性值附成当前li背景色值
+        lis[i].onmouseover = function () {
+            this.style.backgroundColor = '#2EC2CC';
+        };
+        lis[i].onmouseout = function () {
+            this.style.backgroundColor = this.myqqq;
+        };
+        console.log(lis[i].myqqq);
+    }
+</script>  

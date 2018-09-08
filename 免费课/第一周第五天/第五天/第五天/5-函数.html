@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+   /*
+   * function 函数名(){
+   *    函数体(业务逻辑部分)
+   * }
+   *
+   * 函数的调用  调用次数不限
+   *  函数名()
+   * */
+   function sum(){
+       var a = 10;
+       var b = 20;
+       console.log(a+b)
+   }
+
+   /*
+   * 函数的存储个过程
+   * 1 开辟一个堆内存
+   * 2 把函数体里边的代码 以*字符串*的形式存储到堆内存中
+   * 3 把堆内存的地址赋给 函数名
+   * */
+   var total = 0;
+   function sum1(){
+       var a = 10;
+       var b = 20;
+       // total = a + b;
+       total += a + b;
+   }
+   sum1();
+   sum1();
+   sum1();
+   console.log(total);
+
+   function sum2() {
+       var a = 10;
+       var b = 20;
+       var t = a + b;
+       return t; // 函数返回的结果
+       // return  后边写什么，那么外边函数执行的结果就是什么
+       // return  有跳出函数的作用;return 后边代码不再执行；类似于 for的break和continue
+       // return 后边不写内容时，默认返回的是 undefined
+       // 当不写 return时 ，默认返回的也是  undefined
+       // return 的位置不固定 ，根据自己的业务逻辑来确定
+   };
+   var tol2 = sum2();
+   console.log(tol2);
+
+   function sum3() {
+       var a = 10;
+       var b = 20;
+       return;
+       var t = a + b;
+       console.log(t);
+   };
+   var tol3 = sum3();
+   console.log(tol3);
+
+   function sum4() {
+       var a = 10;
+       var b = 20;
+       var t = a + b;
+       console.log(t);
+       return function () {
+           console.log(2);
+           return '333333'
+       };
+   };
+   var tol4 = sum4();
+   console.log(tol4());
+
+
+   function sum5() {
+       var a = 10;
+       var b = 20;
+       var t = a + b;
+       function q() {
+           console.log(34);
+       }
+       return q();
+   };
+   var qq = sum5();
+   console.log(qq);
+
+
+</script>  

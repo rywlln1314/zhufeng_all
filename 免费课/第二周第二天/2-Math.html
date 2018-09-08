@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    *
+    *
+    *
+    * */
+    Math.sqrt(4);// --> 2   开方运算
+    Math.pow(2,3);// 2 的 3  次方
+    Math.floor(2.9)//2  向下取整  作用等同于 parseInt()正数
+    Math.ceil(2.1) // 3  向上取整  作用等同于parseInt()负数
+    Math.abs(-2)// 2  取绝对值 （都是 正数 或 0）
+    Math.abs(2)//2
+    Math.round(2.333);// 四舍五入
+    Math.round(3.2);//3
+    Math.round(3.5);//4
+    Math.random();// 取 [0-1) 的随机小数  包含0  不包含 1
+    Math.max(1,3,5,2,56,3);// 取一组数中的最大值
+    Math.min(1,3,5,2,56,3);// 取一组数中的最小值
+
+
+    //求  0-10  随机整数  包含0  不包含 10
+    Math.floor(Math.random()*10);
+
+    //求  0-10  随机整数  包含0  包含 10
+    Math.floor(Math.random()*11);
+    Math.round(Math.random()*10);
+
+    for(var i = 0 ; i < 4; i++){
+        console.log(Math.round(Math.random() * 10));
+    }
+
+    //5 - 65  包含5 包含65  [0-60] + 5
+    Math.round(Math.random()*60+5);
+
+    // n - m  包含 n  包含 m  之间的随机整数
+    // Math.round(Math.random()*(m - n) + n);
+
+    // 0 - 65
+    Math.round(Math.random()*65)
+
+    //0 - 61 的四位随机数  ，并把这四位随机数放到一个数组返回
+
+    function getRandom() {
+        var ary = [];
+        for(var i = 0; i < 4; i++){
+            var n = Math.round(Math.random()*61);
+            ary.push(n)
+        }
+        return ary;
+    }
+
+    console.log(getRandom());
+    console.log(getRandom());
+
+    // var str = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789';
+    function getStr() {
+        var str = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789';
+        var str2 = '';
+        var ary = getRandom();
+        for(var i = 0; i < ary.length; i++){
+            var n = ary[i];//数组里的随机整数,用来当作 目标字符串的索引
+            str2 += str[n];
+        }
+        return str2;
+    }
+
+    console.log(getStr());
+    var oDiv = document.getElementById('div1');
+    oDiv.onclick = function () {
+        console.log(getStr());
+    }
+
+
+    //需求： 取四位不重复的验证码
+
+
+
+</script>

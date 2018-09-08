@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * 形参和实参
+    * 形参： 形式上的参数; 它是再函数定义阶段 定义的
+    *
+    * 实参： 实际的参数
+    *
+    * */
+
+    //定义函数的过程就是咱们造洗衣机的过程
+    function sum(a,b,c) {
+        //a,b,c 是形参
+        // a 衣服口
+        // b 水口
+        // c 洗衣液口
+        console.log(a,b,c)
+        // var total = a + b + c;
+        // return total;
+        return a + b + c;
+    }
+
+    var tol = sum(3,2,1);// 函数执行 相当于咱们函数执行
+    console.log(tol);
+
+    var tol2 = sum(1,2,3,4,5,6);
+    // 实参个数 大于 形参个数  多余的部分 形参拿不到 ；按正常拿到的形参计算
+    console.log(tol2);
+
+    var tol3 = sum(1);// return 1 + undefined + undefined
+    console.log(tol3);//NaN
+    // 实参个数 小于 形参个数  多余的形参部分 给的默认值是 undefined
+
+
+    //不定项求和  利用的是  函数里的内置属性  arguments(实参集合)
+    function sum2(qqq,www) {
+        console.log(arguments);
+        // for(var j = 0 ; j < arguments.length; j++){}
+        var total = 0;
+        for(var i = arguments.length -1 ; i >= 0; i--){
+            // var total = 0;
+            total += arguments[i];
+        }
+        //arguments 是个类数组，目前只有两类  类数组  arguments  元素集合
+        return total;
+    }
+
+    console.log(sum2(1, 1, 1, ' 44',NaN));
+
+    // 任意数求和  ，只加能整除 2 或 3 的数字
+    function sum3() {
+        var total = 0;
+        for(var i = 0; i < arguments.length; i++){
+            var temp = arguments[i];
+            if(typeof temp == 'number'){
+                //!isNaN(temp) &&
+                if(temp%2 == 0 || temp%3 == 0){
+                    total += temp;
+                }
+                // if(!temp%2 || !temp%3){
+                //     total += temp;
+                // }
+            }
+        }
+        return total;
+    }
+
+    console.log(sum3('NaN', NaN, 1, "2", 0, 2, 3));
+
+
+    // this  : 调用主体  ---》 谁函数执行的 ；  简单的规律就是看点 ，点前边是谁，this就是谁
+
+    function fn() {
+        console.log(this);
+    }
+    // fn();//this --> window
+    var obj = {
+        f: fn,
+        w:12
+    };
+    obj.f() // this --> obj
+
+
+</script>  

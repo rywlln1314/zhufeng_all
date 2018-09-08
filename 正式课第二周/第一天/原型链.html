@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 作用域链  针对变量的一种查找机制；先查看是不是自己私有的，不是的话再去父级作用域查找
+*
+* 原型链  针对属性或这方法的一种查找机制，先在自己的私有属性上查找，没有的话。通过__proto__向上级共有属性中查找
+*
+* */
+function Person() {
+    this.name = 'zfpx'
+}
+Person.prototype.getName = function () {
+    console.log(this.name);
+};
+Person.prototype.age = 5000;
+
+var per1 = new Person;
+per1.age = 9;
+console.log(per1.age);
+
+var per2 = new Person;
+console.log(per2.age);
+
+var ary = [1,2,3];
+ary.qq();//报错,因为整个原型链上都没有这个qq的方法
+[].__proto__.qq = function () {
+    console.log(10);
+};//手动添加了一个qq的方法 后边所有的数组都能使用这个方法
+[1,2,3].qq();
+
+/*
+* 私有属性： 当前实例自己身上的属于它的私有属性
+*
+* 共有属性：在实例所属类的原型链上（排除实例自身的属性）的属性
+* */
+
+</script>

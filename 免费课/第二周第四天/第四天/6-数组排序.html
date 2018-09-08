@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * 数组的排序
+    *
+    * ary.sort(function(a,b){return a - b});
+    * localeCompare
+    * */
+    var ary = [1,23,43,5,2,4];
+    // var ary = [1,23,5,43,2,4];
+    // var ary = [1,23,5,2,43,4];
+    // var ary = [1,23,5,2,4,43];
+
+    // var ary = [1,23,5,2,4,43];
+    // var ary = [1,23,5,2,4,43];
+    // var ary = [1,5,23,2,4,43];
+    // var ary = [1,5,2,23,4,43];
+    // var ary = [1,5,2,4,23,43];
+
+
+    /*
+    * 思路1：冒泡排序
+    *  两两比较， 如果前边大于后边 那么 我就让他俩交换位置；否则不动
+    * */
+    function sortBubble(ary) {
+        for(var i = 0; i < ary.length-1;i++){
+            // 比较的轮数
+            for(var j = 0; j < ary.length-1-i; j++){
+                // 两两比较
+                var temp = ary[j];
+                if(ary[j] > ary[j+1]){
+                    ary[j] = ary[j+1];
+                    ary[j+1] = temp;
+                }
+            }
+        }
+        return ary;
+    }
+    var temp = sortBubble(ary);
+    console.log(temp);
+
+    /*
+    * 快速排序
+    * 函数的递归思想 （自己调用自己）
+    * */
+    function sum(n) {
+        if(n <= 0){
+            return 0;
+        }
+        return n + sum(n-1);
+    }
+    var t = sum(10); // 0+1+2+...+10
+    console.log(t);
+    // var t = 10 + sum(9);
+    // var t = 10 + 9 + sum(8);
+    //....
+
+    // var t = 10 + 9 +。。。+ 1 + sum(0);
+    // var t = 10 + 9 +。。。+ 1 + 0 + sum(-1);
+
+    // 0 - 10 之间的奇数 之和
+    function sum1(n) {
+        if(n <=0){
+            return 0;
+        };
+        if(n%2==1){
+            return n + sum(n-2)
+        }
+        return sum(n-1);
+
+    }
+    var t1 = sum1(10);
+    // var t1 = sum1(9);
+    // var t1 = 9 + sum1(7);
+    // var t1 = 9 + 7 + sum1(5);
+    // var t1 = 9 + 7 + 5 + sum1(3);
+    // var t1 = 9 + 7 + 5 + 3 + sum1(1);
+    // var t1 = 9 + 7 + 5 + 3 + 1 + sum1(-1);
+    // var t1 = 9 + 7 + 5 + 3 + 1 + 0;
+
+    function sum3(n) {
+        if(n<=0){
+            return 0
+        };
+        if(n%3==0){
+            return n + sum3(n-3);
+        }
+        return sum3(n-1);
+    }
+
+    console.log(sum3(100));
+
+    /*
+    * 先去找数组中间一项，把这一项拿出来； 用拿出之后的数组中的每一项跟 拿出的这一项比较；比这项大的放到一个数组； 小的放到另外一个数组
+    * 接着对着两个数组做上述同样的操作；
+    * */
+    function quickSort(ary) {
+        if(ary.length <=1){
+            return ary
+        };
+        var n = parseInt(ary.length/2);
+        var cur = ary.splice(n,1)[0];
+        var left = [],right = [];
+        for(var i = 0; i < ary.length; i++){
+            if(ary[i] < cur){
+                left.push(ary[i])
+            }else {
+                right.push(ary[i])
+            }
+        }
+        return  quickSort(left).concat(cur,quickSort(right));
+    }
+
+    var ary1 = [5,3,7,2,8,4,2];
+    var temp = quickSort(ary1);
+    // var temp = quickSort([]).concat(2,quickSort([5,3,7,8,4,2]));
+    // var temp = [].concat(2,quickSort([5,3,7,4,2]).concat(8,quickSort([])));
+    // var temp = [].concat(2,quickSort([5,3,7,4,2]).concat(8,[]));
+    // var temp = [].concat(2,quickSort([5,3,4,2]).concat(7,quickSort([])).concat(8,[]));
+    // var temp = [].concat(2,quickSort([3,2]).concat(4,quickSort([5])).concat(7,[]).concat(8,[]));
+    // var temp = [].concat(2,[].concat(2,[3]).concat(4,[5]).concat(7,[]).concat(8,[]));
+    var temp = [2,2,3,4,5,7,8];
+
+</script>  

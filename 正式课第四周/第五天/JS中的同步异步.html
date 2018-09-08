@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* JS是单线程
+* 同步  异步
+* 常见的异步
+* 1、定时器
+* 2、事件绑定
+* 3、ajax请求
+* 4、回调函数也可以理解成异步
+* */
+var oDiv = document.getElementById('div1');
+
+console.log(1);
+var timer = setInterval(function () {
+    console.log(2);
+},3000);
+console.log(3);
+
+oDiv.onclick = function () {
+    console.log(4);
+};
+/*
+* 浏览器怎么规划JS中的异步？一个是主任务队列   另一个是等待任务队列
+*
+* 主任务队列：指的是代码从上到下依次执行
+* 等待任务队：列存放的是咱们的异步代码
+* 等待任务队列中的代码执行的前提是主任务队列中的代码执行完毕
+*
+* */
+
+console.log(1);
+var timer1 = setTimeout(function () {
+    console.log(2);
+},500);
+console.log(3);
+var timer2 = window.setInterval(function () {
+    console.log(4);
+},200);
+for (var i = 0; i < 90000000; i++) {
+
+}
+console.log(5);
+//主任务队列先执行  一次输出 1 3 执行for for循环完毕后再输出5；这时主任务队列执行完毕，等待任务队列中的代码开始执行，
+console.log(1);
+setTimeout(function () {
+    console.log(2);
+},0);
+console.log(3);
+/*
+* 定时器又自己的默认最小事件，即使手写成0，也不是同步执行；也是一个异步执行
+* 清除定时器，我们可以混着用；cleraInterval 也能清除 timeout
+* */
+var timer4 = setTimeout(function () {
+
+},40000);
+    clearInterval(timer4)
+</script>

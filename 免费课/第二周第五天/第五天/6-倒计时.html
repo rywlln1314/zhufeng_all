@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    var tar = new Date('2018/7/22 18:00:00').getTime();
+    // tar 是目标时间 距离 1970 年的 毫秒数
+
+    var now = new Date().getTime();
+    //now  是当前时间距离 1970  年的 毫秒数
+
+    var time = tar - now;
+    // time  当前时间 距离 目标时间的 毫秒数；
+
+    // 接下来 我们要把这个毫秒数 转成 咱们能看的 时分秒
+    // 1h --->  60*60*1000 毫秒
+    // 1m --->  60*1000 毫秒
+    // 1s ---> 1000  毫秒
+
+    // time中 有几个整小时
+    var h = Math.floor(time/3600000);
+
+    //time 现在是 刨去整数个小时之后剩余的好秒数
+    time = time - h*3600000;
+
+    // 剩余time中有多少整数个 分钟
+    var m = Math.floor(time/60000);
+
+    //time 是刨去 整数分钟后剩余的 毫秒数
+    time = time - m*60000;
+
+    var s = Math.floor(time/1000);
+
+    var str = `距离下课还有${h}小时${m}分钟${s}秒`;
+
+    var oDiv = document.getElementById('div1');
+    // oDiv.innerText = str;
+    // oDiv.innerHTML = str;
+
+    function timeCount() {
+        var tar = new Date('2018/7/22 18:30:00').getTime();
+        var now = new Date().getTime();
+        var time = tar - now;
+        if(time <= 0){
+            clearInterval(timer2);
+            time = 0;
+        }
+        var h = Math.floor(time/3600000);
+        time = time - h*3600000;
+        var m = Math.floor(time/60000);
+        time = time - m*60000;
+        var s = Math.floor(time/1000);
+        var str = `距离下课还有${h<10?'0'+h:h}小时${m<10?'0'+m:m}分钟${s<10?'0'+s:s}秒`;
+        var oDiv = document.getElementById('div1');
+        oDiv.innerText = str;
+    }
+
+    //定时器
+    // setTimeout(f,time); 到达指定时间之后 执行一次 函数体
+    // setInterval(f,time);每隔time时间 执行一次 函数体
+    // var timer = setTimeout(function () {
+    //     timeCount()
+    // },3000);
+    var timer2 = setInterval(function () {
+        timeCount();
+    },1000);
+    // clear   clearTimeout(timer)  clearInterval(timer2)
+    oDiv.onclick = function () {
+        // clearInterval(timer2)
+    }
+
+</script>  

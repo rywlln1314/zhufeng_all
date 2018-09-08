@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * 1、 reverse ：反转； 数组的反转；
+    * 参数 无
+    * 返回值  反转后的数组
+    * */
+    var ary = [1,2,3,4,5];
+    // var res = ary.reverse();
+    // console.log(res, ary);
+    // res[0] = 6;
+    // console.log(ary);
+    function myReverse(ary) {
+        for(var i = 0; i < ary.length/2 ; i++){
+            var temp = ary[i];
+            ary[i] = ary[ary.length -1 - i];
+            ary[ary.length -1 - i] = temp;
+        }
+        return ary;
+    }
+
+
+    function myReverse2(ary) {
+        var arr = [];
+        // for(var i = 0; i < ary.length ; i++){
+        //     arr.unshift(ary[i])
+        // }
+        for(var i = ary.length-1; i >= 0; i--){
+            arr.push(ary[i])
+        }
+        // ary = arr;
+        return arr;
+    }
+
+    function myReverse3(ary) {
+        for(var i = 0 ; i < ary.length/2; i++){
+            var temp = ary[i];
+            // temp 存储 改变之前的当前项的值
+
+
+            // ary[0] = ary[ary.length-1];
+            // ary[1] = ary[ary.length-1-1];
+            // ary[2] = ary[ary.length-1-2];
+
+
+            ary[i] = ary[ary.length-1-i];
+            //把当前项的值 用 后边对应项的值覆盖
+
+            // ary[i] 已经变成后边对应项的值
+
+
+            ary[ary.length-1-i] = temp;
+            //把后边对应项的值 改成 当前项的值
+
+        }
+        return ary;
+    }
+    var res = myReverse3(ary);
+    res[0] = 9;
+    console.log(res, ary);
+
+    /*
+    * 2、数组的排序
+    * sort
+    * 参数可以没有 没有参数时， 它是只能实现 10 以内的排序
+    * 有参数时，参数是个函数（回调函数）
+    * 返回值 是排好序的 数组 跟 原数组是一个地址
+    *
+    * */
+
+    var ary2 = [1,2,4,2,1,5,3,7,5,9,6];
+    var res2 = ary2.sort();
+    res2[0] = 10;
+    console.log(res2, ary2);
+    // 有回调函数时
+
+    var ary3 = [2342,11,32,12,232,245];
+    console.log(ary3);
+    ary3.sort(function(a,b){
+        console.log(a, b);
+        // 当返回值时 正数时  对应的两项要调换位置
+        return a - b;
+    });
+
+    ary3.sort(function(a,b){
+        console.log(a, b);
+        // 当返回值时 正数时  对应的两项要调换位置
+        return b - a;
+    });
+    console.log(ary3);
+
+    var ary4 = ['a','g','s','f']; // localeCompare
+
+
+</script>  

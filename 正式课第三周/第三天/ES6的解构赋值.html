@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var ary = [1,2,3];
+var a = 1;
+var b = 3;
+var [a,b,c] = ary;
+var [a,,b] = ary;
+
+var arr = [1,2,3,4] ;
+var [a,,,b,d] = arr;
+console.log(a, b, d);
+/*
+* 数组的解构赋值：按照对应的位置去赋值的，若数组没有与之对应的值，则给变量一个默认的undefined
+* */
+var x = 12;
+var y = 14;
+var [x,y] = [y,x];
+console.log(x, y);
+</script>

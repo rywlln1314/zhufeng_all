@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 工厂模式 就是一个 普通函数
+*
+*单例模式有个缺点，每次都要手动新创造一个对象，当我们需要创造很多个单例时，每次都var 一个新的对象比较麻烦，会造成一定的代码冗余；这时我们可以利用函数去创造我们需要的单例
+* 我们把这种模式  称为工厂模式
+* */
+var obj = {
+    name:'zfpx',
+    set:function () {
+
+    },
+    get:function () {
+
+    }
+};
+var obj2 = {
+    name:'zfpx2',
+    set:function () {
+
+    },
+    get:function () {
+
+    }
+};
+//代码的冗余
+//函数可以实现代码的高内聚和低耦合
+
+function factory(name) {
+    var obj = {
+        name:'name',
+        set:function () {
+
+        },
+        get:function () {
+
+        }
+    };
+    return obj
+}
+var obj = factory('zfpx');
+var obj2 = factory('zfpx2');
+var obj3 = factory('zfpx3');
+</script>

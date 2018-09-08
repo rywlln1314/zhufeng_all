@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .title{
+            overflow: hidden;
+            width: 400px;
+            display: flex;
+            list-style: none;
+            margin: auto;
+        }
+        .title li{
+            flex: 1;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .title li.current{
+            background: #24ccc8;
+            color: #f4f4f4;
+        }
+        .content{
+            display: none;
+            width: 400px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            margin: auto;
+            background: papayawhip;
+        }
+        .content.current{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<ul class="title">
+    <li class="current">JS</li>
+    <li>CSS</li>
+    <li>VUE</li>
+</ul>
+<div><div class="content current">JS</div>
+    <div class="content">CSS</div>
+    <div class="content">VUE</div>
+</div>
+
+</body>
+</html>
+<script src="jquery/jquery-3.3.1.js"></script>
+<script></script>
+<script>
+ var $lis = $('ul>li');
+ var $contents = $('.content');
+ $lis.on('click',function () {
+     //this指向原生的点击的那个元素
+     //$(this)吧原生转成JQ对象
+     $(this).addClass('current').siblings().removeClass('current');
+     var n = $(this).index();
+     //$contents.eq(n).addClass('current').siblings().removeClass('current');
+     $contents.eq(n).show().siblings().hide();
+ })
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    //unique
+    var ary = [1,2,3,4,5,6,7,5,4,3,2,21];
+    var ary2 = [1,2,3,4,5,6,7,5,4,3,2,21];
+    function unique(ary) {
+        let obj = {};
+        //循环数组，然后判断数组的这一项在不在原来的对象中
+        //如果在就把该项删除
+        //如果不在，就把这项添加到obj中
+        for (let i = 0; i < ary.length; i++) {
+            if (obj.hasOwnProperty(ary[i])){
+            ary.splice(i,1);
+            i--
+            }
+                obj[ary[i]] = ary[i]
+
+        }
+        return ary
+    }
+
+    console.log(unique(ary));
+    Array.prototype.myUnique = function myUnique() {
+        let obj = {};
+        for (let i = 0; i < this.length; i++) {
+            if (obj.hasOwnProperty(this[i])){
+                this.splice(i,1);
+                i--
+            }
+            obj[this[i]] = this[i]
+
+        }
+     return this
+    };
+    ary2.myUnique();
+    console.log(ary2);
+
+   // var arr = ary.reverse();
+    //var arr = ary.reverse().pop;
+    ///var arr = ary.reverse().pop.push(12);
+    //pop返回的是一个数字，不是数组；而push是数组中的方法
+
+
+    //var arr = ary.myUnique().pop();
+    //这种能通过连续打点的方式调用的形式，我们称为链式调用
+    //实现链式调用的关键是看返回值是否仍然是该类的一个实例
+    //若每个函数返回值都是this；那么我们就能实现连续的链式调用
+
+    Array.prototype.myPop = function myPop() {
+       this.length -= 1;
+       return this
+    };
+    Array.prototype.myPush = function myPush(n) {
+        this[this.length] = n;
+        return this
+    };
+
+    var ary3 = [1,2,3,4,5,6,7,5,4,3,2,21];
+    var arr2 = ary3.myUnique().myPush(12).myPush(14).myPop().myPop().myUnique();
+    console.log(arr2);
+
+
+</script>

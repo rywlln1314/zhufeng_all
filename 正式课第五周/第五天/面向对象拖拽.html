@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #div1,#div2,#div3{
+            width: 100px;
+            height: 100px;
+            background: deeppink;
+            text-align: center;
+            line-height: 100px;
+            position: absolute;
+            user-select: none;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+
+    var oDiv = document.getElementById('div1');
+class Drag{
+    constructor(ele){
+     this.ele = ele;
+     ele.onmousedown = this.dragStart.bind(this);
+    }
+    dragStart(e){
+      e = e || window.event;
+      this.ele.startX = this.ele.offsetLeft;
+      this.ele.startY = this.ele.offsetTop;
+      this.mx = e.pageX;
+      this.my = e.pageY;
+      document.onmousemove = this.dragMove.bind(this);
+      document.onmouseup = this.dragEnd.bind(this);
+    }
+    dragMove(e){
+      e = e || window.event;
+      var l = e.pageX - this.mx + this.ele.startX;
+      var t = e.pageY - this.my + this.ele.startY;
+      this.ele.style.left = l + 'px';
+      this.ele.style.top = t + 'px';
+
+    }
+    dragEnd(){
+        document.onmousemove = null;
+        document.onmouseup = null;
+    }
+
+}
+var dragoDiv = new Drag(oDiv);
+</script>

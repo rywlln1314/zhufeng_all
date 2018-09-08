@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('post','https://m.huli.com/wap/1.0/bid/rryList',true);//再路径后边
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        /*
+        * 最初readyState是0
+        * open时把readyState从0变成1 触发一次这个函数
+        * 然后等send发送出去之后；由于是异步请求；主队列接着执行；等主队列执行完成之后
+        * http触发的readyState的变化才会体现出来；
+        * 先把readyState从1变成2触发这个函数
+        * 再把readyState从2变成3
+        * 最后再把readyState从3变成4
+        * http请求结束
+        * */
+        var i = 0;
+    };
+    xhr.setRequestHeader('name','zhufeng');
+    xhr.setRequestHeader('content-type','application/x-www-form-urlencoded');
+    //xhr.abort();
+    xhr.send('name1=12');
+    //xhr.abort();
+</script>

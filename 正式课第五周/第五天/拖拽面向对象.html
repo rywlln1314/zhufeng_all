@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #div1,#div2,#div3{
+            width: 100px;
+            height: 100px;
+            background: deeppink;
+            text-align: center;
+            line-height: 100px;
+            position: absolute;
+            user-select: none;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<div id="div2">珠峰培训</div>
+<div id="div3">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    var oDiv1 = document.getElementById('div1');
+    var oDiv2 = document.getElementById('div2');
+    var oDiv3 = document.getElementById('div3');
+
+
+    class Drag{
+       constructor(ele){
+           this.ele = ele;//把这个元素放到这个实例的一个属性上，是为了下边函数能调用到这个元素
+           ele.onmousedown = this.dragStart.bind(this);
+       }
+        dragStart(e) {
+            e = e || window.event;
+            this.startX = this.ele.offsetLeft;
+            this.startY = this.ele.offsetTop;
+            this.mx = e.pageX;
+            this.my = e.pageY;
+            document.onmousemove = this.dragMove.bind(this);
+            document.onmouseup = this.dragEnd.bind(this);
+        }
+        dragMove(e) {
+            e = e || window.event;
+            var l = e.pageX - this.mx + this.startX;
+            var t = e.pageY - this.my + this.startY;
+            this.ele.style.left = l + 'px';
+            this.ele.style.top = t + 'px';
+
+        }
+        dragEnd() {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        }
+
+    }
+    var drag1 = new Drag(oDiv1);//通过new传入的实参 我们可以在类的constructor中接受到
+    var drag2 = new Drag(oDiv2);
+    var drag3 = new Drag(oDiv3);
+
+
+
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 数组去重
+* 思路1
+* 去拿当前项  和后面的每一项去比较 ；如果后面由某一项和当前项相同，那就正匿名后边这项是重复的，删除这项即可
+* */
+var ary = [1,2,3,4,2,2,5,8,3,2,5,6,];
+function removeRep(ary) {
+    for (var i = 0; i < ary.length; i++) {
+        var cur = ary[i];
+        for (var n = i+1; n < ary.length; n++) {
+            if (cur == ary[n]) {
+                ary.splice(n,1);
+                n = n - 1
+            }
+
+        }
+
+    }
+    return ary
+}
+
+console.log(removeRep(ary).sort(function (a, b) {
+    return b - a
+}));
+
+/*
+* 思路2
+* 造一个新数组，循环老数组，判断新数组中是否有老数组的当前项若没有，则给这个新数组添加一项，值为老数组的当前项
+* */
+var ary1 = [1,2,3,4,2,2,5,8,3,2,5,6,];
+function removeRep1(ary) {
+    var ary2 = [];
+    for (var i = 0; i < ary.length; i++) {
+        if (ary2.indexOf(ary[i]) == -1)
+        ary2.push(ary[i])
+    }
+    return ary2
+}
+console.log(removeRep1(ary1));
+/*
+* 思路3 利用对象的属性名不能重复
+* 先造一个空对象，循环数组，把数组的每一项 当作属性名添加到对象里
+* */
+var ary = [1,2,3,4,2,2,5,8,3,2,5,6,];
+function reRep(ary) {
+    var arr = [],obj = {};
+    for (var i = 0; i < ary.length; i++) {
+        obj[ary[i]] = ary[i];
+    }
+    for (var k in obj){
+        arr.push(obj[k])
+    }
+    return arr;
+}
+</script>

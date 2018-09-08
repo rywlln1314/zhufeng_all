@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 思路 吧字符串编程   aaabbbcccddd
+* 然后再用正则结合replace方法求出最大值
+*
+* */
+var str = 'qwweqwqerwreotiwoeruwiywutywioeuo';
+var ary = str.split('').sort(function (a,b) {
+    return a.localeCompare(b)
+});
+console.log(ary);
+var str1 = '';
+for (let i = 0; i < str.length; i++) {
+   str1 += ary[i]
+}
+console.log(str1);
+var reg = /(\w)\1*/g;
+var ary2 = str1.match(reg);
+console.log(ary2);
+
+ary2.sort((a,b)=>{
+    return a.length - b.length
+});
+console.log(ary2,ary2[ary2.length-1],ary2[ary2.length-1][0],ary2[ary2.length-1].length);
+
+
+
+
+
+
+</script>

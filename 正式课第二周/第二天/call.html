@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* call 改变this 关键字用的
+*
+* f1.call（obj）：先把 f1 中的 this 指向改成 obj，再让 f1 执行
+* */
+//"use strict";//单双引号都可以
+//写到某个JS文件中，只对当前这个JS文件起作用
+//写到某个函数里面，支队当前函数起作用
+function f1() {
+    console.log(this);
+}
+var obj = {
+    name:'zfpx'
+};
+
+f1.call(obj);//obj{name:'zfpx'}
+f1.call();//严格模式：undefined   非严格模式：window
+f1.call(null);//严格模式：null   非严格模式：window
+f1.call(undefined);//严格模式：undefined   非严格模式：window
+
+f1();//严格模式：undefined   非严格：window
+
+//严格模式下属性名不能重复； 非严格模式 属性名可以重复
+//严格模式下  不存在 arguments 映射
+function f2(n,m) {
+    arguments[0] = 10;
+    console.log(n, m);
+}
+f2(1,2);
+
+function f3(n,m) {
+    console.log(this);
+    console.log(n + m);
+}
+
+f3.call(obj,1,2,3);//第一个参数改变this指向；后边这些参数是传给f3的实参
+
+</script>

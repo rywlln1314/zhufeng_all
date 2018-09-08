@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * 数组的排序  sort
+    * 1、冒泡排序
+    *
+    * */
+
+    // 思路： 两项两项的比较  ，如果 后一项比前一项 大  则不交换顺序，否则两者交换顺序
+    // 第一轮  把最大的排到了最后边
+    // 第二轮  把倒数第二大的排到了倒数第二的位置
+    // 第三轮  把倒数第三大的排到了倒数第三的位置
+    // 。。。
+    // 最后一轮  把第一小 和 第二小  交换一下位置
+    var ary = [4,2,1,65,34,56,3,562,542];
+    function sort1(ary) {
+        for(var i = 0; i < ary.length-1;i++){
+            //轮数
+            for(var j = 0; j < ary.length-1-i; j++){
+                //两两比较
+                var temp = ary[j];
+                ary[j] > ary[j+1] ? (ary[j] = ary[j+1],ary[j+1]=temp):null;
+                // if(ary[j] > ary[j+1]){
+                //     ary[j] = ary[j+1];
+                //     ary[j+1]=temp;
+                // }
+            }
+        }
+        return ary
+    }
+    var ary2 = [1,1,2,4,1,5,2,5,2,5,2];
+    console.log(sort1(ary2));
+    console.log(sort1(ary));
+
+
+    //快速排序
+
+    // 递归  ---》  在咱们这里 就是 让 函数 自己 调用自己
+
+    function sum1(n) {
+        var t = 0;
+        for(var i = 0; i <= n ; i++){
+            t += i;
+        }
+        return t;
+    }
+    function sum(n) {
+        // if(n<=0){
+        //     return 0;
+        // }
+        // return n + sum(n-1);
+        if(n > 0){
+            return n + sum(n-1);
+        }
+        return 0
+    }
+    function add(n){
+        if(n<=0){
+            return 0
+        }else{
+            return n+add(n-1)
+        }
+    };
+    // sum(2) -- > 2 + sum(1)  --> 2 + 1 + sum(0) -->2 + 1 + 0
+    // sum(2) -- > 2 + sum(1)  --> 2 + 1 + sum(0) -->2 + 1 + 0
+
+
+
+    var t1 = sum(2);  //--> 1+2 -->3
+    var t2 = sum(3);  //--> 1+2+3-->6
+    var t3 = sum(5); // --> 1+2+3+4+5  --> 15
+    console.log(t1, t2, t3);
+
+    function sum2(n) {
+        // 0 - n  中  只相加 能被 2 或 3 整除  的  数字
+        if(n <= 0){
+            // 递归的边界
+            return 0
+        };
+        // if(n%2==0 || n%3 == 0){
+        //     return n + sum2(n-1)
+        // }
+        // return 0 + sum2(n-1) ;
+
+        if(n%2==0 || n%3 == 0){
+            return n + sum2(n-1)
+        }else {
+            return sum2(n-1) ;
+        }
+
+    }
+    var res = sum2(6);
+    console.log(res);
+    // sum2(100)   --> 100+sum2(99) -- 100 + 99 + sum2(98)
+    // - 100 + 99 + 98 + sum2(97)
+    // - 100 + 99 + 98 + sum2(96)
+    // - 100 + 99 + 98 + 96 + 94 + 93 +sum2(92)
+    // - 100 + 99 + 98 + 96 + 94 + 93 +sum2(92) .....
+
+    /*
+    * 用递归实现快速排序
+    * */
+
+    // 思路： 从数组的中间部分取出一个值  然后用  去除数值后的数组的每一项 跟 取出的这个数比较  ，把比他大的放到一个数组中 ，比他小的放到另一个数组中；
+    //  然后再把新的这两个数组重复刚才的步骤, 把结果 拼成一个新的数组
+    var ary4 = [1,6,3,2,5];
+    function quickSort(ary) {
+        //边界
+        if(ary.length <= 1){
+            return ary;
+        }
+
+        //业务逻辑
+        var n = parseInt(ary.length/2);//中间项的索引
+        var temp = ary.splice(n,1)[0];// 中间项
+        var left = [], right = [];
+        for(var i = 0; i < ary.length; i++){
+            if(ary[i] <= temp){
+                left.push(ary[i])
+            }else {
+                right.push(ary[i])
+            }
+        }
+        return quickSort(left).concat(temp,quickSort(right));
+    }
+
+    console.log(quickSort(ary4));
+
+
+</script>  

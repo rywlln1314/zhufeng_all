@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box,#box2,#box3 {
+            width: 600px;
+            margin: auto;
+        }
+
+        .til {
+            width: 600px;
+            height: 50px;
+            display: flex;
+        }
+
+        .til li {
+            flex: 1;
+            text-align: center;
+            line-height: 50px;
+            border: 1px dashed #0AEEAA;
+            cursor: pointer;
+        }
+
+        .til li.current {
+            background: #ff0bc4;
+        }
+
+        .content {
+            border: 1px solid #0c80dc;
+            width: 600px;
+            height: 400px;
+            text-align: center;
+            font-size: 50px;
+            line-height: 400px;
+            display: none;
+        }
+
+        .content.current {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul class="til">
+        <li class="current">css</li>
+        <li>JS</li>
+        <li>VUE</li>
+    </ul>
+    <div class="contentBox">
+        <div class="content current">CSS</div>
+        <div class="content">JS</div>
+        <div class="content">VUE</div>
+    </div>
+</div>
+<div id="box2">
+    <ul class="til">
+        <li class="current">css</li>
+        <li>JS</li>
+        <li>VUE</li>
+    </ul>
+    <div class="contentBox">
+        <div class="content current">CSS</div>
+        <div class="content">JS</div>
+        <div class="content">VUE</div>
+    </div>
+</div>
+<div id="box3">
+    <ul class="til">
+        <li class="current">css</li>
+        <li>JS</li>
+        <li>VUE</li>
+    </ul>
+    <div class="contentBox">
+        <div class="content current">CSS</div>
+        <div class="content">JS</div>
+        <div class="content">VUE</div>
+    </div>
+</div>
+
+
+</body>
+</html>
+<script src="jquery/jquery-3.3.1.js"></script>
+<script>
+
+
+
+    //转成JQ插件
+
+    (function () {
+        function tabPlugin(options) {
+            options = options||{};
+            var defaultOption = {
+                eventType:'click',
+                index:0
+            };
+            for (var k in options) {
+                defaultOption[k] = options[k]
+            };
+            var $box = this;
+            var $lis = $box.find('ul.til>li');
+            var $contents = $box.find('.content');
+            $lis.eq(defaultOption.index).addClass('current').siblings().removeClass('current');
+            $contents.eq(defaultOption.index).addClass('current').siblings().removeClass('current');
+            $lis.on(defaultOption.eventType, function () {
+                var $this = $(this);
+                $this.addClass('current').siblings().removeClass('current');
+                var n = $this.index();
+                $contents.eq(n).addClass('current').siblings().removeClass('current');
+            })
+        }
+        $.fn.extend({
+            tab:tabPlugin}
+        )
+    })();
+
+    $('#box').tab({
+        eventType:'mouseenter'}
+    );
+    $('#box2').tab({
+        index:1
+    });
+    $('#box3').tab({
+        eventType:'mouseenter',
+        index:2
+    });
+
+</script>

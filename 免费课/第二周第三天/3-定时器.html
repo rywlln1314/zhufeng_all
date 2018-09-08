@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    //1、setTimeout(f,time)  只执行一次； f是个函数体  time是毫秒级的时间
+    // clearTimeout(timer);//清除 timeout定时器
+    var timer = window.setTimeout(function () {
+        console.log(122);
+    },2000);// 2000毫秒  2秒
+    // 2秒之后要做的事情
+    // window.clearTimeout(timer);
+
+    //2、setInterval(f,time)  执行无限次； f是个函数体  time是毫秒级的时间
+    //clearInterval(timer2); 清除 Interval定时器
+
+    // 创建定时器的时候要注意给定时器一个名字，方便以后清除定时器
+
+    // var timer2 = window.setInterval(function () {
+    //     console.log(3333)
+    // },1000);
+    // window.clearInterval(timer2);
+
+    // setInterval(function () {
+    //     console.log(5555)
+    // },500);
+    // clearInterval()
+    // var oDiv = document.getElementById('div1');
+    // oDiv.onclick = function () {
+    //     this.qqq = 'wwww';
+    //     this.timer = window.setInterval(function () {
+    //         console.log(666)
+    //     },1000)
+    // };
+    // window.clearInterval(oDiv.timer)
+
+    function sum() {
+        console.log(12);
+        clearTimeout(timer3);
+        timer3 = window.setTimeout(sum,1000);
+    }
+    var timer3 = window.setTimeout(sum,1000)
+
+
+</script>  

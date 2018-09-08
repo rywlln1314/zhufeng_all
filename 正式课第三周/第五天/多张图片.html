@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style>
+        body{
+            background: salmon;
+        }
+        #div1{
+            height: 2000px;
+            background: #cccccc;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+            /*transition: width 0.2s;*/
+        }
+        .bot{
+            height: 400px;
+            background: #333333;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<img src="images/1.jpg" realSrc="images/4.jpg" alt="">
+<div class="bot"></div>
+</body>
+</html>
+<script src="JS/utils.js"></script>
+<script>
+    var oImg = document.getElementsByTagName('img')[0];
+    function loadImg(ele) {
+        if(ele.loaded)return;
+        var scrollT = utils.scrollT();//卷去高度
+        var clientH = utils.clientH();//一屏的高度
+        var tarT = utils.offset(ele).t;//ele到body的top值
+        if(scrollT+clientH > tarT){
+            var realSrc = ele.getAttribute('realSrc');
+            var temp = document.createElement('img');
+            temp.src = realSrc;
+            temp.onload = function(){ //图片加载完成 的一个事件
+                // ele.style.opacity = 0;
+                ele.src = realSrc;
+                ele.loaded = true;
+                // setTimeout(()=>{
+                //     ele.style.opacity = 1;
+                // },200);\
+                fadeIn(ele);
+            };
+        }
+    }
+    window.onscroll = function () {
+        loadImg(oImg);
+    };
+    function fadeIn(ele) {
+        ele.style.opacity = 0; // 先把元素的透明度设置为0,然后用定时器累加一个数，把这个数赋给元素的opacity; 当这个opacity 大于1 时； 清除定时器
+        var opa = 0.1;
+        var timer = setInterval(function () {
+            opa+=0.1;
+            ele.style.opacity = opa;
+            if(opa>=1){
+                ele.style.opacity = 1;
+                clearInterval(timer);
+            }
+        },20)
+    }
+</script>

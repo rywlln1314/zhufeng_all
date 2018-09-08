@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <script src="JS/utils.js"> </script>
+    <style>
+        #div1{
+            height: 5000px;
+            background: linear-gradient(#ff0bc4,#a31daf,#0AEEAA,#0c80dc,#17cc00);
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<a class="btn">回到顶部</a>
+
+</body>
+</html>
+<script>
+var btn = document.getElementsByClassName('btn')[0];
+// btn.onclick = function () {
+//     var timer = setInterval(function () {
+//         var tarT = document.documentElement.scrollTop;
+//         tarT -= 10;
+//         if (tarT <= 0) {
+//             clearInterval(timer);
+//             tarT = 0
+//         }
+//         document.documentElement.scrollTop = tarT;
+//     })
+//
+// }
+
+var duration = 2000;
+btn.onclick = function () {
+    var changT = utils.offset(btn).t - utils.clientH();
+    var speed = changT/duration;
+    var time = 0;
+    var timer = setInterval(function () {
+        time += 30;
+        var moveL = time*speed;
+        if (time >= duration){
+            clearInterval(timer);
+            moveL = changT
+        }
+        document.documentElement.scrollTop = changT - moveL;
+    })
+}
+
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 订阅
+*
+* 发布
+*
+* 取消订阅
+* */
+var ary = [];//存储订阅人的名单---》事件池
+function on(f) {
+    ary.push(f)  ;//在名单上加人
+}
+
+function fire() {
+    ary.forEach((item)=>{
+        item && item();//让名单里的人执行；也就是给名单上的人送报纸
+    })
+}
+
+function off(f) {
+    var n = ary.indexOf(f);//从名单上找到对应的人
+    ary.splice(n,1);//把这个人从名单上移除
+}
+
+function f1() {
+    console.log(1);
+}
+function f2() {
+    console.log(2);
+}
+function f3() {
+    console.log(3);
+}
+on(f1);
+on(f2);
+on(f3);
+
+fire();
+
+off(f2);
+
+fire();
+
+
+
+</script>

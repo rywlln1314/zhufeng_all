@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .til {
+            width: 500px;
+            height: 50px;
+            margin: auto;
+            position: relative;
+            top: 1px;
+        }
+
+        .til ul {
+            width: 500px;
+            height: 50px;
+        }
+
+        .til ul li {
+            width: 25%;
+            height: 50px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 50px;
+            background-color: #cccccc;
+            float: left;
+            border: 1px solid black;
+            box-sizing: border-box;
+            cursor: pointer;
+            overflow: hidden;
+            white-space: normal;
+            overflow: ;
+        }
+
+        .til ul li.active {
+            background-color: #0AEEAA;
+            color: #f14bbd;
+            border-bottom: #0AEEAA 1px solid;
+        }
+
+        .body {
+            width: 500px;
+            height: 300px;
+            margin: auto;
+        }
+
+        .body ul {
+            width: 500px;
+            height: 300px;
+        }
+
+        .body ul li {
+            width: 500px;
+            height: 300px;
+            background-color: #ccc;
+            color: #f14bbd;
+            line-height: 300px;
+            text-align: center;
+            display: none;
+            border: 1px solid black;
+            box-sizing: border-box;
+            font-size: 40px;
+        }
+
+        .body ul li.active {
+            display: block;
+            background-color: #0AEEAA;
+        }
+
+    </style>
+</head>
+<body>
+<div class="til">
+    <ul>
+        <li class="active">新闻</li>
+        <li>视频</li>
+        <li>体育</li>
+        <li>娱乐</li>
+    </ul>
+</div>
+<div class="body">
+    <ul>
+        <li class="active">这里是新闻</li>
+        <li>这里是视频</li>
+        <li>这里是体育</li>
+        <li>这里是娱乐</li>
+    </ul>
+</div>
+
+</body>
+</html>
+<script>
+    var tils = document.getElementsByClassName('til')[0];
+    var lis = tils.getElementsByTagName('li');
+
+    var bodys = document.getElementsByClassName('body')[0];
+    var bodyslis = bodys.getElementsByTagName('li');
+
+    function clearClass() {
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].className = '';
+            bodyslis[i].className = '';
+        }
+    }
+
+    for (var i = 0; i < lis.length; i++) {
+        (function (n) {
+            lis[n].onclick = function () {
+                clearClass();
+                lis[n].className = 'active';
+                bodyslis[n].className = 'active';
+            }
+        })(i)
+
+    }
+
+
+</script>

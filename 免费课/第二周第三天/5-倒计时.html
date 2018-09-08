@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * setInterval 实现倒计时
+    * */
+
+    // 2018-7-19 16:45:00
+    var tar = new Date('2018-7-19 16:45:00');
+    var tarT = tar.getTime();
+    function timeCount(tarT) {
+        var now = new Date();
+        var nowT = now.getTime();
+        var time = tarT - nowT;
+        if(time <= 0){
+            clearInterval(timer);
+            time = 0;
+        }
+        var h = Math.floor(time/3600000);
+        time = time - h*3600000;
+        var m = Math.floor(time/60000);
+        time = time - m*60000;
+        var s = Math.floor(time/1000);
+
+        var str = `距离考试还剩${h <10 ? '0'+h : h}时${m < 10 ? '0'+m : m}分${s < 10 ? '0'+s : s}秒`;
+
+        var oDiv = document.getElementById('div1');
+        oDiv.innerHTML = str;
+    }
+
+    var timer = window.setInterval(function () {
+        timeCount(tarT);
+    },1000)
+
+</script>  

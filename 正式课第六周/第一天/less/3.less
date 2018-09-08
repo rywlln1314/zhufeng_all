@@ -1,0 +1,23 @@
+/*
+混合
+*/
+@w:200px;
+@h:300px;
+.public{
+  list-style: none;
+  width:@w * 2;
+  height:@h * 2;
+  background: #0AEEAA;
+  li{
+    color: #17cc00;
+    font-size: 24px;
+  }
+}
+.oul3{
+  .public;
+}
+//extend  只获取这个类名或ID下的 自己的样式；儿子的样式不会拿
+//extend  编译后的先后顺序跟extend的样式表定义的先后顺序相关
+.oul3:extend(.public){
+
+}

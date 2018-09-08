@@ -1,0 +1,24 @@
+/*
+混合
+*/
+.public,
+.oul3 {
+  list-style: none;
+  width: 400px;
+  height: 600px;
+  background: #0AEEAA;
+}
+.public li {
+  color: #17cc00;
+  font-size: 24px;
+}
+.oul3 {
+  list-style: none;
+  width: 400px;
+  height: 600px;
+  background: #0AEEAA;
+}
+.oul3 li {
+  color: #17cc00;
+  font-size: 24px;
+}

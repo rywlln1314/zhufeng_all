@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">
+    <p class="box1">1</p>
+    <p class="box2 box3">2</p>
+    <!--注释-->
+    <p class="box3 box4">3</p>
+    <p class="box4 box2 box3">4</p>
+
+</div>
+<div id="div2"></div>
+
+
+</body>
+</html>
+<script>
+function getByClass(str,context) {
+    context = context || document;
+    str = str.replace(/^ +| +$/g,'');
+    var ary = str.split(/ +/);
+    var arr = [];
+    var eles = context.getElementsByTagName('*');
+    // if (!ary[0].length){
+    //     ary.shift()
+    // }
+    // !ary[ary.length-1] ? ary.pop() : null;
+    for (let k = 0; k < ary.length; k++) {
+        var reg = new RegExp('(^| +)()'+ary[k]+'( +|$)');
+        for (let i = 0; i < eles.length; i++) {
+            if (reg.test[eles[i].className]){
+                arr.push(eles[i])
+            }
+        }
+    }
+    //arr存放的是满足box这个类名的元素
+    return arr
+}
+
+</script>

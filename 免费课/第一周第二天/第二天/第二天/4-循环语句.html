@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<a href="##">eeeeee</a>
+</body>
+</html>
+<script>
+    var user = {
+        name:'zfpx',
+        age:9,
+        sex:'男',
+        height:'180cm',
+        weight:'90kg',
+        0:'12',
+        1:'13',
+        2:'14'
+    };
+    // var user = {
+    //     0:'12',
+    //     1:'13',
+    //     2:'14',
+    //     name:'zfpx',
+    //     age:9,
+    //     sex:'男',
+    //     height:'180cm',
+    //     weight:'90kg'
+    // };
+    // var str = 'name是'+user.name+','+"......";
+
+    // str = 'name是zfpx,age是9.。。。。';
+    //循环就是为了让我们不用做这些重复性的工作，让电脑去做这些重复性的工作
+    /*
+    * for( var key in obj){
+    *   key :是一个变量 对应对象里的每一个属性名
+    *   obj :是我们要循环的对象
+    *   obj[key] : 是该属性名对应的属性值
+    *
+    * }
+    * 一般是用来 循环 普通对象
+    * */
+
+    console.log('name' in user);
+    console.log('www' in user);
+
+    var str = '';
+    for(var a in user){
+        // str = str + a + '是' + user[a] + ',';
+        // str = str + `${a}是${user[a]},`;
+        // user.a === user['a']  去拿user下的 a 属性
+        str = str + `${a}是${user.a},`;
+        // debugger;
+    }
+    console.log(str)
+
+
+    if('name' in user){
+        console.log(user.name)
+    }
+    if('history' in window){
+        window.history.go(-1);
+    }
+
+
+
+    /*
+    * for 循环
+    * i++ ----> i = i + 1;
+    * i-- ----> i = i - 1;
+    * for(var i = 0 ; i < 10; i++){
+    *      console.log(i)
+    * }
+    * break // 跳出整个循环
+    * continue // 跳出当次循环
+    * */
+    for(var i = 0; i < 10; i++){
+        // 第一次  i = 0 ； 0 < 10  执行内部代码
+        // 第二次 i++  i = 1 ;  1 < 10  执行内部代码
+        // 第三次 i++  i = 2 ;  2 < 10  执行内部代码
+        // ....
+        // 第九次 i++  i = 8 ;  8 < 10 执行内部代码
+        // 第10次 i++  i = 9 ;  9 < 10 执行内部代码
+        // 第11次 i++  i = 10 ;  10  < 10 跳出循环
+        if(i == 5){
+            // break;
+            continue;
+        }
+        // console.log(i);
+    };
+    for( var i = 9 ; i > -1 ; i--){
+        console.log(i);
+    };
+
+    for(var i = 0; i < 10 ; i++){
+        // i=0   i < 10    i=3
+        //i++ i=4; i<10  -> i=7
+        //i++ i=8; i<10  -> i=10
+        //i++ 11 i < 10
+        if(i < 5){
+            i += 3; // i = i + 3
+            continue;
+        }else {
+            i += 2; // i = i + 2;
+            continue;
+        }
+        i += 1;
+    }
+    console.log(i);
+
+
+    for(var i = 0; i < 10 ; i++){
+        // i=0   i=3
+        //i++ i=4;  i<10 -> i=7
+        //i++ i=8;  i<10 -> 10
+        if(i < 5){
+            i += 3; // i = i + 3
+            continue;
+        }else {
+            i += 2; // i = i + 2;
+            break;
+        }
+        i += 1;
+    }
+    console.log(i);
+
+
+    /*
+    * while(){
+    *
+    * }
+    *
+    * */
+    var a = 3;
+    //当 a 大于 0 的时候 我要干嘛
+    //一般用我们不知道要循环多少次的时候用
+    while (a > 0){
+        console.log(a);
+        a = a - 0.1;
+    }
+
+</script>  

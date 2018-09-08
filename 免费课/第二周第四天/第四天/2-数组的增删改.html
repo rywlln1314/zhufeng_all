@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * */
+    var ary = ['qq',12,true,function () {
+        console.log(111)
+    }];
+    // ary[11] = 'qqq';
+
+    //1、 push() // 在数组的末尾增加 数组项
+    // 参数 可以有  也可以 没有 ； 也可以是多项;参数的数据类型 不限
+    // ary.push(12,13,14);
+    // ary.push(null,undefined,'www');
+    // ary[4] = 'www';//数组末尾增加一项
+    // ary[ary.length] = 'qqq';//数组末尾再增加一项
+    // ary[5] = 'aaa';//数组的最后一项改成 aaa
+    // console.log(ary);
+
+
+    //2、unshift()  向数组的 头部添加
+    // 参数 可以有  也可以没有； 也可以是多项；参数数据类型 不限
+    // unshift 和  push  会改变原有数组; 返回值是 改变后的数组的长度
+    // var n = ary.unshift(function () {
+    //     console.log(1111);
+    // });
+    // ary[0] = function(){};
+    // console.log(ary,n);
+
+
+    //3、 shift() 删除数组的第一项 ，参数 ：无；返回值 是 删除的那一项
+    // var temp = ary.shift();
+    // console.log(temp, ary);
+
+    //4、 pop()  删除数组的 最后一项，参数： 无；返回值 是 删除的那一项；
+    // var temp1 = ary.pop();
+    // console.log(temp1,ary);
+    // temp1();
+    // ary.length = 1;
+    // ary.length = 3;
+    // ary.length = ary.length -1;
+    // ary.length -= 1;
+    ary.length --;
+    console.log(ary);
+    var ary2 = [3,3,2];
+    // function myPush(ary,n) {
+    //     // ary.push(n);
+    //     ary[ary.length] = n;
+    //     return ary.length;
+    // }
+    function myPush() {
+        // ary.push(n);
+        var arg = arguments;//ary2,9,8,7,6,5,4
+        var arr = arg[0];
+        for(var i = 1; i < arg.length; i++){
+            //i=1:arr[arr.length] = arg[1] ==> arr[3] = 9; arr-->[3,3,2,9]
+            //i=2: arr[4] = arg[2] ==> arr[4] = 8 --> [3,3,2,9,8]
+            arr[arr.length] = arg[i];
+            // 利用 arr.length 一直再增加的特点
+        }
+        // var n = arr.length;//3
+        // for(var i = 1; i < arg.length; i++){
+        //     var n = arr.length;
+        //     arr[n] = arg[i];
+        // }
+        return arr.length;
+    }
+    myPush(ary2,9,8,7,6,5,4); //==> ary2 = [3,3,2,9]
+    console.log(ary2);
+
+
+    //5、splice(n,m,x,y,z...);  把数组 从 索引 n 开始 删除 m 个元素 ，x,y,z...代替删除的 m项；  返回值：是删除的m项组成的新数组；
+    // 当 m = 0 的时候，它是把 x,y,z...放到了索引n的前边；
+    // x,y,z...可以不写 ， 意思就是代表删除数组的元素
+    var ary3 = [1,2,3,4];
+    // var tempAry = ary3.splice(1,2,1,2,3,4);
+    // var tempAry1 = ary3.splice(1,0,1,2,3,4);
+    // var tempAry2 = ary3.splice(1,2);
+
+    // var tempAry3 = ary3.splice();// 代表没有对数组做任何操作； 返回值是一个 空数组
+    var tempAry4 = ary3.splice(0);// 代表整个数组的内容删除； 返回值是一个有原数组的每一项组成的新数组；原数组变成 空数组
+
+    console.log( tempAry4,ary3);
+
+
+
+
+</script>  

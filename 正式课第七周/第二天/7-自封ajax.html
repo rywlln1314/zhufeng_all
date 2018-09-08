@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* type:'get'
+* url:'./1.xml'
+* data:{q:1,w:2}     可以不写
+* dataType:'json' 'xml'  可以不写 默认值是json
+* async:true 同步异步  默认异步   
+* cache: 是否支持缓存
+* success:请求成功的回调
+* error:请求失败的回调
+* */    
+function ajax(options){
+    //初始化数据
+    let {type='post',
+        url='',
+        data,//传给后台的参数
+        dataType='json',
+        cache=false,//默认不缓存
+        async=true, //初始值是true  默认是异步
+        success,
+        error
+    }=options ; //对象的结构赋值 type、url……这些都是变量
+
+    //需要根据type  判断data的处理方式  判断data  需要放到xhr.open的上方
+    let str = '';
+    if (Object.prototype.toString.call(data) == '[object Object]'){
+        //若是对象则需要用& 拼接成字符串
+        for (let k in data) {
+            if (data.hasOwnProperty(k)) {
+                //如果是data的私有属性
+                str += `${k}=${data[k]}&`
+            }
+        }
+        //str.slice(n,m)  复制从索引n到索引m （不好喊索引m）
+        str = str.slice(0,str.length-1)
+    }else if (typeof data === 'string') {
+        str = data;
+    }
+
+    //若type 是 get系列的；那么我们需要把str拼接到url后边
+    //用正则去判断type是哪个系列的
+    let isGet = null;
+    let postReg = /post|put/i;
+    let getRge = /get|head|delete/i;
+    if (getRge.test(type)){
+        //就是个get请求
+        isGet = true;
+    } else if (postReg.test(type)) {
+        isGet = false;
+    }
+    //若是个get请求；则需要把url 拼接一下
+    //若cache 是 false；则表示不要走缓存 需要我们拼接一个随机数再url后面
+
+    if(isGet){
+        if (cache){
+            url += `?${str}`
+        } else{
+            url += `?${str}&t=`+Math.random();
+        }
+
+    }
+
+    //先创建一个原生的ajax对象
+    let xhr = new XMLHttpRequest();
+    xhr.open(type,url,async);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && /^2\d{2}|304/.test(xhr.status)){
+            //代表请求成功  根据dataType  判断返回的数据格式
+            switch(dataType.toLowerCase()){//把参数都转成小写，防止大小写不同
+                case 'json':
+                    //需要把JSON字符串转成JSON对象，并返回给成功函数
+                    try {
+                        let json = JSON.parse(xhr.responseText);
+                        (success instanceof Function) && success(json);
+                        //success 如果是个函数；才去执行
+                    }catch (e) {
+                        (success instanceof Function) && success(xhr);
+                    }
+
+                    break;
+                case 'xml':
+                    //如果要求返回xml格式；则直接返回原生responseXML
+                    (success instanceof Function) && success(xhr.responseXML);
+                    break;
+            }
+
+        }
+        //判断请求失败的情况
+        if (/^[45]\d{2}/.test(xhr.status)){
+            (error instanceof Function) && error(xhr);
+        }
+    };
+    xhr.setRequestHeader('content-type','application/x-www-form-urlencoded;charset=utf-8');
+    xhr.send(str)//str --> 1、data 循环拼接出来的 2、用户传进来的字符串
+}
+
+
+ajax({
+    type:'post',
+    url:"./1.xml",
+    success:function (data) {
+        
+    },
+    error:function (res) {
+
+    }
+})
+</script>

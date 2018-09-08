@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 700px;
+            height: 400px;
+            margin: auto;
+        }
+        #box nav{
+            width: 200px;
+            float: left;
+        }
+        #box nav a{
+            display: block;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-bottom: 1px solid #000;
+            border-left: 1px solid #000;
+            box-sizing: border-box;
+        }
+        #box nav a.current{
+            background: #ff0bc4;
+            color: white;
+        }
+        #box section{
+            width: 500px;
+            height: 400px;
+            float: left;
+            background: #9715a2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <nav>
+        <a class="current" href="javascript:;">导航1</a>
+        <a href="javascript:;">导航2</a>
+        <a href="javascript:;">导航3</a>
+        <a href="javascript:;">导航4</a>
+        <a href="javascript:;">导航5</a>
+        <a href="javascript:;">导航6</a>
+        <a href="javascript:;">导航7</a>
+        <a href="javascript:;">导航8</a>
+    </nav>
+    <section>
+        导航1内容
+    </section>
+</div>
+
+
+</body>
+</html>
+<script>
+    /*
+    * 事件委托 给元素一个一个绑定事件 太浪费性能
+    * 我们直接给他们的父亲绑定，利用事件的冒泡，我们找到点击的事件源;会触发父亲的onclick事件；通过这个机制我们找到点击的事件源；判断事件源是不是我们要找的元素；若是；就执行相应的操作
+    * */
+var box = document.getElementById('box'),
+    section = box.getElementsByTagName('section')[0],
+    oAs = box.getElementsByTagName('a');
+box.onclick = function (e) {
+    e = e || window.event;
+    var tar = e.target || e.srcElement;//让咱们直到点击的是谁
+    console.log(tar);
+    if (tar.nodeName.toLowerCase() == 'a'){
+        var str = tar.innerHTML + '内容';
+        section.innerHTML = str;
+        [...oAs].forEach((item)=>{
+            item.className = '';
+        });
+        tar.className = 'current'
+    }
+}
+</script>

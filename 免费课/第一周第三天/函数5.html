@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var sum = function (a,b) {
+    console.log(this);
+    return a + b
+};
+//函数中的this 指向问题： 函数执行   点前面是谁  函数中的this就是谁
+console.log(sum());
+var obj = {
+    fn: sum,
+};
+sum();
+obj.fn();
+
+var oDiv = document.getElementById('div1');
+oDiv.onclick = function () {
+    console.log(this);
+};
+
+</script>

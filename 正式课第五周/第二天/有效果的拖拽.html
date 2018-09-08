@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: #ff0bc4;
+            line-height: 100px;
+            text-align: center;
+            border-radius: 50%;
+            user-select: none;
+            cursor: move;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * 摁下鼠标时  记录 鼠标的位置和盒子的位置
+    * 当鼠标移动时，记录鼠标xy轴移动的距离让盒子相应的移动这么多距离
+    * */
+    var oDiv = document.getElementById('div1');
+    oDiv.onmousedown = function (e) {
+        e = e || window.event;
+        this.startX = this.offsetLeft;
+        this.startY = this.offsetTop;
+        //盒子的初始位置
+
+        this.mx = e.pageX;
+        this.my = e.pageY;
+        //鼠标的初始位置
+
+        this.canM = true;
+    };
+    document.onmousemove = function (e) {
+        if (!oDiv.canM)return;
+        e = e || window.event;
+        var x = e.pageX - oDiv.mx;
+        var y = e.pageY - oDiv.my;
+        //X,Y是鼠标移动的距离
+        oDiv.style.left = oDiv.startX + x + 'px';
+        oDiv.style.top = oDiv.startY + y + 'px';
+
+        //要求出速度
+        if (!this.prevX){
+            this.prevX = 0
+        }
+        this.speed = e.clientX - this.prevX;//两次move之间的时间差当作单位时间
+        this.speed1 = e.clientY - this.prevY;//两次move之间的时间差当作单位时间
+        this.prevX = e.clientX;
+        this.prevY = e.clientY;
+        console.log(this.speed);
+    };
+    document.onmouseup = function (e) {
+        //松开时，要让盒子固定到那
+        // this.onmousemove = null;
+        oDiv.canM = false;
+        this.maxL = (document.documentElement.clientWidth || document.body.clientWidth) - oDiv.offsetWidth;
+        this.maxT = (document.documentElement.clientHeight || document.body.clientHeight) - oDiv.offsetHeight;
+        if (!this.running){//上一次的fly不停；新的fly就不执行
+            fly.call(this)
+        }
+    };
+
+    //左右弹性动画
+    function fly() {
+        this.running = true;
+        clearTimeout(this.flyTimer);
+        this.speed *= 1;//初始速度
+        this.speed1 *= 1;//初始速度
+
+        var l = oDiv.offsetLeft + this.speed;
+        var t = oDiv.offsetTop + this.speed1;
+
+        if (l > this.maxL){
+            this.speed *= -1;
+            l = this.maxL;
+        }
+        if (t > this.maxT){
+            this.speed1 *= -1;
+            t = this.maxT;
+        }
+        if (l < 0){
+            this.speed *= -1;
+            l = 0;
+        }
+        if (t < 0){
+            this.speed1 *= -1;
+            t = 0;
+        }
+        oDiv.style.left = l + 'px';
+        oDiv.style.top = t + 'px';
+
+        if (Math.abs(this.speed)<0.01){
+            clearTimeout(this.flyTimer)
+        }
+        if (Math.abs(this.speed1)<0.01){
+            clearTimeout(this.flyTimer)
+        }
+        this.flyTimer = setTimeout(fly.bind(this),30);
+    }
+</script>

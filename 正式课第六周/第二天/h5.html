@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        progress{
+            width: 500px;
+            height: 3px;
+            border-radius: 50px;
+            overflow: hidden;
+            color: #24ccc8;
+            background: #3059fa;
+        }
+        progress::-webkit-progress-bar{
+            background-color:#d7d7d7;
+        }
+        progress::-webkit-progress-value{
+            background-color:orange;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<progress value="20" max="100"></progress>
+<input type="text" list="dataL">
+<dataList id="dataL">
+    <option value="1"></option>
+    <option value="2"></option>
+    <option value="3"></option>
+</dataList>
+
+<form action="">
+    <!--pattern 值是个正则  意思就是这个输入框的内容要满足这个正则-->
+    <input type="text" pattern="\d{5}">
+    <button>提交</button>
+</form>
+<form action="">
+    <input type="number">
+    <button>提交</button>
+</form>
+<form action="">
+    <!--autofocus  一进入网页  光标在input框-->
+    <input type="password" pattern="\d{5}" autofocus id="inp">
+    <button id="btn">提交</button>
+    <video src="http://111.202.85.153/vcloud1049.tc.qq.com/1049_M0129500001Ln2De078D4n1001580465.f40.mp4?vkey=BDA942D1A21BF4D999DF706A6AABBCEAA40F54708303FE5C18B5930B2B659A331AAC8CF7200DA26C217A0B592D1A95E8928A7F5979D34B7DC5871A409E4A673B13F83689069CDDF2E6DC55B7DC98FBCEA8AFA4C342EC4900" autoplay style="width: 500px;height: 350px"></video>
+</form>
+</body>
+</html>
+<script>
+/*
+* section   代表一个模块  一般是一个独立的整体
+* article  aside   一般用来表示一篇文章块  文章下边可能有广告用aside包含
+*
+* nav    一般用来作为导航栏的外边框  里边一般都是一些a标签
+* header  一般用来一个页面的头部
+* main    表示一个页面的主体部分
+* footer  一般表示页面的页尾
+*
+* */
+var inp = document.getElementById('inp'),
+    btn = document.getElementById('btn');
+
+btn.onclick = function () {
+    console.dir(inp);
+    //inp.checkValidity()  返回值若是 true  则表示验证通过；false表示验证不通过
+    inp.setCustomValidity('');
+    if (inp.checkValidity()){
+        // alert('yes')
+        inp.setCustomValidity('')
+    } else{
+        //setCustomValidity  设置默认提示
+        inp.setCustomValidity('请输入五位数字')
+    }
+}
+//inp.oninput
+//inp.onpropertychange 实时监听 input框的值的变化
+    
+/*
+* 一个页面中只能有一个h1标签 提高页面搜索几率
+* seo 搜索引擎
+* */    
+
+
+
+</script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+*
+* */
+var ary = ['qq',12,true,function () {
+    console.log(111);
+}];
+    //ary[11] = 'qqq'
+
+    //1、push()   在数组的末尾增加数组项
+    //参数  可以有也可以没有，也可以是多项;参数的数据类型不限
+    ary.push(12,13,14);
+    ary[4] = 'www';
+    ary[ary.length] = 'qqq';//数组的末尾增加一项
+    ary[5] = 'aaa';
+
+    //2、unshift（）  向数组的头部添加
+    //参数  可以有也可以没有  也可以是多项  参数数据类型不限
+    //会改变原有数组   返回值是数组改变后的数组的长度
+var n = ary.unshift(null,undefined,12,function () {
+    console.log(1111)
+});
+console.log(n);
+
+
+//3、删除  shift()删除数组的第一项， 参数 ：无  返回值  是  删除的那一项
+    var temp = ary.shift();
+console.log(temp, ary);
+
+//4、pop()  删除数组的最后一项  参数:无   返回值 是 删除的那一项；
+    var temp1 = ary.pop();
+console.log(temp1, ary);
+ary.length = 1;
+ary.length = 3;
+ary.length = ary.length - 1;
+ary.length -= 1;
+ary.length --;
+var ary2 = [3,3,2];
+function myPush(ary,n) {
+    //ary[ary.length] = n;
+    var arg = arguments;
+    var arr = arg[0];
+    for (var i = 1; i < arg.length; i++) {
+        arr[arr.length] = arg[i]
+    //利用arr.length  一直在增加的特点
+    //i=1:arr[arr.length]= arg[1] ==>arr[3] = 9;arr-->[3,3,2,9]
+    //i=2:arr[4] = arg[2] ==>arr[4] = 8 -->[3,3,2,9,8]
+    }
+    return arr.length
+}
+myPush(ary2,9,8,7,6,5,4);
+console.log(ary2);
+
+//5、splice(n,m,x,y,z......)把数组从索引n 开始删除m个元素  x，y，z大统一删除的m项   返回值：是删除的m项组成的新数组；
+// 当m = 0的时候，它是把x，y,z.....放到了索引n的前面
+//x,y,z.....可以不写，意思就是代表删除数组的元素
+    var ary3 = [1,2,3,4];
+var tempAry = ary3.splice(1,2,1,2,3,4);
+console.log(tempAry, ary3);
+var tempAry3 = ary3.splice();//代表没有对数组做任何操作，返回值是一个空数组
+var tempAry4 = ary3.splice(0);//代表整个数组删除，返回值是一个由原数组的每一项组成的新数组， 原数组变成空数组
+
+</script>

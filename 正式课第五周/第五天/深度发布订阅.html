@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById('div1');
+    function on(ele,type,f) {
+        ele[type].ary = ele[type].ary || [];//把之前定义到外边的名单放到元素的私有属性上
+        var n = ele[type].ary.indexOf(f);
+        if (n == -1){
+            ele[type].ary.push(f)
+        }
+    }
+
+    function fire(ele,type) {
+        ele[type]= ele[type] || [];
+        ele[type].forEach((item) => {
+            item && item();
+        })
+    }
+
+    function off(ele,type,f) {
+        ele[type] = ele[type] || [];
+        var n = ele[type].indexOf(f);
+        if (n != -1){
+            ele[type].splice(n,1)
+        }
+
+    }
+
+</script>

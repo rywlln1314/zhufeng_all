@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="icon" href="">
+    <style type="text/css">
+        <!--内嵌式-->
+        #div1{
+            border: 1px solid @ccc;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <link rel="stylesheet" href="css外链式.css">
+</head>
+<body>
+<!--行内式  优先级比较高-->
+<div id="div1" style="color: chartreuse;font-size: 24px" <!--onclick="alert('任玉伟')"-->>
+    珠峰培训
+</div>
+
+</body>
+</html>
+<script>
+    /*div1   代表上边的div1元素；可以直接用id代表这个元素；这种写法之后在标准浏览器下支持，低版本浏览器不支持*/
+    div1.onclick = function () {
+        alert('任玉伟')
+    }
+</script>
+<!--script  标签的机制   当在该标签上写了src时  标签内部再去写js代码是不生效的-->
+<script src="js外链式.js"></script>
+<script>
+    /*
+    * css引入方式
+    * 1 - 行内式
+    * 2 - 内嵌式
+    * 3 - 外链式
+    *
+    *js的引入方式
+    * 1 - 行内式   把js直接写到元素行内
+    * 2 - 内嵌式
+    * 3 - 外链式
+    *
+    *
+    *
+    * */
+</script>

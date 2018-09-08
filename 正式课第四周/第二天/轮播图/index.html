@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <script src="./JS/utils.js"></script>
+    <script src="./JS/animate.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #div1,#div2{
+            width: 600px;
+            height: 260px;
+            margin: 50px auto 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .btn_box .left_btn,.right_btn{
+            width: 50px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            position: absolute;
+            top: 80px;
+            font-size: 36px;
+            cursor: pointer;
+            user-select: none;
+            display: none;
+        }
+        .btn_box .left_btn{
+            left: 0;
+        }
+        .btn_box .right_btn{
+            right: 0;
+        }
+        .img_box{
+            height: 260px;
+            overflow: hidden;
+            position: relative;
+        }
+        .img_box li{
+            float: left;
+            width: 600px;
+            height: 260px;
+            position: relative;
+            background: #cccccc url("http://www.sucaijishi.com/uploadfile/2014/0524/20140524124241131.gif") no-repeat center;
+        }
+        .img_box li img{
+            width: 100%;
+            height: 100%;
+
+        }
+        .img_box li p{
+            position: absolute;
+            background: rgba(0,0,0,0.5);
+            width: 100%;
+            color: white;
+            left: 0;
+            bottom: 0;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .tip_box{
+            position: relative;
+            text-align: center;
+            top: -75px;
+        }
+        .tip_box li{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #e5eee2;
+            font-size: 20px;
+            line-height: 30px;
+        }
+        .tip_box li.current{
+            color: #ff0bc4;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <ul class="img_box">
+        <li>
+            <img src="" alt="">
+            <p>这是个解释</p>
+        </li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="btn_box">
+        <div class="left_btn"> < </div>
+        <div class="right_btn"> > </div>
+    </div>
+    <ul class="tip_box">
+        <li class="tip">1</li>
+    </ul>
+</div>
+
+
+
+
+</body>
+</html>
+<script src="JS/index.js"></script>
+<script>
+    // var banner = new Banner('div1','JSON/data.json');
+    // var banner = new Banner('div2','JSON/data.json');
+
+</script>

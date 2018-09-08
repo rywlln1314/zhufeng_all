@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    var now = new Date();
+    now.getFullYear();// 获取年份
+    now.getMonth();// 获取月份 跟咱们的正常月份 差 1；
+    now.getDate();// 获取日期  几号的意思
+    now.getDay();// 获取星期几 0 代表周日  1 代表周一 。。 6代表周六
+    now.getHours();// 获取小时
+    now.getMinutes(); // 获取分钟
+    now.getSeconds();// 获取秒
+    now.getMilliseconds(); // 获取当前时间的毫秒数
+
+    now.getTime();//获取距离1970-01-01 00：00：00这个时间的毫秒数
+
+
+    var str = "2018/7/22 下午5:15:01";
+    //"2018年7月22号 下午5:15:01"
+
+    var str2 = str.replace('/','年').replace('/','月').replace(' ','号 ');
+    console.log(str2);
+    var str = '日一二三四五六';
+    var ary = ['日','一','二','三','四','五','六'];
+    var obj = {
+        0:'日',
+        //....
+        6:'六'
+    };
+    `${now.getFullYear()}年${now.getMinutes()+1}月 星期${str[now.getDay()]}`;
+    console.log(`星期${ary[now.getDay()]}`);
+    console.log(`星期${str[now.getDay()]}`);
+    console.log(`星期${obj[now.getDay()]}`);
+
+</script>

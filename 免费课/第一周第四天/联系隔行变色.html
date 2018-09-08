@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box {
+            width: 600px;
+            height: 600px;
+            margin: auto;
+        }
+
+        .box ul {
+            width: 600px;
+            height: 600px;
+        }
+
+        .box ul li {
+            width: 200px;
+            height: 50px;
+
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul>
+</div>
+
+
+</body>
+</html>
+<script>
+    var box = document.getElementsByClassName('box')[0];
+    var olist = box.getElementsByTagName('li');
+
+    for (var i = 0; i < olist.length; i++) {
+        if (i % 3 == 0) {
+            olist[i].style.background = '#cc0200';
+        } else if (i % 3 == 1) {
+            olist[i].style.background = '#000fcc';
+        } else {
+            olist[i].style.background = '#17cc00';
+        }
+
+    }
+
+</script>

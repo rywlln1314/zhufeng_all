@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById('div1');
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+        console.dir(xhr);
+    };
+
+    xhr.open('get','./1.xml',false);
+
+    xhr.send();
+
+    var ele = xhr.responseXML.children[0];
+    oDiv.appendChild(ele);
+/*
+* xhr 的 readyState刚建立实例时状态时 0； 然后紧接着绑定了onreadystatechange
+* 再open时 把xhr的readyState 从0 变成1；触发onreadystatechange
+* 当请求发出去之后，有于是个同步过程；整个JS代码不再往下执行；等着http的请求成功
+* 当http请求成功之后再回来执行JS代码
+*这时的readyState已经变成了4；再触发一次onreadystatechange事件
+*
+* */
+
+/*
+* ajax 的事件
+* xhr.open()   --->
+* xhr.abort()  --->
+* xhr.setRequestHeader(key,value) ---> 设置请求头；key是属性名 value是属性值
+* xhr.getResponseHeader(key)  ---> 获取响应头中对应key 的value值
+* xhr.getAllResponseHeaders()  ---> 获取所有的响应头
+* */
+</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    var ary = [12,12,4,24,25,34,6,44,33,2,23,4,2,34,5];
+    // 数组去重
+    // 思路 1:  那每一项和后边的项 比较 ；如果相等 ，证明后边的项时重复的； 我们把 后边的重复项 删除即可
+    function removeRep(ary) {
+        for(var i = 0; i < ary.length; i++){
+            var cur = ary[i];//当前项
+            for(var n = i+1; n < ary.length; n++){
+                //我们要用当前项 和后边的 每一项作比较；如果相等 就把后边相等的这一项 删掉
+                if(cur == ary[n]){
+                    ary.splice(n,1);
+                    // 当我们删除数组的某一项时， 会导致 后边的项 统一向前错一位（数组的塌陷问题），这时我们若还想拿到数组的每一项 ，需要讲我们变化的索引 - 1；
+                    n--;
+                }
+            }
+        }
+        return ary;
+    }
+    var ary2=[1,1,2,3,1,4,5,5,4,3,4,4,4,44,2,33,34,33];
+    console.log(removeRep(ary2))
+
+
+    // 思路2： 利用对象属性名不能重复的特性
+    // 循环数组  把数组的每一项 当作某个对象的属性名 存储到 这个对象中
+    // var obj = {w:12,w:13}
+    // var obj = {};
+    // obj[1] = 1;
+    // obj[5] = 5;
+
+    function removeRep2(ary) {
+        var obj = {},arr = [];
+        for(var i = 0; i < ary.length; i++){
+            obj[ary[i]] = ary[i];
+        }
+        console.log(obj);
+        for(var k in obj){
+            arr.push(obj[k])
+        }
+        return arr;
+    }
+    var ary3 = [1,1,2,4,2,1,6,2,1,3,4];
+    console.log(removeRep2(ary3));
+
+
+    // 扩展 记录重复的次数
+
+</script>  

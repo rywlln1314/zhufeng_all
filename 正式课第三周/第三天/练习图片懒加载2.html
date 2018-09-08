@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+        #div1{
+            width: 500px;
+            height: 2000px;
+            margin: auto;
+        }
+        img{
+            width: 500px;
+            height: 500px;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<img src="images/1.jpg" alt="">
+
+</body>
+</html>
+<script>
+function imgLoad(ele) {
+    var tarT = ele.offsetTop;// + ele.clientHeight;
+    var winH = document.documentElement.clientHeight || document.body.clientHeight;
+    var srcH = document.documentElement.scrollTop;
+    if (winH + srcH >= tarT){
+        ele.src = 'images/2.jpg';
+    }
+}
+var img = document.getElementsByTagName('img')[0];
+var a = window.getComputedStyle(img);
+console.log(a);
+window.onscroll = function () {
+    imgLoad(img)
+}
+
+</script>

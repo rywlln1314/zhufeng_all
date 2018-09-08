@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+<div class="btn">排序</div>
+<ul>
+    <li>姓名：小明1</li>
+    <li>姓名：小红2</li>
+    <li>姓名：小李3</li>
+</ul>
+
+</body>
+</html>
+<script>
+/*
+* JSON
+* 它是一种数据格式；引用数据类型里边只包含数组和对象
+* 字符串出现时，需要用双引号y（必须）包住
+* 字符串属性名都要用双引号（必须）包含
+* 最后一项后面不能有逗号
+* */
+var obj = {
+    name:'wee'
+};
+var json = {
+    "name":"wee",
+    "age":1,
+    "ary":[1,2,3,"www"]
+};
+var json2 = [
+    {"name":"zfpx"},
+    {"name":"zf"},
+    {"name":"px"}
+];
+    var a = JSON.stringify(json);
+    var b = JSON.parse(a);
+    //JSON.parse  把json字符串数据转化成json数据
+    //JSON.stringify 把json数据转化成json字符串
+
+/*
+* ajax是一门技术 ；是用来实现局部数据请求的
+*
+* */
+//console.log(a);
+var data = null;
+var xhr = new XMLHttpRequest();
+//创建一个ajax实例
+xhr.open('get','./huawei/data.json',false)   ;
+//第一个参数  是获取数据的请求类型 get  post  put  delete
+//第二个参数  获取数据的路径 （平时说的接口）
+//第三个是控制同步异步；true是异步   false是同步
+
+xhr.onreadystatechange = function () {
+    //xhr.readyState   请求状态码
+    //0 未发送请求
+    //1 发送请求
+    //2 接受响应头
+    //3 接受响应体
+    //4 请求成功
+
+    //xhr.status;//网络状态码
+    //2开头的一般代表成功
+    //3开头的代表重定向
+    //4开头的代表路径错误
+    //5开头的一般都是服务器错误
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        //responseText 是一个JSON字符串
+        //需要我们用JSON.parse() 转成JSON对象
+        //console.log(JSON.parse(xhr.responseText));
+        data = JSON.parse(xhr.responseText)
+    }
+};
+//请求发送出去
+    xhr.send();
+console.log(data);
+
+//接下来是要把数据放到页面上展示
+var oLis = document.getElementsByTagName('li');
+for (let i = 0; i < oLis.length; i++) {
+    oLis[i].innerHTML = '姓名：'+ data.data[i].name;
+}
+
+var btn = document.getElementsByClassName('btn')[0];
+var flag = 0;
+//flag == 0 我让他去变成升序 ；fa
+btn.onclick = function () {
+    if (flag == 0) {
+        data.data.sort(function (a,b) {
+            return a.name.localeCompare(b.name,'zh')
+        });
+        flag = 1;
+    }else {
+        data.data.sort(function (a,b) {
+            return b.name.localeCompare(a.name,'zh')
+        });
+        flag = 0;
+    }
+
+    for (let i = 0; i < oLis.length; i++) {
+        oLis[i].innerHTML = '姓名：'+ data.data[i].name;
+    }
+}
+
+/*
+* 再次点击按钮让排序翻转过来；
+* */
+
+</script>

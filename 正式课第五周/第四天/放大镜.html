@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        .litBox{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            float: left;
+            cursor: move;
+            border: 2px dashed sandybrown;
+            margin-right: 50px;
+        }
+        .litBox .mask{
+            width: 150px;
+            height: 150px;
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .bigBox{
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            float: left;
+            position: relative;
+            border: 2px dashed sandybrown;
+            display: none;
+        }
+        .bigBox img{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div>zhufnegpexun</div>
+<div class="litBox">
+    <img src="https://img13.360buyimg.com/n1/s450x450_jfs/t23950/96/1943654876/159432/ab6c313d/5b6d3557N77ea59df.jpg" alt="">
+    <div class="mask"></div>
+</div>
+<div class="bigBox">
+    <img src="https://img13.360buyimg.com/n1/s450x450_jfs/t23950/96/1943654876/159432/ab6c313d/5b6d3557N77ea59df.jpg" alt="">
+</div>
+</body>
+</html>
+<script src="JS/utils.js"></script>
+<script>
+    /*
+    * 思路  有两个盒子 ；一个盒子放小图  一个盒子放大图
+    * 划过小盒子时 让大盒子显示 ；小盒子中 蒙层盖住的部分/小图 === 右边的框/大图
+    * 蒙层的移动方向 跟  大图的移动方向是相反的
+    * */
+    var lit = document.getElementsByClassName('litBox')[0],
+        mask = lit.getElementsByClassName('mask')[0],
+        big = document.getElementsByClassName('bigBox')[0],
+        bigImg = big.getElementsByTagName('img')[0];
+    console.log(big);
+
+    lit.onmouseenter = function (e) {
+        e = e || window.event;
+        mask.style.display = 'block';
+        big.style.display = 'block';
+        this.maxL = utils.css(lit,'width') - utils.css(mask,'width');
+        this.maxT = utils.css(lit,'height') - utils.css(mask,'height');
+        this.n = big.clientWidth/mask.offsetWidth;
+        console.log(n);
+    };
+    lit.onmousemove = function (e) {
+        e = e || window.event;
+        this.mx = e.pageX - this.offsetLeft;
+        this.my = e.pageY - this.offsetTop;
+        var x = this.mx- utils.css(mask,'width')/2;
+        var y = this.my-utils.css(mask,'height')/2;
+        if (x > this.maxL){
+            x = this.maxL;
+        }
+        if (x < 0){
+            x = 0
+        }
+        if (y > this.maxT){
+            y = this.maxT;
+        }
+        if (y < 0){
+            y = 0
+        }
+        utils.css(mask,'left',x);
+        utils.css(mask,'top',y);
+        utils.css(bigImg,'left',-this.n*x);
+        utils.css(bigImg,'top',-this.n*y);
+    };
+    lit.onmouseleave = function (e) {
+        e = e || window.event;
+        mask.style.display = 'none';
+        big.style.display = 'none';
+    }
+    
+    
+    
+</script>  

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        #head{
+            width: 700px;
+            height: 700px;
+            padding-left: 10px;
+            margin-left: 50px;
+            border: 15px solid #cc080b;
+            position: relative;
+        }
+        #hd{
+            width: 600px;
+            height: 600px;
+            position: relative;
+            padding-left: 20px;
+            border: 5px solid #a31daf;
+        }
+        #outer{
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            border: 10px solid #ff0bc4;
+            padding-top: 30px;
+            position: relative;
+        }
+        #center{
+            width: 300px;
+            height: 300px;
+            margin-left: 10px;
+            border: 10px solid #17cc00;
+            padding-top: 30px;
+            position: relative;
+        }
+        #inner{
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            border: 10px solid #cc0008;
+            padding-top: 30px;
+            position: relative;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div id="head">
+<div id="hd">
+<div id="outer">
+    <div id="center">
+        <div id="inner">
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>
+<script>
+
+
+    function offset(ele) {
+        var temp = ele.offsetParent;
+        var n = ele.offsetLeft;
+        while (temp && temp.nodeName !== 'BODY') {
+            n += temp.offsetLeft + temp.clientLeft;
+            temp = temp.offsetParent
+        }
+        return n
+    }
+
+
+
+
+
+    function offset1(ele) {
+        var l=ele.offsetLeft;//先保存元素外边框的上级参照物的内边框的距离
+        var t=ele.offsetTop;
+        var temp=ele.offsetParent;//用temp去存储上级参照物
+        while(temp && temp.nodeName!=="BODY"){
+            l+=temp.offsetLeft + temp.clientLeft;
+            t+=temp.offsetTop + temp.clientTop;
+            temp=temp.offsetParent;
+        }
+        return {
+            top:t,
+            left:l
+        }
+
+    }
+
+    var inner = document.getElementById('inner');
+    console.log(offset(inner));
+    console.log(offset1(inner));
+</script>

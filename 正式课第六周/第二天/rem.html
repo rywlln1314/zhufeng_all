@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style type="text/less">
+        .w{
+            width: 100%;
+            height: 100%;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body,.box{
+            .w;
+            overflow: hidden;
+        }
+        .box{
+            background: url("./images/cube-bg.jpg") no-repeat center;
+            background-size: cover;
+            perspective: 2000px;
+            ul{
+               position: relative;
+                width: 4rem;
+                height: 4rem;
+                top: 50%;
+                margin-top: -2rem;
+                left: 50%;
+                margin-left: -2rem;
+                list-style: none;
+                transform: rotateX(-45deg) rotateY(45deg);
+                transform-style: preserve-3d;
+                transform-origin: 2rem 2rem 2rem;
+                li{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    .w;
+                    img{
+                        .w;
+                    }
+
+                }
+                li:nth-child(1){
+                    transform: translateY(-4rem) rotateX(-90deg);
+                    transform-origin: bottom;
+                }
+                li:nth-child(2){
+                    transform: translateY(4rem) rotateX(90deg);
+                    transform-origin: top;
+                }
+                li:nth-child(3){
+                    transform: translateX(-4rem) rotateY(90deg);
+                    transform-origin: right;
+                }
+                li:nth-child(4){
+                    transform: translateX(4rem) rotateY(-90deg);
+                    transform-origin: left;
+                }
+                li:nth-child(5){
+                    transform: translateZ(4rem) rotateY(180deg);
+                }
+            }
+        }
+    </style>
+    <script>
+        let clientW = document.documentElement.clientWidth || document.body.clientWidth;
+        console.log(clientW);
+        document.documentElement.style.fontSize = clientW/750 * 100 + 'px';
+        console.log(clientW / 750 * 100 + 'px');
+    </script>
+    <script src="js/less.js"></script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="images/cube-img1.png" alt=""></li>
+        <li><img src="images/cube-img2.png" alt=""></li>
+        <li><img src="images/cube-img3.png" alt=""></li>
+        <li><img src="images/cube-img4.png" alt=""></li>
+        <li><img src="images/cube-img5.png" alt=""></li>
+        <li><img src="images/cube-img6.png" alt=""></li>
+    </ul>
+</div>
+
+
+</body>
+</html>
+<script>
+    /*
+    * rem  ：html根标签的font-size决定
+    * em   ：相对于父标签font-size决定的
+    * 设计稿的宽一般都是750px
+    * */
+    var oUl = document.getElementsByTagName('ul')[0];
+    /*
+    * 思路 根据 手指移动的距离 去设置 盒子的转动角度
+    * 需要找一个变量存储盒子的初始转动角度
+    * */
+
+    var startX = -45,startY = 45,//盒子一开始转动的角度
+        mx = 0,my = 0;
+    document.ontouchstart = function (e) {
+        console.log(e);
+        //e.touches || e.targetTouches  最好写个兼容
+        this.mx = e.touches[0].pageX;
+        this.my = e.touches[0].pageY;
+    };
+    document.ontouchmove = function (e) {
+        this.changeX = e.touches[0].pageX - this.mx;
+        this.changeY = e.touches[0].pageY - this.my;
+        oUl.style.transform = `rotateX(${startX-this.changeY}deg) rotateY(${startY+this.changeX}deg)`
+    };
+    document.ontouchend = function (e) {
+        startX = startX - this.changeY;
+        startY = startY - this.changeX;
+
+    }
+</script>

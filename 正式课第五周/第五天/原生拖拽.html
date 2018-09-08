@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: deeppink;
+            text-align: center;
+            line-height: 100px;
+            position: absolute;
+            user-select: none;
+            border-radius: 50%;
+        }
+        #div2{
+            width: 400px;
+            height: 400px;
+            background: deeppink;
+            text-align: center;
+            line-height: 100px;
+            user-select: none;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1" draggable="true">珠峰培训</div>
+<div id="div2" draggable="true">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var oDiv = document.getElementById('div1');
+var oDiv2 = document.getElementById('div2');
+//开始拖拽
+oDiv.ondragstart = function (e) {
+    console.log('start');
+};
+oDiv.ondragover = function (e) {
+    console.log('over');
+};
+oDiv.ondragend = function (e) {
+    console.log('end');
+};
+oDiv2.ondragenter = function (e) {
+    console.log('enter');
+};
+oDiv2.ondragleave = function (e) {
+    console.log('leave');
+};
+oDiv2.ondragover = function(e){
+  e.preventDefault();
+};
+oDiv2.ondrop = function (e) {
+    console.log(e);
+}
+
+</script>

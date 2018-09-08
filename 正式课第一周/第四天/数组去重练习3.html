@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var ary = [1,2,3,5,6,8,9,0,8,5,2,10,23,23,1,6];
+    function clearRep(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            for (var  j = i+1; j < arr.length; j++) {
+               if (arr[i] == arr[j]){
+                   arr.splice(j,1);
+                   i--
+               }
+
+            }
+
+        }
+        return arr
+    }
+  clearRep(ary);
+console.log(ary);
+
+var ary2 = [1,2,3,5,6,8,9,0,8,5,2,10,23,23,1,6];
+    function clearRep2(arr) {
+        var arr1 = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr1.indexOf(arr[i]) == -1){
+                arr1.push(arr[i])
+            }
+
+        }
+        return arr1
+    }
+
+console.log(clearRep(ary2));
+
+var ary3 = [1,2,3,5,6,8,9,0,8,5,2,10,23,23,1,6];
+function clearRep3(arr) {
+    var arr1 = [];
+    var obj = {};
+    for (var i = 0; i < arr.length; i++) {
+        obj[arr[i]] = arr[i];
+    }
+    for (var k in obj){
+        arr1.push(obj[k])
+    }
+    return arr1
+}
+
+console.log(clearRep3(ary3));
+
+</script>

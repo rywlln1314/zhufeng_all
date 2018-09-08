@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+
+var ary = [1,2,3,6,5,4]
+/*
+* reverse()  数组的 翻转
+* 参数  无
+* 返回值 是 翻转后的数组（跟原数组是一个数组）
+* 改变了原有数组
+* */
+var tempAry = ary.reverse();
+
+console.log(tempAry, ary);
+//要交换位置，我们首先要能获取到要交换的元素，那么就需要我们用for循环获取每一项，然后让第一项和最后一项交换位置，第二项和倒数第二项交换位置。。。。；若是整个交换完就相当于交换位置后，又交换回来，所以需要我们交换进项到一半即可
+function myReverse(ary) {
+    for (var i = 0;i < ary.length/2;i++){
+        var temp = ary[i];
+        //ary[0] = ary[ary.length-1]
+        //ary[1] = ary[ary.length-1-1]
+        //ary[2] = ary[ary.length-1-2]
+        ary[i] = ary[ary.length-1-i];
+        ary[ary.length-1-i] = temp;
+    }
+    return ary;
+};
+var temp = myReverse(ary);
+console.log(temp, ary);
+
+//2、sort（） 数组的排序
+//返回值是排好序后的数组（跟原数组是一个地址）
+//改变原有数组
+//参数  可传 可不传
+//传参数时  参数是个回调函数
+//不传参数  可以排序10以内的数字
+
+var ary1 = [1,2,3,4,6,8,5,9,7,];
+var temp1 = ary1.sort()  ;
+console.log(temp1, ary);
+
+var temp2 = ary.sort(function (a,b) {
+    return a - b;//把原数组 升序排（从小到大）
+});
+var temp2 = ary.sort(function (a,b) {
+    return b - a;//把原数组 降序排（从大到小）
+}) ;
+var ary3 = [
+    {name:'xm1',age:'19'},
+    {name:'xm2',age:'11'},
+    {name:'xm3',age:'3'},
+    {name:'xm4',age:'15'},
+    {name:'xm5',age:'18'},
+    {name:'xm6',age:'10'}
+];
+ary3.sort(function (a,b) {
+    return a.age - b.age;
+})
+
+</script>

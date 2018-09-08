@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+</body>
+</html>
+<script>
+//
+  var total = null;
+  total = 2*5+5;
+  console.log(total)
+
+//我们要用函数的原因
+//1、节省代码
+//2、高内聚（把东西缩到一块，这一块就是为了实现某个功能，跟其他代码没有任何联系）
+//   低耦合（跟其他代码没关联）
+
+//函数的语法
+/*
+* 1、function 函数名(){
+*       函数体
+* }
+*
+* 2、var 函数名 = function[函数名--可写可不写](){
+*        函数体
+* }
+*
+* 第一种声明方式，我们再生命的代码的之前调用这个函数
+* 第二种声明方式，我们智能再生命的代码之后调用
+*
+* //函数声明之后  可以无限次调用
+*
+* return  返回的意思
+* return什么拿函数执行完 返给外界的就是什么
+* */
+//clearRoom()//函数的调用 --->   函数名（）
+
+function clearRoom(){
+    console.log('收拾桌子');
+    console.log('收拾卧室');
+    console.log('出门');
+}
+clearRoom();
+
+var clearPer = function () {
+    console.log('洗脸');
+    console.log('刷牙');
+    console.log('穿鞋');
+    return '出门';
+};
+
+clearPer();
+
+function sum() {
+    var a = 10;
+    var b = 20;
+    var total = a + b;
+    return total;
+}
+sum();
+var t = sum();
+console.log(t);
+</script>

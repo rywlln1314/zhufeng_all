@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            overflow: scroll;
+            border: 10px solid #ff8afa;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+var oDiv = document.getElementById('div1');
+oDiv.scrollHeight;//内容 + padding值
+//scroll系列 (herght width)直接取整
+//offset系列和client系列  四舍五入
+oDiv.clientHeight;//盒子的高度(不包含边框)+上下padding 盒子的可是部分的高度
+var maxH = oDiv.scrollHeight - oDiv.clientHeight;
+//方法一
+// var timer = window.setInterval(()=>{
+//     if (oDiv.scrollTop >=maxH){
+//         oDiv.scrollTop = 0;
+//     } else {
+//         oDiv.scrollTop++;
+//     }
+// },10);
+
+
+
+//方法二
+//利用scrollTop有最大值；超过最大值时
+//scrollTop仍然是最大值
+// var timer2 = window.setInterval(()=>{
+//     var h = oDiv.scrollTop++;
+//     //oDiv.scrollTop++ 这个是让元素内容向上滚动
+//     //h 是oDiv.scrollTop 的值 然后让oDiv.scrollTop+1
+//     if (h == oDiv.scrollTop){//这个地方是说最大值
+//         //h是存到加1之间的scrollTop加之前跟加之后相等了；说明已经到达最大大值
+//         oDiv.scrollTop = 0;
+//     }
+// },10);
+
+//方法三
+var timer3 = null;
+var fn = function () {
+    clearTimeout(timer3)
+    var h = oDiv.scrollTop++;
+    if (h == oDiv.scrollTop){
+        oDiv.scrollTop = 0
+    }
+    timer3 = window.setTimeout(function () {
+        fn()
+    },50)
+};
+fn();
+// var timer3 = window.setTimeout(function () {
+//     fn()
+// },20)
+
+</script>

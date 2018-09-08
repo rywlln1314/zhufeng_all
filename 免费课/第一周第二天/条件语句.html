@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <link rel="icon" href="">
+</head>
+<body>
+
+
+</body>
+</html>
+<script>
+    /*
+    * if(判断条件){
+    *     条件成立要执行的代码
+    * }else{
+    *     条件不层理要执行的代码
+    * }
+    *
+    *  * if(判断条件1){
+    *     条件成立要执行的代码
+    * }else if(判断条件2){
+    *     条件1不成立，条件2成立时执行的代码
+    * }else{
+    * 俩条件都不成立时执行的代码
+    * }
+    *
+    * &&（并且）     ||（或者）
+    *
+    *
+    * */
+    var n = parseFloat('12q.23w');
+    var m = Number('12q.23w')
+    //n 计算结果是 12
+    //在 if 的括号里  他会先把括号里的内容转化成布尔类型，再去做判断
+    if(n){
+        console.log(n+1)
+    }else {
+        console.log(n + '3');
+    }
+    /*
+    * switch（值）{
+    * case  值1：
+    *      xxxxx.......;
+    *      break;
+    * case  值2：
+    *      xxxxxx.......;
+    *      break;
+    *  ........
+    *  default:
+    *  xxxxxxxxx..........;
+    *
+    *   }
+    *   break;  一定要有这个break；没有的话会一直往下执行，直到碰见break或者把default执行完
+    * //     ==  是相对比较 会默认的把==两边的值转化成同一类型再去比较
+    *        ===   是绝对比较
+    *
+    *
+    * */
+   switch (a){
+       case 1:
+           console.log(1);
+           break;
+       case 2:
+           console.log(2);
+           break;
+    case 3:
+    console.log(3);
+    break;
+    }
+
+    var n = 10%4;
+   switch (n){
+       case 1:
+       case 2:
+           console.log('1 or 2');
+           break;
+       case 3:
+           console.log(3);
+           break;
+       default:
+           console.log(4);
+   }
+
+   var m = 10;
+   if (m > 10){
+       console.log('大于10');
+   } else if (m < 5){
+       console.log('小于5');
+   } else{
+       console.log('5-10');
+   }
+
+   switch (m){
+       case m > 10:
+           console.log('大于10');
+           break;
+       case m < 5:
+           console.log('小于5');
+           break;
+       default:
+           console.log('5-10');
+   }
+   /*
+   * 条件1  &&  条件2     条件1成立    返回  条件2的结果
+   *                      条件1不成立  返回  条件1的结果
+   * 条件1  ||  条件2     条件1成立    返回  条件1的结果
+   *                      条件1不成立  返回  条件2的结果
+   *
+   *
+   *
+   *
+   *
+   * */
+
+
+</script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script>
+    /*
+    * 字符串 所有的方法都不会改变 原有字符串 除非重新赋值
+    * */
+    var str = 'zhufengpeixun';
+    console.log(str.charAt(3));//1、 查看某个索引对应的字符
+    console.log(str[3]);
+
+    console.log(str.charCodeAt(3));//2、 查看某个索引对应的字符的 阿斯克码 ASCII
+
+    str.slice(1,3)//3、从索引 1  开始 获取到 索引 3 结束  不包含索引 3； 返回获取到的项组成的新字符串，跟数组的slice 方法一致
+    //hu
+    // ary.slice(3,2) // []
+    // str = str.slice(1,3);//覆盖原有的字符串
+
+    // ary.splice(n,m...)
+    str.substr(1,3)// 4、从索引 1 开始 获取 3 个字符 ，返回值是获取到的字符串
+
+    str.substring(1,3);// 5 、 从索引 1 获取到索引 3  不包含索引3
+    str.substring(3,1);// 5 、 从索引 1 获取到索引 3  不包含索引3
+
+
+    str.split('+',2)// 把字符串按照指定字符(+) 分割成数组 ,数组的长度是后边第二个参数，不写的话默认全部
+    var str2 = '1+2+3+4+5';
+    var ary = [1,2,3,4,5];// ary.join('+')
+    console.log(str2.split("+",2));// ['1','2','3','4','5']
+    console.log(str2.split());// 把字符串整个当成数组的一项
+    console.log(str2.split(''));
+
+    str.toUpperCase(); // 把字符串都变成大写
+    str.toLocaleUpperCase(); // 跟地区有关系
+
+    str.toLowerCase();// 把字符串都变成小写
+    str.toLocaleLowerCase();
+
+    // str.replace('旧字符','新字符'); 把str中的 旧字符 替换成  新字符
+    console.log(str2.replace('+', '-+').replace('+', '-+').replace('+', '-+').replace('+', '-+'));
+    console.log(str2.replace(/\+/g, '-+'));
+    "eee\""
+
+    // 重点方法
+    var str = 'http://zhufengpeixun.cn?w=12&q=eee&a=9999';
+    var queryUrl =  function (str) {
+        var str1 = str.split('?')[1]; // w=12&q=eee&a=9999
+        var ary = str1.split('&');//['w=12','q=eeee',a='9999']
+        var obj = {};// 用来存储 键值对
+        for(var i = 0; i < ary.length; i++){
+            var arr = ary[i].split('=');
+            obj[arr[0]] = arr[1];
+            // obj.arr[0] = arr[1]; undefined[0]
+        }
+        return obj;
+    };
+
+    var queryUrl2 =  function (str) {
+        var ary = str.match(/[^?&=]+=[^?&=]+/g);
+        var obj = {};// 用来存储 键值对
+        for(var i = 0; i < ary.length; i++){
+            var arr = ary[i].split('=');
+            obj[arr[0]] = arr[1];
+            // obj.arr[0] = arr[1]; undefined[0]
+        }
+        return obj;
+    };
+
+    var obj = queryUrl2(str);
+    console.log(obj);
+    // obj= {
+    //     w:'12',
+    //     q:'eee',
+    //     a:'9999'
+    // }
+</script>  

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* 类        实例
+* 人类       张三
+* 狮子类     辛巴
+* */
+/*
+* JS 的类
+* 类 Object  String  Number Boolean Function       Array  Date。。。
+* 实例  {}     'sss'   123    true   function sum()  []
+*
+* 原型 prototype:每个函数都有一个原型prototype，指向它的一个原型对象
+* 每个类的实例  都可以通过 __porto__ 找到它的所属类原型对象
+* */
+/*
+* 构造函数模式：创建一个构造函数；通过 new 去创建这个构造函数（自定义类）的一个实例
+* 这个实例的__proto__属性指向这个构造函数的(自定义类）的原型对象
+* 这个原型对象上有一个constructor属性 指向 构造函数本身
+*
+* new执行，第一步跟普通函数执行一样，先形参赋值，再变量提升，再代码执行之前，又添加了一步（开辟一个堆内存，把函数的主体this指向这个堆内存）；然后代码再去执行，执行完成后，默认把创建对象返回
+*
+* 我们把Person称为一个类，把obj称为Person的一个实例
+*
+* 构造函数模式比工厂模式省了 var 和 return
+* */
+/*
+* 构造函数 的函数名 一般首字母要大写
+* 当这个函数通过new执行时；那么它就是一个构造函数（自定义类）；也就是把他当作一个类去执行
+*
+* new执行函数跟普通函数执行的区别
+* new 执行 会再函数内部自动创建一个对象(this);函数执行完 会把this默认返回
+* 如果手动修改return值  若return的是个值类型，那么默认return的还剩this
+* 若return的是个引用数据类型 那么返回的就是这个引用数据类型
+*
+* 是实例的话就能调用 所属类原型上的方法和属性
+*
+*  构造函数 跟咱们的高级单例模式相似
+*
+
+* */
+function Person(name,age) {
+    this.name = name;
+    this.name = age;
+    this.set = function () {
+        console.log(12);
+    }
+}
+
+var tom = new Person('tom',18);
+console.log(tom);
+</script>

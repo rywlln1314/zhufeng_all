@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script src="JS/utils.js"></script>
+<script>
+/*
+* 1、判断是否含有该类名
+* 2、给一个元素添加类名
+* 3、给一个元素删除类名
+* */
+var oDivs = utils.getByClass('box');
+function hasClass(str,ele) {
+    str = str.replace(/^ +| +$/g);
+    var reg = new RegExp('(^| +)'+str+'( +|$)');
+    if (reg.test(ele.className)){
+        return true
+    }
+    return false
+}
+hasClass('box1',oDiv[1])  ;
+function hasClass2(str,ele) {
+    str = str.replace(/^ +| +$/g);
+    var classAry = str.split(/ +/g);
+    for (let i = 0; i < classAry.length; i++) {
+        var reg = new RegExp('(^| +)'+classAry[i]+'( +|$)');
+        if (!reg.test(ele.className)){
+            //匹配失败
+            return false
+        }
+    }
+    return true
+}
+
+function addClass(str,ele) {
+    //ele.className += ' '+str;
+    if (!hasClass2(str,ele)){
+        ele.className += " "+str
+    }
+}
+addClass('box box3',oDivs[1]);
+
+function addClass2(str,ele) {
+    str = str.replace(/^ +| +$/g,'');
+    var classAry = str.split(/ +/g);
+    if (hasClass2(str,ele))return;
+    for (let i = 0; i < classAry.length; i++) {
+        if (!hasClass2(classAry[i],ele)) {
+            ele.className += ' '+classAry[i]
+        }
+    }
+}
+
+function removeClass(str,ele) {
+    str = str.replace(/^ +| +$/g,'');
+    var reg = new RegExp('(^| +)'+classAry[i]+'( +|$)','g');
+    var str = ele.className.replace(reg,' ');
+    ele.className = str
+}
+removeClass('box1',oDivs[1]);
+
+function removeClass2(str,ele) {
+    str = str.replace(/^ +| +$/g,'');
+    var classAry = str.split(/ +/);
+    for (let i = 0; i < classAry.length; i++) {
+        var reg = new RegExp('(^| +)'+classAry[i]+'( +|$)','g');
+        ele.className = ele.className.replace(reg,' ');
+    }
+
+}
+</script>

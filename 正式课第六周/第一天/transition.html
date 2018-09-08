@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <style>
+        #div1{
+            width: 300px;
+            height: 200px;
+            background: #ff0bc4;
+            transition: all 4s ease-in-out;
+        }
+        #div1:hover{
+            /*width: 700px;*/
+            /*height: 500px;*/
+            /*opacity: .5;*/
+            /*transform: scaleY(0);*/
+            /*transform-origin: left;*/
+            animation: move 2s ease-in-out infinite;
+        }
+        @keyframes move {
+            0%{
+                transform: translate(0,0);
+            }
+            25%{
+                transform: translate(300px,0);
+            }
+            50%{
+                transform: translate(300px,300px);
+            }
+            75%{
+                transform: translate(0,300px);
+            }
+            100%{
+                transform: translate(0);
+            }
+
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+
+
+</script>

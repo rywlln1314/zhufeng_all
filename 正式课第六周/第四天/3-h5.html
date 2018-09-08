@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+    <!--<input type="number" autofocus>-->
+    <input type="text" id="inp" placeholder="这是个holder">
+    <input type="password">
+
+    <!--<input type="password"> 之前就有的-->
+</body>
+</html>
+<script>
+    /*
+    * section article aside  header main footer nav
+    * input
+    * */
+    // inp.onfocus = function(){
+    //     // 获取焦点
+    //     console.log(2);
+    // };
+    inp.focus();
+    inp.onblur = function(){
+        // 失去焦点
+    };
+    inp.onchange = function () {
+        // 内容发生变化，并且 失去 焦点 时触发
+    };
+    if(inp.oninput !== undefined){
+        inp.oninput = function () {
+            // 实时监听 input框的value 值变化
+        };
+    }else {
+        inp.onpropertychange = function () {
+
+        }
+    }
+
+    /*
+    * localStorage
+    *
+    * */
+    //window.localStorage  获取
+    //window.sessionStorage 获取
+    //document.cookie 获取
+
+    // 设置cookie   document.cookie = 'aaa= 12';
+    // cookie  大小限制 最多5kb   而且也占用带宽，因为会把cookie中的内容全部发给后台
+    // localStorage  容量较大； 而且不会发给后台，不占用带宽
+    // sessionStorage  再关闭页面时 就会清空
+
+    // 删除 cookie;  把这个 cookie 的过期时间设置成今天之前的就可以了
+
+
+
+</script>  

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    /*
+    *
+    * */
+    console.log(Math.sqrt(9));//sqrt     开放的意思
+    console.log(Math.pow(3, 2));//pow    3的2次方
+    console.log(Math.floor(2.9));//2     向下取整
+    console.log(Math.ceil(2.1));//3      向上取整
+    console.log(Math.round(3.5));//4     四舍五入
+    console.log(Math.abs(-1.2));//1.2    取绝对值
+    console.log(Math.max( 6, 54, 6, 78, 90));//取一组数中的最大
+    console.log(Math.min( 6, 54, 6, 78, 90));//取一组数中的最小
+    console.log(Math.random());//取[0-1)之间的随机数  包含0  不包含1   常用
+
+    //需求  0-50之间的随机数  [0-50)  包含0  不包含50
+    console.log(Math.random() * 50);
+    //需求  0-50之间的随机整数  [0-50)  包含0  不包含50
+    Math.floor(Math.random() * 50);
+    //需求  0-50之间的随机整数  [0-50] 包含0  包含50
+    Math.round(Math.random() * 50);
+    Math.ceil(Math.random() * 50)
+
+    //求[m-n]之间的随机整数
+   // Math.round(Math.random() * (n - m) + m);
+    //Math.round(Math.random() * (n - m)) + m;
+
+
+    //思路  需要一个类似于字典的东西，我们要从这个字典里获取要的字符
+    //有字典之后我们需要有一个与之对应的查询关键字
+
+    //怎么能拿到里边某个字符
+    //接下来去哪四个随机的索引  四个随机的数字[0-61]之间的随机整数
+
+
+    //用for循环   循环4次  每次循环 生成一个随机数，把随机数对应的字符拼接到要展示的字符中，循环完成后，要展示的字符也就拼接完毕
+    function getStr() {
+        var str = 'qwertyuiopasdfghjklzxcvbnm0123456789QWERTYUIOPASDFGHJKLZXCVBNM';
+        var n = Math.round(Math.random() * 61);//[0-61]之间的随机整数
+        var s = str[n];
+        var str1 = '';
+        for (var i = 0; i < 4; i++) {
+            var n = Math.round(Math.random() * 61);
+            str1 += str[n]
+
+        }
+        return str1
+    }
+
+    console.log(getStr());
+</script>

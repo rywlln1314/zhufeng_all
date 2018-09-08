@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+    <script src="JS/utils.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            position: relative;
+            left: 100px;
+            background: #ff0bc4;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById('div1');
+// var duration = 2000;//总的运动时长
+    // //var changeL = 400;//总的运动距离 = 目标值 - 初始值
+    // var beginL = utils.css(oDiv,'left');//初始值
+    // var tarL = 800;
+    // var changeL = tarL - beginL;
+    // var times = 0;
+    // var speed = changeL/duration;
+    // var timer = setInterval(function () {
+    //     times += 20;
+    //     if (times >= duration) {
+    //         clearInterval(timer);
+    //         times = duration
+    //     }
+    //     //times*speed  运动距离
+    //     //当前位置 = 运动距离 + 初始值
+    //     var curPos = linear(times,changeL,duration,beginL);
+    //     oDiv.style.left = curPos +'px'
+    // },20);
+
+/*
+* MOVE
+* 需要直到
+* 动那个元素
+* 动他的哪个属性
+* 多长时间动完
+*
+* */
+function move(ele,duration,attr,tarL) {
+
+
+    var beginL = utils.css(ele,attr);//初始值
+    var changeL = tarL - beginL;
+    var times = 0;
+    var speed = changeL/duration;
+    var timer = setInterval(function () {
+        times += 20;
+        if (times >= duration) {
+            clearInterval(timer);
+            times = duration
+        }
+        //times*speed  运动距离
+        //当前位置 = 运动距离 + 初始值
+        var curPos = linear(times,changeL,duration,beginL);
+        //ele.style[attr] = curPos +'px'
+        utils.setCss(ele,attr,curPos)
+    },20);
+}
+move(oDiv,3000,'top',300);
+move(oDiv,3000,'left',300);
+
+function linear(time,changeL,duration,beginL) {
+    return changeL/duration*time+beginL;
+}
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+/*
+* get   系列        把参数放url后边
+*       get
+*       head       只获取请求头
+*       delete     删除对应的内容
+*
+* post  系列       把参数放到请求体单中
+*       post
+*       put        给后台添加数据
+* */
+
+var xhr = new XMLHttpRequest();//ActiveXObject--->IE6兼容
+xhr.open('get','./1.xml?c=12');
+xhr.onreadystatechange = function () {
+    console.log(xhr.response);//是个字符串  获取的后台给的数据
+    console.log(xhr.responseText);//是个字符串
+    console.log(xhr.responseXML);//是后台给的结构；后台给的是JSON数据，那么属性值就是个null
+}
+/*
+* post   get  的区别
+*
+* 1、两者的传参的方式：get是再url上拼接 post是再请求体中传参
+*
+* 2、参数的大小研制也不一样；由于url的大小有限制；所以get传参大小有限制
+*
+* 3、post 比 get 传参相对安全一点
+*
+* 4、get方式请求的数据有缓存；post 是没有缓存的
+*
+* */
+
+</script>

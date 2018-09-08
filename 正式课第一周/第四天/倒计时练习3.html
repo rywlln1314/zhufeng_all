@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>任玉伟</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="div1">珠峰培训</div>
+
+
+</body>
+</html>
+<script>
+function timeCount() {
+    var now = new Date();
+    var nowt = now.getTime();
+
+    var tar = new Date('2018-7-29 09:30:00');
+    var tart = tar.getTime();
+
+    var time = tart - nowt;
+
+    var hour = Math.floor(time/3600000);
+    time = time - hour*3600000;
+
+    var min = Math.floor(time/60000);
+    time = time - min*60000;
+
+    var sec = Math.floor(time/1000);
+
+    var oDiv = document.getElementById('div1');
+    var str1 = `距离明天上课还有${hour}小时${min}分钟${sec}秒`;
+    oDiv.innerText = str1
+}
+var timer = setInterval(function () {
+timeCount()
+},1000)
+</script>
